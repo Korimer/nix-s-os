@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -16,12 +16,14 @@
       ./ll_config/boot.nix
 
       # Include my personal customizations
-      ./preferences/display.nix
       ./desktop.nix
       
       # Include the stuff I actually want to install
       ./programs.nix
-    ];
+    ]
+      ++ lib.optional (builtins.pathExists ./system-specific/domain.nix) ./system-specific/domain.nix 
+      ++ lib.optional (builtins.pathExists ./system-specific/display.nix) ./system-specific/display.nix 
+    ;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
