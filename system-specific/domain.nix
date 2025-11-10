@@ -1,8 +1,4 @@
-#
-# nixos-ad.nix -- Active Directory Client
-#
-# Join AD: sudo adcli join --domain=your.domain.com --user=administrator
-#
+# Join AD: sudo adcli join --domain=engr.colostate.edu --user=ETSTech
 {
   config,
   pkgs,
@@ -34,7 +30,9 @@
       };
     };
     pam = {
-      makeHomeDir.umask = "077";
+      makeHomeDir = {
+        umask = "0077";
+      };
       services.login.makeHomeDir = true;
       services.sshd.makeHomeDir = true;
     };
@@ -42,8 +40,8 @@
     sudo = {
       extraConfig = ''
         %lab\ admins ALL=(ALL:ALL) NOPASSWD: ALL
-        Defaults:%domain\ admins env_keep+=TERMINFO_DIRS
-        Defaults:%domain\ admins env_keep+=TERMINFO
+        Defaults:%lab\ admins env_keep+=TERMINFO_DIRS
+        Defaults:%lab\ admins env_keep+=TERMINFO
       '';
 
       # Use extraConfig because of blank space in 'domain admins'.
@@ -94,7 +92,7 @@
         krb5_realm = ENGR.COLOSTATE.EDU
         realmd_tags = manages-system joined-with-samba
         id_provider = ad
-        fallback_homedir = /home/%u
+        override_homedir = /home/%d/%u
         ad_domain = engr.colostate.edu
         use_fully_qualified_names = false
         ldap_id_mapping = true
