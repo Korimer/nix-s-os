@@ -2,6 +2,7 @@
 let
   #Builtins with enable
   sys_programs_to_enable = {
+    steam = {};
     firefox = {};
     git = {};
     thunderbird = {};
@@ -35,6 +36,8 @@ let
     neovide
     xclip
     git
+    openssl
+    powershell
   ];
   
   ###########
