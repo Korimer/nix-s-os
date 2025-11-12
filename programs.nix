@@ -31,6 +31,7 @@ let
   #Installable packages
   sys_pkgs = with pkgs; [
     xorg.xkill
+    wireshark
     ghostty
     remmina
     slack
