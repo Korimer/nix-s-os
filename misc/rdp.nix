@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   services.openssh.enable = true;
 
   services.xrdp.enable = true;

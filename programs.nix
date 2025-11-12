@@ -30,6 +30,7 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    xorg.xkill
     ghostty
     remmina
     slack
