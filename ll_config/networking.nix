@@ -1,4 +1,4 @@
-{...}: {
+{config,...}: {
   networking.hostName = "fortnite"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -8,6 +8,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking.hosts = {
+    "127.0.0.1" = ["localhost"];
+    "127.0.1.1" = [config.networking.hostName];
+  };
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
