@@ -32,6 +32,7 @@ let
   sys_pkgs = with pkgs; [
     yq-go
     xorg.xkill
+    unzip
     wireshark
     ghostty
     remmina

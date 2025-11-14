@@ -9,4 +9,9 @@
     userName = "Korimer";
     userEmail = "thekclov@gmail.com";
   };
+
+  imports = [
+    inputs.nixCats-nvim.homeManagerModule
+  ];
+  programs.nixCats-nvim.enable = true;
 }
