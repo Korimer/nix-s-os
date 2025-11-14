@@ -1,13 +1,12 @@
-{config, pkgs, ...}: {
-
-  programs.zsh = {
+{...}: {
+  home.sessionVariables = {
+    EDITOR = "neovide";
+    BROWSER = "firefox";
+  };
+  
+  programs.git = {
     enable = true;
-#    enableCompletion = true;
-#    autosuggestion.enable = true;
-#    syntaxHighlighting.enable = true;
-    shellAliases = {
-      ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
-    };
+    userName = "Korimer";
+    userEmail = "thekclov@gmail.com";
   };
 }

@@ -2,9 +2,20 @@
 let
   #Builtins with enable
   sys_programs_to_enable = {
+    steam = {};
     firefox = {};
     git = {};
     thunderbird = {};
+    zsh = {
+      #enableCompletions = true;
+      #autosuggestion.enable = true;
+      #syntaxHighlighting.enable = true;
+      shellAliases = {
+        ll = "ls -l";
+	update = "sudo nixos-rebuild switch";
+      };
+      #history.size = 10000;
+    };
     neovim = {
       defaultEditor = true;
     };
@@ -19,12 +30,17 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    xorg.xkill
+    wireshark
     ghostty
     remmina
     slack
     neovide
     xclip
     git
+    openssl
+    powershell
+    r2modman
   ];
   
   ###########
