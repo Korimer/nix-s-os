@@ -40,6 +40,7 @@ let
     git
     openssl
     powershell
+    r2modman
   ];
   
   ###########
