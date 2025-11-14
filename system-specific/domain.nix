@@ -42,7 +42,6 @@
         Defaults:%lab\ admins env_keep+=TERMINFO
       '';
 
-      # Use extraConfig because of blank space in 'domain admins'.
       # Alternatively, you can use the GID.
       # extraRules = [
       #   { groups = [ "domain admins" ];
@@ -82,6 +81,7 @@
         offline_credentials_expiration = 365
 
         [domain/engr.colostate.edu]
+        ignore_group_members = true
         override_shell = /run/current-system/sw/bin/zsh
         krb5_store_password_if_offline = true
         cache_credentials = true
@@ -90,7 +90,7 @@
         krb5_realm = ENGR.COLOSTATE.EDU
         realmd_tags = manages-system joined-with-samba
         id_provider = ad
-        fallback_homedir = /home/%u
+        override_homedir = /home/%d/%u
         ad_domain = engr.colostate.edu
         use_fully_qualified_names = false
         ldap_id_mapping = true

@@ -30,6 +30,7 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    yq-go
     xorg.xkill
     wireshark
     ghostty
