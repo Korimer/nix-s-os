@@ -16,9 +16,7 @@ let
       };
       #history.size = 10000;
     };
-    neovim = {
-      defaultEditor = true;
-    };
+    neovim = {};
   };
   # Builtins with toggleable settings
   sys_programs_config = {

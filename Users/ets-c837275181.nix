@@ -1,6 +1,7 @@
-{...}: {
+{pkgs, ...}: {
+
   home.sessionVariables = {
-    EDITOR = "neovide";
+    EDITOR = "nvim";
     BROWSER = "firefox";
   };
   
@@ -9,4 +10,8 @@
     userName = "Korimer";
     userEmail = "thekclov@gmail.com";
   };
+
+  home.packages = with pkgs; [
+    emacs
+  ];
 }

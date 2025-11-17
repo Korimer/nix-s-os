@@ -90,7 +90,7 @@
         krb5_realm = ENGR.COLOSTATE.EDU
         realmd_tags = manages-system joined-with-samba
         id_provider = ad
-        override_homedir = /home/%d/%u
+        override_homedir = /home/%u
         ad_domain = engr.colostate.edu
         use_fully_qualified_names = false
         ldap_id_mapping = true

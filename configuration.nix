@@ -17,6 +17,7 @@
 
       # Include my personal customizations
       ./desktop.nix
+      ./home-manager.nix
       
       # Include the stuff I actually want to install
       ./programs.nix
@@ -30,6 +31,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  users.users.ets-c837275181.isSystemUser = true;
+  users.users.ets-c837275181.group = "ets-c837275181";
+  users.groups.ets-c837275181 = {};
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).

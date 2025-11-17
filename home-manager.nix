@@ -6,22 +6,46 @@ let
   userDir = ./Users;
   userFiles = builtins.readDir userDir;
 
+  all_unames = map
+    (name: builtins.replaceStrings [".nix"] [""] name)
+    (builtins.attrNames userFiles)
+  ;
+
   homeManagerUsers = builtins.listToAttrs (
     map
       (name: {
-        name = builtins.replaceStrings [".nix"] [""] name;
+        name = name;
         value = 
-          (import (userDir + "/${name}") { inherit config pkgs; })
+          (import (userDir + "/${name}.nix") { inherit config pkgs; })
           // {
-            stateVersion = stateVer; 
-            username = "${name}";
-            homeDirectory = "/home/${name}";
+            home.stateVersion = stateVer; 
+            home.username = "${name}";
+            #home.homeDirectory = "/home/${name}";
           }
         ;
       })
-      (builtins.attrNames userFiles)
+      (all_unames)
   );
+
+  standardUsers = builtins.listToAttrs (
+    map
+      (name: {
+        name = name;
+        value = {};
+      })
+      (all_unames)
+  );
+
+  standardUserGroups = builtins.listToAttrs (
+    map
+      (name: {
+        name = "groups.${name}";
+        value = {};
+      })
+      (all_unames)
+  );
+
 in {
-  #imports = [ (import "${home-manager}/nixos") ];
+  imports = [ (import "${home-manager}/nixos") ];
   home-manager.users = homeManagerUsers;
 }
