@@ -4,9 +4,6 @@
 
 { config, pkgs, lib, ... }:
 
-let
-  agenixTar = builtins.fetchTarball "https://github.com/ryantm/agenix/archive/main.tar.gz";
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -18,13 +15,9 @@ in
       ./ll_config/networking.nix
       ./ll_config/boot.nix
 
-      # Include support for encrypted secrets
-      "${agenixTar}/modules/age.nix"
-      ./system-specific/age-config.nix
-
       # Include my personal customizations
       ./desktop.nix
-      ./preferences/nix-prefs.nix
+      ./home-manager.nix
       
       # Include the stuff I actually want to install
       ./programs.nix
@@ -36,19 +29,12 @@ in
       ++ lib.optional (builtins.pathExists ./system-specific/display.nix) ./system-specific/display.nix 
     ;
 
-  _module.args.agenixTar = agenixTar;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  users.users.Administrator.isSystemUser = true;
-  users.users.Administrator.group = "Administrator";
-  users.groups.Administrator = {};
 
   users.users.ets-c837275181.isSystemUser = true;
   users.users.ets-c837275181.group = "ets-c837275181";
   users.groups.ets-c837275181 = {};
-
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
