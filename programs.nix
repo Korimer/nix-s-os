@@ -1,4 +1,4 @@
-{lib, pkgs, ...}: 
+{lib, pkgs, agenixTar, ...}: 
 let
   #Builtins with enable
   sys_programs_to_enable = {
@@ -20,17 +20,18 @@ let
   };
   # Builtins with toggleable settings
   sys_programs_config = {
-    ssh = {
-      startAgent = true;
-      enableAskPassword = true;
-    };
+#    ssh = {
+#      startAgent = true;
+#      enableAskPassword = true;
+#    };
   };
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
+ #   discord
     xorg.xkill
     wireshark
-    ghostty
     remmina
     slack
     neovide
