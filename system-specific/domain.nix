@@ -2,6 +2,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   #
@@ -48,6 +49,13 @@
       #     commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; }  ]; }
       # ];
     };
+  };
+  
+  system.activationScripts.setNixConfigPerms = {
+    text = ''
+      chgrp 'lab admins' /etc/nixos -R
+      chmod 775 /etc/nixos -R
+    '';
   };
 
   #

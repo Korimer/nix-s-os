@@ -28,8 +28,8 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
-    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
- #   discord
+#    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
+    discord
     xorg.xkill
     wireshark
     remmina
