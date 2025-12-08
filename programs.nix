@@ -3,7 +3,7 @@ let
   #Builtins with enable
   sys_programs_to_enable = {
     steam = {};
-    firefox = {};
+    firefox = import (./programs/firefox.nix) {};
     git = {};
     thunderbird = {};
     zsh = {
@@ -30,6 +30,8 @@ let
   sys_pkgs = with pkgs; [
 #    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
     discord
+    keyutils
+    cifs-utils
     xorg.xkill
     wireshark
     remmina
