@@ -30,7 +30,7 @@ in {
   environment.systemPackages = with pkgs; [
     socat # System util for cross-app communication
     ddcutil # Brightness
-    swaylock # Lockscreen
+    swaylock-effects # Lockscreen
     hypridle # Idle Timeout
     fuzzel # App Launcher
     kitty # Terminal
