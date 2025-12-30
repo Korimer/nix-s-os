@@ -28,6 +28,9 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    ripgrep
+    wsdd
+    nwg-displays
 #    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
     discord
     keyutils
@@ -42,6 +45,7 @@ let
     openssl
     powershell
     r2modman
+    p7zip
   ];
   
   ###########

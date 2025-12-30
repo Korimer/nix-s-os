@@ -36,6 +36,13 @@ in
       ++ lib.optional (builtins.pathExists ./system-specific/display.nix) ./system-specific/display.nix 
     ;
 
+  assertions = [
+    {
+      assertion = builtins.elem "wins" config.system.nssDatabases.hosts;
+      message = "nsswins test assertion";
+    }
+  ];
+  
   #_module.args.agenixTar = agenixTar;
 
   # Allow unfree packages
@@ -50,6 +57,26 @@ in
       chgrp wheel /etc/nixos -R
       chmod 775 /etc/nixos -R
     '';
+  };
+  
+  users.users.vmtester.isSystemUser = true;
+  users.users.vmtester.initialPassword = "test";
+  users.users.vmtester.group = "vmtester";
+  users.groups.vmtester = {};
+
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+  ];
+
+  virtualisation.vmVariant = {
+
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize =  2048; # Use 2048MiB memory.
+      cores = 3;
+    };         
   };
 
   # Before changing this value read the documentation for this option

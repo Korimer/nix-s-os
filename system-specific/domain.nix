@@ -19,7 +19,7 @@
   ];
   
   services.realmd.enable = true;
-  
+
   security = {
     krb5 = {
       enable = true;
@@ -110,5 +110,10 @@
       '';
     };
   };
+    # Ensures that this system is discoverable to others on the network.
+    # Akin to setting network discovery in windows.
+    services.samba.enable = true;
+    services.samba.nsswins = true;
+    # I MAY need to override system.nssDatabases.hosts to ensure this works.
 }
 
