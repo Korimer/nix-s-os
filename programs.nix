@@ -6,16 +6,7 @@ let
     firefox = import (./programs/firefox.nix) {};
     git = {};
     thunderbird = {};
-    zsh = {
-      #enableCompletions = true;
-      #autosuggestion.enable = true;
-      #syntaxHighlighting.enable = true;
-      shellAliases = {
-        ll = "ls -l";
-	update = "sudo nixos-rebuild switch";
-      };
-      #history.size = 10000;
-    };
+    zsh = import (./programs/zsh.nix) {};
     neovim = {};
   };
   # Builtins with toggleable settings

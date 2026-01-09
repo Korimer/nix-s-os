@@ -89,24 +89,32 @@
         offline_credentials_expiration = 365
 
         [domain/engr.colostate.edu]
-        ignore_group_members = true
         override_shell = /run/current-system/sw/bin/zsh
+        override_homedir = /home/%u
         krb5_store_password_if_offline = true
         cache_credentials = true
         account_cache_expiration = 365
         entry_cache_timeout = 14400
+        
         krb5_realm = ENGR.COLOSTATE.EDU
         realmd_tags = manages-system joined-with-samba
-        id_provider = ad
-        override_homedir = /home/%u
-        ad_domain = engr.colostate.edu
         use_fully_qualified_names = false
         ldap_id_mapping = true
+        
+        ad_domain = engr.colostate.edu
+        id_provider = ad
         auth_provider = ad
         access_provider = ad
         chpass_provider = ad
         ad_gpo_access_control = permissive
+        
+        dyndns_update = true
+        dyndns_refresh_interval = 43200
+        dyndns_update_ptr = true
+        dyndns_ttl = 3600
+        
         enumerate = true
+        ignore_group_members = true
       '';
     };
   };

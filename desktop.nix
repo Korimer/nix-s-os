@@ -23,8 +23,7 @@ in {
   services.xserver.enable = true;
   #services.displayManager.gdm.wayland = true;
   #programs.hyprland = {
-  #  enable = true;
-  #  withUWSM = true;
+  #  enable = true  #  withUWSM = true;
   #  xwayland.enable = true;
   #};
   environment.systemPackages = with pkgs; [
@@ -32,6 +31,7 @@ in {
     ddcutil # Brightness
     swaylock-effects # Lockscreen
     hypridle # Idle Timeout
+    wlogout # Log Out Button
     fuzzel # App Launcher
     kitty # Terminal
     dunst # Notification Daemon
