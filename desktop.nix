@@ -7,11 +7,14 @@
 in {
   programs.hyprland = {
     enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
     # set the flake package
   #  package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
   #  portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
+  services.xserver.enable = true;
   
   #nix.settings = {
   #  substituters = ["https://hyprland.cachix.org"];
@@ -20,7 +23,7 @@ in {
   #};
 
   ## Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
   #services.displayManager.gdm.wayland = true;
   #programs.hyprland = {
   #  enable = true  #  withUWSM = true;

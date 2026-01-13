@@ -18,9 +18,8 @@ in
       ./ll_config/networking.nix
       ./ll_config/boot.nix
 
-      # Include support for encrypted secrets
-      #"${agenixTar}/modules/age.nix"
-      #./system-specific/age-config.nix
+      # Sddm uwsm fmcl i hate four letter acronyms
+      ./login.nix
 
       # Include my personal customizations
       ./desktop.nix
