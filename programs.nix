@@ -19,6 +19,7 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    vscode
     ripgrep
     wsdd
     nwg-displays

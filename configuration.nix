@@ -9,8 +9,12 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ # Include the results of the hardware scan
       ./system-specific/hardware-configuration.nix
+      
+      # Include anything specialized to this system
+      ./system-specific/core.nix
+      
       # Include organized os config
       ./ll_config/audio-video.nix
       ./ll_config/locale.nix
@@ -24,24 +28,18 @@ in
       # Include my personal customizations
       ./desktop.nix
       ./preferences/nix-prefs.nix
+
+      # Include general activation scripts
+      ./startup.nix
       
       # Include the stuff I actually want to install
       ./programs.nix
 
       # Include the extras
       ./misc/rdp.nix
-    ]
-      ++ lib.optional (builtins.pathExists ./system-specific/domain.nix) ./system-specific/domain.nix 
-      ++ lib.optional (builtins.pathExists ./system-specific/display.nix) ./system-specific/display.nix 
-    ;
+      
+    ];
 
-  assertions = [
-    {
-      assertion = builtins.elem "wins" config.system.nssDatabases.hosts;
-      message = "nsswins test assertion";
-    }
-  ];
-  
   #_module.args.agenixTar = agenixTar;
 
   # Allow unfree packages
