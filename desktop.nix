@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
+    # Can set this to true when I'm willing to lock in and get it sorted
+    # But without a few hours of setup all its gonna do is brick apps that expect $DISPLAY to exist
+    withUWSM = false; #
     # Would be nice to have this, but it's broken as of https://github.com/hyprwm/Hyprland/issues/9750
     xwayland.enable = false; 
   };
@@ -37,7 +39,6 @@
     };
   };
 
-  #services.xserver.videoDrivers = ["nvidia"];
   #hardware.graphics.enable = true;
   #hardware.nvidia = {
   #  open = false;
