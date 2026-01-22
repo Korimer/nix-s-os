@@ -1,0 +1,3 @@
+[submodule "auto-move/src/nvim"]
+	path = auto-move/src/nvim
+	url = git@github.com:Korimer/vimcfg.git

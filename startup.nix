@@ -26,6 +26,9 @@ in {
       truedest=$(eval echo "$dest" )
       echo "dest is $truedest"
       cp -r $truesrc $truedest
+      chmod -R --reference=$truedest "$truedest/$src"
+      chgrp -R --reference=$truedest "$truedest/$src"
+      chown -R --reference=$truedest "$truedest/$src"
     done < ./auto-move/target.config
     
     #$targets = Get-Content "./auto-move/target.json" | ConvertFrom-Json

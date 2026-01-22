@@ -4,7 +4,9 @@ let
   sys_programs_to_enable = {
     steam = {};
     firefox = import (./programs/firefox.nix) {};
-    git = {};
+    git = {
+      package = pkgs.gitFull;
+    };
     thunderbird = {};
     zsh = import (./programs/zsh.nix) {};
     neovim = {};
@@ -19,7 +21,13 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    grub2_efi
+    wget
+    parted
+    multipath-tools
     vscode
+    tcl
+    tk
     ripgrep
     wsdd
     nwg-displays
@@ -33,7 +41,6 @@ let
     slack
     neovide
     xclip
-    git
     openssl
     powershell
     r2modman
