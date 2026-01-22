@@ -11,6 +11,7 @@ in {
     };
     sddm = {
       enable = true;
+      wayland.enable = true;
       theme = chosen_theme;
       extraPackages = [
         pkgs.kdePackages.qt5compat

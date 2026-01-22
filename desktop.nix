@@ -1,14 +1,11 @@
 {pkgs, ...}: {
   programs.hyprland = {
     enable = true;
+    xwayland.enable = true;
     # Can set this to true when I'm willing to lock in and get it sorted
     # But without a few hours of setup all its gonna do is brick apps that expect $DISPLAY to exist
     withUWSM = false; #
-    # Would be nice to have this, but it's broken as of https://github.com/hyprwm/Hyprland/issues/9750
-    xwayland.enable = false; 
   };
-  # Oh well...
-  services.xserver.enable = true;
   
   environment.systemPackages = with pkgs; [
     hyprshot # Screenshots
@@ -48,8 +45,8 @@
   #};
   
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  #services.xserver.xkb = {
+  #  layout = "us";
+  #  variant = "";
+  #};
 }
