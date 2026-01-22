@@ -9,7 +9,10 @@ let
     };
     thunderbird = {};
     zsh = import (./programs/zsh.nix) {};
-    neovim = {};
+    neovim = {
+      vimAlias = true;
+      viAlias = true;
+    };
   };
   # Builtins with toggleable settings
   sys_programs_config = {

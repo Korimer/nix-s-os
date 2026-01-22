@@ -12,7 +12,8 @@ in {
     )
     (envar)
   ;
-
+  
+  # also known as who needs home-manager lmfaoooooooooooooooooooooooooooooooooooooooooooooooooooo
   system.activationScripts.autoMove.text = ''
     cd ${config.environment.variables.NIXROOT}
 
@@ -21,14 +22,9 @@ in {
     IFS="="
     while read -r src dest
     do
-      echo "source is $src"
       truesrc="./auto-move/src/$src"
-      truedest=$(eval echo "$dest" )
-      echo "dest is $truedest"
-      cp -r $truesrc $truedest
-      chmod -R --reference=$truedest "$truedest/$src"
-      chgrp -R --reference=$truedest "$truedest/$src"
-      chown -R --reference=$truedest "$truedest/$src"
+      truedest=$(eval echo "$dest")
+      ln -sf $(realpath $truesrc) $truedest
     done < ./auto-move/target.config
     
     #$targets = Get-Content "./auto-move/target.json" | ConvertFrom-Json

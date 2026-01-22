@@ -1,14 +1,24 @@
-{}: {
+{}:
+let
+  pkgs = import <nixpkgs> {};
+  lib = pkgs.lib;
+  preset_env = {
+    SSH_ENV = "$HOME/.ssh/agent-env";
+    SSH_SOCKET="$HOME/.ssh/ssh-agent.sock";
+    ELECTRON_OZONE_PLATFORM_HINT="auto";
+  };
+in {
   syntaxHighlighting.enable = true;
   shellAliases = {
     ll = "ls -l";
     update = "sudo nixos-rebuild switch";
+    kssh = "kitten ssh";
   };
-  shellInit = 
-  ''
-    SSH_ENV="$HOME/.ssh/agent-env"
-    SSH_SOCKET="$HOME/.ssh/ssh-agent.sock"
 
+  shellInit = lib.generators.toKeyValue {
+    mkKeyValue = name: value:
+    "${name}=\"${value}\"";
+  } (preset_env) + ''
     start_agent() {
       echo "Starting new ssh-agent..."
       ssh-agent -a "$SSH_SOCKET" > "$SSH_ENV"
