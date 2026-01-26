@@ -1,11 +1,13 @@
 {pkgs, ...}: {
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    # Can set this to true when I'm willing to lock in and get it sorted
-    # But without a few hours of setup all its gonna do is brick apps that expect $DISPLAY to exist
-    withUWSM = false; #
-  };
+  programs.niri.enable = true;
+  #programs.xwayland.enable = true;
+  #programs.hyprland = {
+  #  enable = true;
+  #  xwayland.enable = true;
+  #  # Can set this to true when I'm willing to lock in and get it sorted
+  #  # But without a few hours of setup all its gonna do is brick apps that expect $DISPLAY to exist
+  #  withUWSM = false; #
+  #};
   
   environment.systemPackages = with pkgs; [
     hyprshot # Screenshots

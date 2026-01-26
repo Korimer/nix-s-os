@@ -17,18 +17,16 @@ in {
   system.activationScripts.autoMove.text = ''
     cd ${config.environment.variables.NIXROOT}
 
-    automoves=$(find $(readlink -f ./auto-move) -mindepth 1 -maxdepth 1 -type d)
-
     PRIMARYUSER="${config.environment.variables.PRIMARYUSER}"
 
-    IFS="="
-    
-    for D in $automoves; do
-      while read -r src dest; do
+    while read -r D; do
+      while IFS="=" read -r src dest; do
         truesrc="$D/src/$src"
         truedest=$(eval echo "$dest")
-        ln -sf $truesrc $truedest
+        ln -sf "$truesrc" "$truedest"
       done < "$D/target.config"
-    done
+    done < <(
+      find -L "$(readlink -f ./auto-move)" -mindepth 1 -maxdepth 1 -type d 
+    )
   '';
 }
