@@ -35,8 +35,8 @@ let
     wsdd
     nwg-displays
 #    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
-    discord
     keyutils
+    vesktop
     cifs-utils
     xorg.xkill
     wireshark

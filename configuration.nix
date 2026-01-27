@@ -26,7 +26,7 @@ in
       ./login.nix
 
       # Include my personal customizations
-      ./desktop.nix
+      ./desktop/core.nix
       ./preferences/nix-prefs.nix
 
       # Include general activation scripts

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   programs.niri.enable = true;
-  #programs.xwayland.enable = true;
+  programs.xwayland.enable = true;
   #programs.hyprland = {
   #  enable = true;
   #  xwayland.enable = true;
@@ -10,6 +10,7 @@
   #};
   
   environment.systemPackages = with pkgs; [
+    libnotify # Sending notifications (recieving is built-in)
     hyprshot # Screenshots
     socat # System util for cross-app communication
     ddcutil # Brightness
@@ -21,7 +22,6 @@
     dunst # Notification Daemon
     swaybg # Wallpaper Manager
     nemo # File explorer
-    hyprpanel # Status bar
     copyq # Clipboard Manager
   ];
 
@@ -38,17 +38,13 @@
     };
   };
 
+
+
   #hardware.graphics.enable = true;
   #hardware.nvidia = {
   #  open = false;
   #  modesetting = {
   #    enable = true;
   #  };
-  #};
-  
-  # Configure keymap in X11
-  #services.xserver.xkb = {
-  #  layout = "us";
-  #  variant = "";
   #};
 }
