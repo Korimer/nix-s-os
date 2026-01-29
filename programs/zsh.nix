@@ -7,6 +7,7 @@ let
     ELECTRON_OZONE_PLATFORM_HINT="auto";
   };
   preset_env = {
+    LOCK_USER_CMD = "swaylock --screenshots --effect-blur 10x5 --clock --indicator -lk";
     SSH_ENV = "$HOME/.ssh/agent-env";
     SSH_SOCKET="$HOME/.ssh/ssh-agent.sock";
   };

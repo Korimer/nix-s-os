@@ -10,7 +10,10 @@ include "window-rules.kdl"
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 input {
-    focus-follows-mouse
+    // Focus windows and outputs automatically when moving the mouse into them.
+    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+    focus-follows-mouse max-scroll-amount="100%"
+
     keyboard {
         xkb {
             // You can set rules, model, layout, variant and options.
@@ -65,9 +68,6 @@ input {
         // middle-emulation
     }
 
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
 }
 
 // Add lines like this to spawn processes at startup.
@@ -75,7 +75,7 @@ input {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-//spawn-at-startup "waybar"
+spawn-at-startup "waybar"
 spawn-at-startup "hypridle"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:

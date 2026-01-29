@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  imports = [
+    ./hypridle.nix
+    ./waybar.nix
+  ];
+
   programs.niri.enable = true;
   programs.xwayland.enable = true;
   #programs.hyprland = {

@@ -1,4 +1,4 @@
-{...}:
+{pkgs,...}:
 {
   environment.systemPackages = [ pkgs.hypridle ];
   environment.etc."xdg/hypr/hypridle.conf".text = ''
@@ -34,4 +34,4 @@
       on-timeout = systemctl suspend
     }
   '';
-};
+}

@@ -1,10 +1,15 @@
 {pkgs, ...}: 
-{
+{ 
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
   services.xserver.enable = true;
   services.xserver.displayManager.lightdm = {
     enable = true;
     greeters.gtk.enable = true;
   };
+  programs.zsh.loginShellInit = "sudo kbd_mode -s";
 }
 
 #let
