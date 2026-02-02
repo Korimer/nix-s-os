@@ -2,6 +2,7 @@
   imports = [
     ./hypridle.nix
     ./waybar.nix
+    ./swayconfig.nix
   ];
 
   programs.niri.enable = true;

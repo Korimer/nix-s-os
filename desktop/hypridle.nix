@@ -14,8 +14,13 @@
     
     listener {
       timeout = 150
-      on-timeout = notify-send 'Sleeping soon.'
-      on-resume = notify-send 'Awoken!'
+      on-timeout = notify-send -a Hypridle 'Sleeping soon.'
+      on-resume = notify-send -a Hypridle 'Awoken!'
+    }
+    
+    listener {
+      timeout = 270
+      on-timeout = notify-send -a Hypridle 'Sleeping soon.'
     }
     
     listener {

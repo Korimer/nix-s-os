@@ -1,15 +1,24 @@
-{...}:
+{config, lib, pkgs,...}:
 {
+  assertions = [
+    {
+      assertion = config.systemd.user.services.waybar.enable == false;
+      message = "we do not want waybar running on startup";
+    }
+  ];
+
   programs.waybar = {
     enable = true;
   };
+  # Prevents nixos from auto-starting hyprbar (so we can defer it to the desktop manager)
+  systemd.user.services.waybar.enable = false;
 
   environment.etc."xdg/waybar/config.jsonc".text = ''
     // -*- mode: jsonc -*-
     {
         // "layer": "top", // Waybar at top layer
         // "position": "bottom", // Waybar position (top|bottom|left|right)
-        "height": 30, // Waybar height (to be removed for auto height)
+        "height": 36, // Waybar height (to be removed for auto height)
         // "width": 1280, // Waybar width
         "spacing": 4, // Gaps between modules (4px)
         // Choose the order of the modules
@@ -36,7 +45,7 @@
             //"sway/language",
             //"battery",
             //"battery#bat2",
-            //"clock",
+            "clock",
             //"tray",
             "custom/power"
         ],
@@ -119,6 +128,7 @@
         },
         "clock": {
             // "timezone": "America/New_York",
+            "format": "{:%I:%M %p}",
             "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
             "format-alt": "{:%Y-%m-%d}"
         },

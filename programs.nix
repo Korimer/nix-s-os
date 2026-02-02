@@ -24,6 +24,7 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    tree-sitter
     grub2_efi
     wget
     parted
