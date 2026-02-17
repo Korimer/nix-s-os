@@ -37,7 +37,9 @@ in
 
       # Include the extras
       ./misc/rdp.nix
-      
+  
+      ./programs/tree-sitter.nix
+     
     ];
 
   #_module.args.agenixTar = agenixTar;

@@ -6,6 +6,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" {
       spawn-sh "pidof swaylock || swaylock --screenshots --effect-blur 10x5 --clock --indicator -lk";
     }
+    Mod+Shift+S { screenshot; }
 
 
     // Keys consist of modifiers separated by + signs, followed by an XKB key name

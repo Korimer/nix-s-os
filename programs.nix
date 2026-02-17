@@ -24,6 +24,9 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    teams-for-linux
+    gcc
+    python3
     tree-sitter
     grub2_efi
     wget

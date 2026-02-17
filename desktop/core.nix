@@ -16,6 +16,7 @@
   #};
   
   environment.systemPackages = with pkgs; [
+    xwayland-satellite
     libnotify # Sending notifications (recieving is built-in)
     hyprshot # Screenshots
     socat # System util for cross-app communication
