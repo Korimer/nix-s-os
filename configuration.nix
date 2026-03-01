@@ -37,12 +37,19 @@ in
 
       # Include the extras
       ./misc/rdp.nix
-  
-      ./programs/tree-sitter.nix
-     
     ];
 
   #_module.args.agenixTar = agenixTar;
+  services.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
+  services.pipewire = {
+    enable = true; # if not already enabled
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment the following
+    #jack.enable = true;
+  };
+  security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -56,6 +63,16 @@ in
       chgrp wheel /etc/nixos -R
       chmod 775 /etc/nixos -R
     '';
+  };
+
+  users.groups.korimer = {};
+  users.users.korimer = {
+    createHome = true;
+    group = "korimer";
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" "audio"];
+    description = "the goat";
+    password = "lol";
   };
   
   users.users.vmtester.isSystemUser = true;
