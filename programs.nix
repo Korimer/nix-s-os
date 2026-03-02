@@ -24,6 +24,9 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+    # cs314
+    maven zulu25 postman
+
     teams-for-linux
     gcc
     python3
