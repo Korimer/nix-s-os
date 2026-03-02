@@ -1,48 +1,60 @@
-{lib, pkgs, ...}: 
+{lib, pkgs, agenixTar, ...}: 
 let
   #Builtins with enable
   sys_programs_to_enable = {
     steam = {};
-    firefox = {};
-    git = {};
-    thunderbird = {};
-    zsh = {
-      #enableCompletions = true;
-      #autosuggestion.enable = true;
-      #syntaxHighlighting.enable = true;
-      shellAliases = {
-        ll = "ls -l";
-	update = "sudo nixos-rebuild switch";
-      };
-      #history.size = 10000;
+    firefox = import (./programs/firefox.nix) {};
+    git = {
+      package = pkgs.gitFull;
     };
+    thunderbird = {};
+    zsh = import (./programs/zsh.nix) {};
     neovim = {
-      defaultEditor = true;
+      vimAlias = true;
+      viAlias = true;
     };
   };
   # Builtins with toggleable settings
   sys_programs_config = {
-    ssh = {
-      startAgent = true;
-      enableAskPassword = true;
-    };
+#    ssh = {
+#      startAgent = true;
+#      enableAskPassword = true;
+#    };
   };
   
   #Installable packages
   sys_pkgs = with pkgs; [
-    yq-go
+    # cs314
+    maven zulu25 postman
+
+    teams-for-linux
+    gcc
+    python3
+    tree-sitter
+    grub2_efi
+    wget
+    parted
+    multipath-tools
+    vscode
+    tcl
+    tk
+    ripgrep
+    wsdd
+    nwg-displays
+#    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
+    keyutils
+    vesktop
+    cifs-utils
     xorg.xkill
-    unzip
     wireshark
-    ghostty
     remmina
     slack
     neovide
     xclip
-    git
     openssl
     powershell
     r2modman
+    p7zip
   ];
   
   ###########

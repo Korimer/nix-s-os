@@ -2,6 +2,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   #
@@ -18,7 +19,7 @@
   ];
   
   services.realmd.enable = true;
-  
+
   security = {
     krb5 = {
       enable = true;
@@ -42,13 +43,19 @@
         Defaults:%lab\ admins env_keep+=TERMINFO
       '';
 
-      # Use extraConfig because of blank space in 'domain admins'.
       # Alternatively, you can use the GID.
       # extraRules = [
       #   { groups = [ "domain admins" ];
       #     commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; }  ]; }
       # ];
     };
+  };
+  
+  system.activationScripts.setNixConfigPerms = {
+    text = ''
+      chgrp 'lab admins' /etc/nixos -R
+      chmod 775 /etc/nixos -R
+    '';
   };
 
   #
@@ -83,24 +90,38 @@
 
         [domain/engr.colostate.edu]
         override_shell = /run/current-system/sw/bin/zsh
+        override_homedir = /home/%u
         krb5_store_password_if_offline = true
         cache_credentials = true
         account_cache_expiration = 365
         entry_cache_timeout = 14400
+        
         krb5_realm = ENGR.COLOSTATE.EDU
         realmd_tags = manages-system joined-with-samba
-        id_provider = ad
-        fallback_homedir = /home/%u
-        ad_domain = engr.colostate.edu
         use_fully_qualified_names = false
         ldap_id_mapping = true
+        
+        ad_domain = engr.colostate.edu
+        id_provider = ad
         auth_provider = ad
         access_provider = ad
         chpass_provider = ad
         ad_gpo_access_control = permissive
+        
+        dyndns_update = true
+        dyndns_refresh_interval = 43200
+        dyndns_update_ptr = true
+        dyndns_ttl = 3600
+        
         enumerate = true
+        ignore_group_members = true
       '';
     };
   };
+    # Ensures that this system is discoverable to others on the network.
+    # Akin to setting network discovery in windows.
+    services.samba.enable = true;
+    services.samba.nsswins = true;
+    # I MAY need to override system.nssDatabases.hosts to ensure this works.
 }
 
