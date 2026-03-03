@@ -1,0 +1,68 @@
+{}:
+let
+  pkgs = import <nixpkgs> {};
+  lib = pkgs.lib;
+  export_env = {
+    NIXPKGS_ALLOW_UNFREE="1";
+    ELECTRON_OZONE_PLATFORM_HINT="auto";
+  };
+  preset_env = {
+    LOCK_USER_CMD = "swaylock --screenshots --effect-blur 10x5 --clock --indicator -lk";
+    SSH_ENV = "$HOME/.ssh/agent-env";
+    SSH_SOCKET="$HOME/.ssh/ssh-agent.sock";
+  };
+
+  scripts = [
+    ## Implement global ssh 
+    ''
+      start_agent() {
+        echo "Starting new ssh-agent..."
+        ssh-agent -a "$SSH_SOCKET" > "$SSH_ENV"
+        chmod 600 "$SSH_ENV"
+        . "$SSH_ENV" > /dev/null
+      }
+      
+      # Load existing agent if possible
+      if [ -f "$SSH_ENV" ]; then
+          . "$SSH_ENV" > /dev/null
+          export SSH_AUTH_SOCK="$SSH_SOCKET"
+          if ! ps -p "$SSH_AGENT_PID" > /dev/null 2>&1 || ! ssh-add -l >/dev/null 2>&1; then
+              echo "Agent stale. Restarting..."
+              rm -f "$SSH_SOCKET" "$SSH_ENV"
+              start_agent
+          fi
+      else
+          start_agent
+      fi
+      
+      # Optional: auto-add key if not already present
+      if ! ssh-add -l >/dev/null 2>&1; then
+          echo "No keys found. Run: ssh-add ~/.ssh/your-ssh-key"
+          # Optional auto-add:
+          # ssh-add ~/.ssh/your-ssh-key </dev/null
+      fi
+    ''
+  ];
+in {
+  syntaxHighlighting.enable = true;
+  shellAliases = {
+    ll = "ls -l";
+    update = "sudo nixos-rebuild switch";
+    kssh = "kitten ssh";
+  };
+
+  shellInit = 
+    lib.generators.toKeyValue {
+      mkKeyValue = name: value:
+      "export ${name}=\"${value}\"";
+    } (export_env)
+    +
+    lib.generators.toKeyValue {
+      mkKeyValue = name: value:
+      "${name}=\"${value}\"";
+    } (preset_env) 
+    +
+    lib.concatStringsSep "\n" (scripts)
+  ;
+  #history.size = 10000;
+}
