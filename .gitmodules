@@ -1,0 +1,8 @@
+[submodule "lab-system/system-specific"]
+	path = lab-system/system-specific
+	url = git@github.com:/Korimer/nix-s-os.git
+	branch = lab-system-specific
+[submodule "lab-system/static"]
+	path = lab-system/static
+	url = git@github.com:/Korimer/nix-s-os.git
+	branch = static-config
