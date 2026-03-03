@@ -1,0 +1,8 @@
+[submodule "home-system/system-specific"]
+	path = home-system/system-specific
+	url = git@github.com:/Korimer/nix-s-os.git
+	branch = home-system-specific
+[submodule "home-system/static-config"]
+	path = home-system/static-config
+	url = git@github.com:/Korimer/nix-s-os.git
+	branch = static-config
