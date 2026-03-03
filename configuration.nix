@@ -9,12 +9,7 @@ let
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./system-specific/hardware-configuration.nix
-      
-      # Include anything specialized to this system
-      ./system-specific/core.nix
-      
+    [
       # Include organized os config
       ./ll_config/audio-video.nix
       ./ll_config/locale.nix

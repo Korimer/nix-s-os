@@ -2,7 +2,6 @@
 
   let envar = {
     PRIMARYUSER = "korimer";
-    NIXROOT = "/etc/nixos";
   };
 
 in {
