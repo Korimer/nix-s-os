@@ -14,7 +14,7 @@ in {
   
   # also known as who needs home-manager lmfaoooooooooooooooooooooooooooooooooooooooooooooooooooo
   system.activationScripts.autoMove.text = ''
-    cd ${config.environment.variables.NIXROOT}
+    cd ${config.environment.variables.NIXROOT}/static/Resources
 
     PRIMARYUSER="${config.environment.variables.PRIMARYUSER}"
 
