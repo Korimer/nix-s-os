@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
   let envar = {
     PRIMARYUSER = "korimer";
@@ -11,21 +11,7 @@ in {
     )
     (envar)
   ;
-  
-  # also known as who needs home-manager lmfaoooooooooooooooooooooooooooooooooooooooooooooooooooo
-  system.activationScripts.autoMove.text = ''
-    cd ${config.environment.variables.NIXROOT}/static/Resources
-
-    PRIMARYUSER="${config.environment.variables.PRIMARYUSER}"
-
-    while read -r D; do
-      while IFS="=" read -r src dest; do
-        truesrc="$D/src/$src"
-        truedest=$(eval echo "$dest")
-        ln -sf "$truesrc" "$truedest"
-      done < "$D/target.config"
-    done < <(
-      find -L "$(readlink -f ./auto-move)" -mindepth 1 -maxdepth 1 -type d 
-    )
+  system.activationScripts.forceTmpfilesRun = ''
+    ${pkgs.systemd}/bin/systemd-tmpfiles --create
   '';
-}
+} 

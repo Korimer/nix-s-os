@@ -26,7 +26,8 @@ in
 
       # Include general activation scripts
       ./startup.nix
-      
+      ./auto-move/driver.nix      
+
       # Include the stuff I actually want to install
       ./programs.nix
 
