@@ -27,6 +27,8 @@ let
     # cs314
     maven zulu25 postman
 
+    unzip
+
     teams-for-linux
     gcc
     python3
