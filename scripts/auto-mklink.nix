@@ -19,4 +19,6 @@
           ("link-${basename}")
           { "${val}/${basename}"."L+".argument = key; }
     ) (config.autoMkLink.targets);
+
+  #pkgs.runCommandLocal "commandname" {} '' command '';
 }
