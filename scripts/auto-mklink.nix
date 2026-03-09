@@ -21,4 +21,10 @@
     ) (config.autoMkLink.targets);
 
   #pkgs.runCommandLocal "commandname" {} '' command '';
+  #lib.file.mkOutOfStoreSymlink = path:
+  #  let
+  #  pathStr = toString path;
+  #name = hm.strings.storeFileName (baseNameOf pathStr);
+  #in
+  #  pkgs.runCommandLocal name {} ''ln -s ${escapeShellArg pathStr} $out'';
 }
