@@ -25,8 +25,9 @@ in
       ./preferences/nix-prefs.nix
 
       # Include general activation scripts
-      ./startup.nix
-      ./auto-move/driver.nix      
+      ./scripts/startup.nix
+      ./scripts/auto-mklink.nix
+      ./scripts/autodetect-automove.nix
 
       # Include the stuff I actually want to install
       ./programs.nix
