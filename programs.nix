@@ -29,6 +29,8 @@ let
 
     unzip
 
+    live-server
+
     teams-for-linux
     gcc
     python3
