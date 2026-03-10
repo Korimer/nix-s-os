@@ -23,6 +23,12 @@ let
     ;
 in
 {
+
+  imports = [
+    ../auto-move/targets.nix
+    ../../system-specific/auto-move/targets.nix
+  ];
+
   options.autoMkLink.targets = lib.mkOption {
     type = lib.types.attrsOf lib.types.str;
     default = {};
