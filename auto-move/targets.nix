@@ -2,7 +2,7 @@
 let
   userhome = "/home/${config.environment.variables.PRIMARYUSER}/";
   to_move = {
-    #PersonalUtilScripts = "${userhome}/PersonalUtilScripts";
+    PersonalUtilScripts = "${userhome}PersonalUtilScripts";
     #dunst               = "";
     #kitty               = "";
     #niri                = "";
@@ -11,7 +11,7 @@ let
 in {
   autoMkLink.targets = lib.mapAttrs' (key: val:
     lib.nameValuePair
-      ("${config.environment.variables.NIXROOT}${key}")
+      ("${config.environment.variables.NIXROOT}static/auto-move/src/${key}")
       (val)
     )
     (to_move)
