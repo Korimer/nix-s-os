@@ -2,7 +2,7 @@
 let
   userhome = "/home/${config.environment.variables.PRIMARYUSER}/";
   to_move = {
-    PersonalUtilScripts = "${userhome}/PersonalUtilScripts";
+    #PersonalUtilScripts = "${userhome}/PersonalUtilScripts";
     #dunst               = "";
     #kitty               = "";
     #niri                = "";

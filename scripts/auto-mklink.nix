@@ -1,4 +1,4 @@
-{lib,config,...}:
+{lib,config, pkgs,...}:
 {
   options.autoMkLink.targets = lib.mkOption {
     type = lib.types.attrsOf lib.types.str;
@@ -7,18 +7,39 @@
   };
 
   config.autoMkLink.targets = {
-    "/etc/nixos/lab-system/static/auto-move/src/kitty/" = "/tmp";
+    "/etc/nixos/lab-system/static/auto-move/src/kitty" = "/tmp";
   };
 
-  config.systemd.tmpfiles.settings =
-    lib.mapAttrs' (key: val:
+  #config.systemd.tmpfiles.settings =
+  #  lib.mapAttrs' (key: val:
+  #    let
+  #      basename = builtins.baseNameOf key;
+  #    in 
+  #      lib.nameValuePair
+  #        ("link-${basename}")
+  #        { "${val}/${basename}"."L+" = {
+  #            argument = key;
+  #            user = "${config.environment.variables.PRIMARYUSER}";
+  #            #group = "${config.environment.variables.PRIMARYUSER}";
+  #          };
+  #      }
+  #  ) (config.autoMkLink.targets);
+
+  config.environment.systemPackages = lib.mapAttrsToList
+    (source: dest:
       let
-        basename = builtins.baseNameOf key;
-      in 
-        lib.nameValuePair
-          ("link-${basename}")
-          { "${val}/${basename}"."L+".argument = key; }
-    ) (config.autoMkLink.targets);
+        basename = builtins.baseNameOf source;
+        escaped_src = lib.strings.escapeShellArg (source);
+      in
+        pkgs.runCommandLocal "ori-autolink-${basename}" {} ''
+          echo "lol lmao" > /tmp/impure.txt
+          ln -sf "${escaped_src}" $out
+          ln -sf $out "/tmp/tmp2"
+        ''
+          #ln -sf $out "${val}"
+    )
+     (config.autoMkLink.targets)
+  ;
 
   #pkgs.runCommandLocal "commandname" {} '' command '';
   #lib.file.mkOutOfStoreSymlink = path:
