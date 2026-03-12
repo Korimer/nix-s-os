@@ -29,6 +29,9 @@ let
 
     unzip
 
+    pavucontrol
+    mictray
+
     live-server
 
     teams-for-linux
