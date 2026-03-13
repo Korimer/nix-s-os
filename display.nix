@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   #boot.extraModprobeConfig = ''
   #    options nvidia_modeset vblank_sem_control=0 nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp
   #    '';
