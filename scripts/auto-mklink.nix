@@ -6,8 +6,8 @@ let
       (lib.mapAttrsToList
         (source: dest:
         let
-          escaped_src = lib.strings.escapeShellArg (source);
-          escaped_dest = lib.strings.escapeShellArg (dest);
+          escaped_src = lib.strings.escapeShellArg source;
+          escaped_dest = lib.strings.escapeShellArg dest;
         in
           ''
           if [ ! -e ${escaped_dest} ] || ([ -L ${escaped_dest} ] && [ -d ${escaped_dest} ]) then

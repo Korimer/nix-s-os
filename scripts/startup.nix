@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, pkgs, ... }:
 
   let envar = {
     PRIMARYUSER = "korimer";
@@ -9,7 +9,7 @@ in {
       key: val:
       lib.mkDefault val
     )
-    (envar)
+    envar
   ;
   system.activationScripts.forceTmpfilesRun = ''
     ${pkgs.systemd}/bin/systemd-tmpfiles --create
