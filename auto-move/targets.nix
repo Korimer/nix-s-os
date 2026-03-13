@@ -10,14 +10,16 @@ let
     niri                = ".config";
     nvim                = ".config";
   };
-  to_move = {};
+  to_move = {
+    zshrc = "${userhome}/.zshrc";
+  };
   all_targets = home_files // to_move;
 in {
   autoMkLink.targets = lib.mapAttrs' (key: val:
     lib.nameValuePair
-      ("${config.environment.variables.NIXROOT}static/auto-move/src/${key}")
-      (val)
+      "${config.environment.variables.NIXROOT}static/auto-move/src/${key}"
+      val
     )
-    (all_targets)
+    all_targets
   ;
 }
