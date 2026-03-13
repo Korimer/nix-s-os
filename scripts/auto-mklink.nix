@@ -10,10 +10,11 @@ let
           escaped_dest = lib.strings.escapeShellArg dest;
         in
           ''
-          if [ ! -e ${escaped_dest} ] || ([ -L ${escaped_dest} ] && [ -d ${escaped_dest} ]) then
-            ln -sf ${escaped_src} ${escaped_dest}
+          if [ -h "${escaped_dest}" ]
+          then
+            ln -sfn "${escaped_src}" "${escaped_dest}"
           else
-            ln -s ${escaped_src} ${escaped_dest}
+            ln -s "${escaped_src}" "${escaped_dest}"
           fi
           ''
         )
