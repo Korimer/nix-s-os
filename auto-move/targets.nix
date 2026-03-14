@@ -6,6 +6,6 @@
       (val)
     )
     {
-      "monitors.kdl" = "/etc/monitors.kdl";
+      "niri" = "/etc/niri";
     };
 }
