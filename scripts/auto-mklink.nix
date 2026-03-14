@@ -14,7 +14,7 @@ let
           then
             ln -sfn "${escaped_src}" "${escaped_dest}"
           else
-            ln -s "${escaped_src}" "${escaped_dest}"
+            ln -sn "${escaped_src}" "${escaped_dest}"
           fi
           ''
         )

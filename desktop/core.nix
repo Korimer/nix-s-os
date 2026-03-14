@@ -9,6 +9,13 @@
   programs.xwayland.enable = true;
   
   environment.systemPackages = with pkgs; [
+    
+    # experimenting with some alternates
+    #swaybg # Wallpaper Manager
+    swww
+    # dunst # Notification Daemon
+    swaynotificationcenter
+
     xwayland-satellite
     libnotify # Sending notifications (recieving is built-in)
     hyprshot # Screenshots
@@ -19,8 +26,6 @@
     wlogout # Log Out Button
     fuzzel # App Launcher
     kitty # Terminal
-    dunst # Notification Daemon
-    swaybg # Wallpaper Manager
     nemo # File explorer
     copyq # Clipboard Manager
   ];
