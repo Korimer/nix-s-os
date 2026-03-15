@@ -3,7 +3,7 @@ binds {
     //Homemade mods
     Mod+Q hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+R hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" {
+    Super+Alt+L allow-when-locked=true hotkey-overlay-title="Lock the Screen: swaylock" {
       spawn-sh "pidof swaylock || swaylock --screenshots --effect-blur 10x5 --clock --indicator -lk";
     }
     Mod+Shift+S { screenshot; }
