@@ -10,6 +10,7 @@ let
           escaped_dest = lib.strings.escapeShellArg dest;
         in
           ''
+          mkdir -p "$(dirname "${escaped_dest}")"
           if [ -h "${escaped_dest}" ]
           then
             ln -sfn "${escaped_src}" "${escaped_dest}"
