@@ -10,12 +10,15 @@ let
           escaped_dest = lib.strings.escapeShellArg dest;
         in
           ''
-          mkdir -p "$(dirname "${escaped_dest}")"
-          if [ -h "${escaped_dest}" ]
+          mkdir -p "$(dirname ${escaped_dest})"
+          if [ -h ${escaped_dest} ]
           then
-            ln -sfn "${escaped_src}" "${escaped_dest}"
+            ln -sfn ${escaped_src} ${escaped_dest}
+          elif [ -e ${escaped_dest} ]; then
+            echo "Error: destination exists: ${escaped_dest}" >&2
+            exit 1
           else
-            ln -sn "${escaped_src}" "${escaped_dest}"
+            ln -s ${escaped_src} ${escaped_dest}
           fi
           ''
         )
