@@ -1,1 +1,1 @@
-spawn-at-startup "swww" "img" "/etc/nixos/home-system/static/_resources/punpunbg.png" "--outputs" "all" "--resize" "crop"
+spawn-at-startup "swww" "img" "/etc/nixos/lab-system/static/_resources/punpunbg.png" "--all" "--resize" "crop"
