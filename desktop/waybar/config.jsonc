@@ -1,0 +1,69 @@
+{
+  "height": 36,
+  "spacing": 4, 
+  "modules-left": [
+    "sway/workspaces",
+    "custom/swaync"
+  ],
+  "modules-center": [
+    "wlr/taskbar"
+  ],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "temperature",
+    "clock",
+    "custom/power"
+  ]
+
+  ,"cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  }
+  ,"memory": {
+    "format": "{}% "
+  }
+  ,"temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "critical-threshold": 80,
+    "format-critical": "{temperatureC}°C {icon}",
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  }
+  ,"clock": {
+    "timezone": "America/Denver",
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  }
+
+  ,"wlr/taskbar": {
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "minimize"
+  }
+
+  ,"custom/power": {
+    "format" : "⏻ ",
+    "tooltip": false,
+    "on-click": "wleave --layout /etc/wleave/layout.json --css /etc/wleave/style.css"
+  }
+
+  ,"custom/swaync": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+      "dnd-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  } 
+}

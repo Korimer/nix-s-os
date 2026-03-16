@@ -1,14 +1,14 @@
-{lib, pkgs, agenixTar, ...}: 
+{lib, pkgs, ...}: 
 let
   #Builtins with enable
   sys_programs_to_enable = {
     steam = {};
-    firefox = import (./programs/firefox.nix) {};
+    firefox = import ./programs/firefox.nix {};
     git = {
       package = pkgs.gitFull;
     };
     thunderbird = {};
-    zsh = import (./programs/zsh.nix) {};
+    zsh = import ./programs/zsh.nix {};
     neovim = {
       vimAlias = true;
       viAlias = true;
@@ -33,38 +33,40 @@ let
     # cs314
     maven zulu25 postman
 
-    unzip
-
+    # Dev tools
+    wireshark
     live-server
-
-    teams-for-linux
-    gcc
     python3
-    tree-sitter
     grub2_efi
-    wget
     parted
+    powershell
+
+    # neovim
+    xclip
+    neovide
+    tree-sitter
+    # idk why lazy-lsp cant install this automatically
+    jdt-language-server
+
+    # core system utils
+    unzip
+    p7zip
+    pavucontrol
+    mictray
+    wget
+    ripgrep
+
+    # blue collar maxxing
+    slack
+    teams-for-linux
     multipath-tools
     vscode
-    tcl
-    tk
-    ripgrep
-    wsdd
-    nwg-displays
-#    (pkgs.callPackage "${agenixTar}/pkgs/agenix.nix" {})
-    keyutils
+
+    # slob/larp maxxing
     vesktop
-    cifs-utils
-    xorg.xkill
-    wireshark
-    remmina
-    slack
-    neovide
-    xclip
+
+    # idk lol
     openssl
-    powershell
-    r2modman
-    p7zip
   ];
   
   ###########
@@ -74,7 +76,7 @@ let
       name: value:
       value // {enable = true;}
     )
-    (sys_programs_to_enable)
+    sys_programs_to_enable
   ;
   
   sys_programs_complete = lib.recursiveUpdate 

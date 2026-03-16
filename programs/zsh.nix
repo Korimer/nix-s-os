@@ -5,6 +5,7 @@ let
   export_env = {
     NIXPKGS_ALLOW_UNFREE="1";
     ELECTRON_OZONE_PLATFORM_HINT="auto";
+    PATH = "$PATH:$HOME/PersonalUtilScripts/";
   };
   preset_env = {
     LOCK_USER_CMD = "swaylock --screenshots --effect-blur 10x5 --clock --indicator -lk";
@@ -13,11 +14,6 @@ let
   };
 
   scripts = [
-    ''
-      export PATH="$PATH:$HOME/PersonalUtilScripts"
-    ''
-
-
     ## Implement global ssh 
     ''
       start_agent() {
@@ -60,14 +56,14 @@ in {
     lib.generators.toKeyValue {
       mkKeyValue = name: value:
       "export ${name}=\"${value}\"";
-    } (export_env)
+    } export_env
     +
     lib.generators.toKeyValue {
       mkKeyValue = name: value:
       "${name}=\"${value}\"";
-    } (preset_env) 
+    } preset_env 
     +
-    lib.concatStringsSep "\n" (scripts)
+    lib.concatStringsSep "\n" scripts
   ;
   #history.size = 10000;
 }

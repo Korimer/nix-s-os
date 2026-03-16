@@ -2,13 +2,20 @@
   imports = [
     ./hypridle.nix
     ./waybar.nix
-    ./swayconfig.nix
+    ./wlogout.nix
   ];
 
   programs.niri.enable = true;
   programs.xwayland.enable = true;
   
   environment.systemPackages = with pkgs; [
+    
+    # experimenting with some alternates
+    #swaybg # Wallpaper Manager
+    swww
+    # dunst # Notification Daemon
+    swaynotificationcenter
+
     xwayland-satellite
     libnotify # Sending notifications (recieving is built-in)
     hyprshot # Screenshots
@@ -16,11 +23,9 @@
     ddcutil # Brightness
     swaylock-effects # Lockscreen
     hypridle # Idle Timeout
-    wlogout # Log Out Button
+    wleave # Log Out Button
     fuzzel # App Launcher
     kitty # Terminal
-    dunst # Notification Daemon
-    swaybg # Wallpaper Manager
     nemo # File explorer
     copyq # Clipboard Manager
   ];

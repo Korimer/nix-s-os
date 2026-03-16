@@ -6,12 +6,17 @@ let
       (lib.mapAttrsToList
         (source: dest:
         let
-          escaped_src = lib.strings.escapeShellArg (source);
-          escaped_dest = lib.strings.escapeShellArg (dest);
+          escaped_src = lib.strings.escapeShellArg source;
+          escaped_dest = lib.strings.escapeShellArg dest;
         in
           ''
-          if [ ! -e ${escaped_dest} ] || ([ -L ${escaped_dest} ] && [ -d ${escaped_dest} ]) then
-            ln -sf ${escaped_src} ${escaped_dest}
+          mkdir -p "$(dirname ${escaped_dest})"
+          if [ -h ${escaped_dest} ]
+          then
+            ln -sfn ${escaped_src} ${escaped_dest}
+          elif [ -e ${escaped_dest} ]; then
+            echo "Error: destination exists: ${escaped_dest}" >&2
+            exit 1
           else
             ln -s ${escaped_src} ${escaped_dest}
           fi
