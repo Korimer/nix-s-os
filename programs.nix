@@ -24,6 +24,12 @@ let
   
   #Installable packages
   sys_pkgs = with pkgs; [
+
+    # lsps
+    jdt-language-server
+    basedpyright
+    vscode-langservers-extracted
+
     # cs314
     maven zulu25 postman
 

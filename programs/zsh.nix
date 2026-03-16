@@ -13,6 +13,11 @@ let
   };
 
   scripts = [
+    ''
+      export PATH="$PATH:$HOME/PersonalUtilScripts"
+    ''
+
+
     ## Implement global ssh 
     ''
       start_agent() {
