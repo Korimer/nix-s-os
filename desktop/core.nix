@@ -23,7 +23,7 @@
     ddcutil # Brightness
     swaylock-effects # Lockscreen
     hypridle # Idle Timeout
-    wlogout # Log Out Button
+    wleave # Log Out Button
     fuzzel # App Launcher
     kitty # Terminal
     nemo # File explorer

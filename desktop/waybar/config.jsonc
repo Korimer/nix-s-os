@@ -47,7 +47,7 @@
   ,"custom/power": {
     "format" : "⏻ ",
     "tooltip": false,
-    "on-click": "wlogout --layout /etc/wlogout/layout --css /etc/wlogout/style.css"
+    "on-click": "wleave --layout /etc/wleave/layout.json --css /etc/wleave/style.css"
   }
 
   ,"custom/swaync": {

@@ -1,0 +1,54 @@
+{
+  "buttons-per-row": "2",
+  "show-keybinds": true,
+  "close-on-lost-focus": true,
+  "margin": 200,
+  "margin-top": 50,
+  "margin-bottom": 50,
+  "margin-right": 200,
+  "margin-left": 200,
+  "buttons": [
+    {
+      "label": "lock",
+      "action": "swaylock",
+      "text": "Lock",
+      "keybind": "l",
+      "icon": "/etc/wleave/icons/lock.svg"
+    },
+    {
+      "label": "hibernate",
+      "action": "systemctl hibernate",
+      "text": "Hibernate",
+      "keybind": "h",
+      "icon": "/etc/wleave/icons/hibernate.svg"
+    },
+    {
+      "label": "logout",
+      "action": "loginctl terminate-user $USER",
+      "text": "Logout",
+      "keybind": "e",
+      "icon": "/etc/wleave/icons/logout.svg"
+    },
+    {
+      "label": "shutdown",
+      "action": "systemctl poweroff",
+      "text": "Shutdown",
+      "keybind": "s",
+      "icon": "/etc/wleave/icons/shutdown.svg"
+    },
+    {
+      "label": "suspend",
+      "action": "systemctl suspend",
+      "text": "Suspend",
+      "keybind": "u",
+      "icon": "/etc/wleave/icons/suspend.svg"
+    },
+    {
+      "label": "reboot",
+      "action": "systemctl reboot",
+      "text": "Reboot",
+      "keybind": "r",
+      "icon": "/etc/wleave/icons/reboot.svg"
+    }
+  ]
+}
