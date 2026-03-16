@@ -2,6 +2,7 @@
   imports = [
     ./hypridle.nix
     ./waybar.nix
+    ./wlogout.nix
   ];
 
   programs.niri.enable = true;
