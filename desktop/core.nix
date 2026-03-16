@@ -9,6 +9,8 @@
   programs.xwayland.enable = true;
   
   environment.systemPackages = with pkgs; [
+
+    papirus-icon-theme
     
     # experimenting with some alternates
     #swaybg # Wallpaper Manager
