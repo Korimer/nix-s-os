@@ -34,10 +34,11 @@ let
     maven zulu25 postman
 
     # Dev tools
+    mediawriter
     wireshark
     live-server
     python3
-    grub2_efi
+    grub2
     parted
     powershell
 

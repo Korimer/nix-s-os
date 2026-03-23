@@ -1,0 +1,87 @@
+/* shoutouts to https://codeberg.org/ranjan/waybar/src/branch/main/powerline for inspiration */
+
+@import "colors.css";
+
+* {
+    padding: 0px;
+    margin: 0px;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+}
+
+window#waybar {
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-bottom: 0px;
+    padding: 0px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    background-color: transparent;
+}
+
+#custom-sep1,
+#custom-sep2,
+#custom-sep3,
+#custom-sep4
+{
+  font-size: 28px;
+}
+
+#custom-swaync {
+  padding: 0px 3px;
+  border-radius: 8px 0px 0px 8px;
+  background-color: @yellow;
+}
+
+#workspaces {
+  padding: 4px 10px;
+  background-color: @cyan;
+}
+#workspaces button:hover {
+}
+#workspaces button.active {
+  background-color: @blue;
+  color: @foreground;
+}
+
+#taskbar {
+  padding: 4px 10px;
+  background-color: @purple;
+}
+#taskbar button {
+  padding: 1px 4px;
+  margin: 0px 4px;
+}
+
+#cpu, #memory, #temperature, #clock{
+  padding: 0px 10px;
+}
+
+#cpu {
+  background-color: @yellow;
+}
+
+#memory {
+  background-color: @orange;
+}
+
+#temperature {
+  background-color: @green;
+}
+
+#clock {
+  background-color: @red;
+}
+
+#custom-power {
+  padding: 0px 3px;
+  border-radius: 0px 8px 8px 0px;
+  background-color: magenta;
+}

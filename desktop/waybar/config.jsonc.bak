@@ -1,8 +1,7 @@
 {
-  "layer": "top",
-  "position": "top",
   "reload_style_on_change": true,
-
+  "height": 36,
+  "spacing": 4, 
   "modules-left": [
     "custom/swaync",
     "niri/workspaces",
