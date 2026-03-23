@@ -5,6 +5,7 @@
 
   "modules-left": [
     "custom/swaync",
+    "custom/div-swaync-workspaces",
     "niri/workspaces",
     "custom/sep1"
   ],
@@ -51,7 +52,7 @@
   }
 
   ,"custom/power": {
-    "format" : "⏻ ",
+    "format" : "⏻",
     "tooltip": false,
     "on-click": "wleave --layout /etc/wleave/layout.json --css /etc/wleave/style.css"
   }
@@ -73,17 +74,21 @@
     "escape": true
   } 
   
-  
+  ,"custom/div-swaync-workspaces": {
+    "format": "",
+    "tooltip": false
+  }
+
   ,"custom/sep1": {
-    "format" : "",
+    "format" : " ",
     "tooltip": false
   }
   ,"custom/sep2": {
-    "format" : "",
+    "format" : " ",
     "tooltip": false
   }
   ,"custom/sep3": {
-    "format" : "",
+    "format" : " ",
     "tooltip": false
   }
   ,"custom/sep4": {

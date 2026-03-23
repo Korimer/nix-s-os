@@ -2,12 +2,18 @@
 
 @import "colors.css";
 
+@define-color notification @yellow;
+@define-color workspaces @cyan;
+@define-color taskbar @purple;
+@define-color cpu @yellow;
+
 * {
     padding: 0px;
     margin: 0px;
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
+    min-height: 16px;
 }
 
 window#waybar {
@@ -26,6 +32,7 @@ window#waybar.empty {
     background-color: transparent;
 }
 
+#custom-div-swaync-workspaces,
 #custom-sep1,
 #custom-sep2,
 #custom-sep3,
@@ -35,14 +42,20 @@ window#waybar.empty {
 }
 
 #custom-swaync {
-  padding: 0px 3px;
+  padding: 0px 5px;
   border-radius: 8px 0px 0px 8px;
-  background-color: @yellow;
+  padding-left: 10px;
+  background-color: @notification;
+}
+
+#custom-div-swaync-workspaces {
+  color: @notification;
+  background-color: @workspaces;
 }
 
 #workspaces {
   padding: 4px 10px;
-  background-color: @cyan;
+  background-color: @workspaces;
 }
 #workspaces button:hover {
 }
@@ -50,14 +63,20 @@ window#waybar.empty {
   background-color: @blue;
   color: @foreground;
 }
+#custom-sep1 {
+  color: @workspaces;
+}
 
 #taskbar {
   padding: 4px 10px;
-  background-color: @purple;
+  background-color: @taskbar;
 }
 #taskbar button {
   padding: 1px 4px;
   margin: 0px 4px;
+}
+#custom-sep2, #custom-sep3 {
+  color: @taskbar;
 }
 
 #cpu, #memory, #temperature, #clock{
@@ -65,7 +84,10 @@ window#waybar.empty {
 }
 
 #cpu {
-  background-color: @yellow;
+  background-color: @cpu;
+}
+#custom-sep4 {
+  color: @cpu;
 }
 
 #memory {
@@ -81,7 +103,7 @@ window#waybar.empty {
 }
 
 #custom-power {
-  padding: 0px 3px;
+  padding: 0px 8px;
   border-radius: 0px 8px 8px 0px;
   background-color: magenta;
 }
