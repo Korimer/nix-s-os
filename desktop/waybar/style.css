@@ -49,8 +49,8 @@ window#waybar.empty {
 }
 
 #custom-div-swaync-workspaces {
-  color: @notification;
-  background-color: @workspaces;
+  color: @workspaces;
+  background-color: @notification;
 }
 
 #workspaces {
