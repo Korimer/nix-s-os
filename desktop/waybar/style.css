@@ -4,8 +4,14 @@
 
 @define-color notification @yellow;
 @define-color workspaces @cyan;
+@define-color tray @purple;
+@define-color window @blue;
 @define-color taskbar @purple;
 @define-color cpu @yellow;
+@define-color temperature @green;
+@define-color memory @orange;
+@define-color time @red;
+@define-color power @magenta;
 
 * {
     padding: 0px;
@@ -33,12 +39,20 @@ window#waybar.empty {
 }
 
 #custom-div-swaync-workspaces,
-#custom-sep1,
-#custom-sep2,
-#custom-sep3,
-#custom-sep4
+#custom-div-workspaces-tray,
+#custom-div-tray-window,
+#custom-window-r-flair,
+#custom-taskbar-l-flair,
+#custom-taskbar-r-flair,
+#custom-cpu-l-flair,
+#custom-div-cpu-memory,
+#custom-div-memory-temp,
+#custom-div-temp-clock,
+#custom-div-clock-power,
+#custom-power-r-flair 
 {
   font-size: 28px;
+  margin: 0px;
 }
 
 #custom-swaync {
@@ -49,6 +63,9 @@ window#waybar.empty {
 }
 
 #custom-div-swaync-workspaces {
+  margin-left: -5px;
+  margin-right: -10px;
+  padding-right: 10px;
   color: @workspaces;
   background-color: @notification;
 }
@@ -63,9 +80,29 @@ window#waybar.empty {
   background-color: @blue;
   color: @foreground;
 }
-#custom-sep1 {
+
+#custom-div-workspaces-tray {
   color: @workspaces;
+  background-color: @tray;
 }
+
+#tray {
+  background-color: @tray;
+}
+
+#custom-div-tray-window {
+  padding-left: 5px;
+  color: @window;
+  background-color: @taskbar;
+}
+
+#window {
+  background-color: @window;
+}
+#custom-window-r-flair {
+  color: @window;
+}
+
 
 #taskbar {
   padding: 4px 10px;
@@ -75,31 +112,48 @@ window#waybar.empty {
   padding: 1px 4px;
   margin: 0px 4px;
 }
-#custom-sep2, #custom-sep3 {
+#custom-taskbar-l-flair, #custom-taskbar-r-flair {
   color: @taskbar;
 }
+
 
 #cpu, #memory, #temperature, #clock{
   padding: 0px 10px;
 }
 
+
+#custom-cpu-l-flair {
+  color: @cpu;
+}
 #cpu {
   background-color: @cpu;
 }
-#custom-sep4 {
+
+#custom-div-cpu-memory {
   color: @cpu;
+  background-color: @memory;
 }
 
 #memory {
-  background-color: @orange;
+  background-color: @memory;
+}
+
+#custom-div-memory-temp {
+  color: @memory;
+  color: @temp;
 }
 
 #temperature {
-  background-color: @green;
+  background-color: @temperature;
+}
+
+#custom-div-temp-clock {
+  color: @clock;
+  background-color: @time;
 }
 
 #clock {
-  background-color: @red;
+  background-color: @time;
 }
 
 #custom-power {

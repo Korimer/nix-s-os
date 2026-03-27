@@ -7,21 +7,35 @@
     "custom/swaync",
     "custom/div-swaync-workspaces",
     "niri/workspaces",
-    "custom/sep1"
+    "custom/div-workspaces-tray",
+    "tray",
+    "custom/div-tray-window",
+    "niri/window",
+    "custom/window-r-flair"
   ],
   "modules-center": [
-    "custom/sep2",
+    "custom/taskbar-l-flair",
     "wlr/taskbar",
-    "custom/sep3"
+    "custom/taskbar-r-flair"
   ],
   "modules-right": [
-    "custom/sep4",
+    "custom/cpu-l-flair",
     "cpu",
+    "custom/div-cpu-memory",
     "memory",
+    "custom/div-memory-temp",
     "temperature",
+    "custom/div-temp-clock",
     "clock",
-    "custom/power"
+    "custom/div-clock-power",
+    "custom/power",
+    "custom/power-r-flair"
   ]
+
+  ,"tray": {
+    "icon-size": 18,
+    "spacing": 10
+  }
 
   ,"cpu": {
     "format": "{usage}% ",
@@ -73,26 +87,57 @@
     "on-click-right": "sleep 0.1 && swaync-client -d -sw",
     "escape": true
   } 
-  
+
   ,"custom/div-swaync-workspaces": {
     "format": "",
     "tooltip": false
   }
-
-  ,"custom/sep1": {
-    "format" : " ",
+  ,"custom/div-workspaces-tray": {
+    "format": "",
     "tooltip": false
   }
-  ,"custom/sep2": {
-    "format" : " ",
+  ,"custom/div-tray-window": {
+    "format": " ",
     "tooltip": false
   }
-  ,"custom/sep3": {
-    "format" : " ",
+  ,"custom/window-r-flair": {
+    "format": " ",
     "tooltip": false
   }
-  ,"custom/sep4": {
-    "format" : "",
+  ,"tray-r-flair": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/taskbar-l-flair": {
+    "format": " ",
+    "tooltip": false
+  }
+  ,"custom/taskbar-r-flair": {
+    "format": " ",
+    "tooltip": false
+  }
+  ,"custom/cpu-l-flair": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-cpu-memory": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-memory-temp": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-temp-clock": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-clock-power": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/power-r-flair": {
+    "format": "",
     "tooltip": false
   }
 
