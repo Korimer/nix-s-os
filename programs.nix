@@ -35,6 +35,11 @@ let
 
     # Dev tools
     mediawriter
+    lutris
+    dxvk
+    wine
+    wineWowPackages.stable
+    winetricks
     wireshark
     live-server
     python3

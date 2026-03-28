@@ -33,6 +33,8 @@
       ./misc/rdp.nix
     ];
 
+  programs.nix-ld.enable = true;
+
   #_module.args.agenixTar = agenixTar;
   services.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
   services.pipewire = {
