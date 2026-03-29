@@ -5,7 +5,9 @@
   #boot.kernelModules = ["nvidia_uvm" "nvidia_modeset" "nvidia_drm" "nvidia"];
   #boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
-  services.xserver = {
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 1048576;
+  }; services.xserver = {
   #  enable = true;
     videoDrivers = [ "nvidia" ]; 
   };
