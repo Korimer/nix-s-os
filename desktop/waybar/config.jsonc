@@ -29,8 +29,7 @@
     "clock",
     "custom/div-clock-power",
     "custom/power",
-    "custom/power-r-flair"
-  ]
+    "custom/power-r-flair" ]
 
   ,"tray": {
     "icon-size": 18,
@@ -66,7 +65,7 @@
   }
 
   ,"custom/power": {
-    "format" : "⏻",
+    "format" : "⏻ ",
     "tooltip": false,
     "on-click": "wleave --layout /etc/wleave/layout.json --css /etc/wleave/style.css"
   }
@@ -121,11 +120,11 @@
     "tooltip": false
   }
   ,"custom/div-cpu-memory": {
-    "format": "",
+    "format": "",
     "tooltip": false
   }
   ,"custom/div-memory-temp": {
-    "format": "",
+    "format": "",
     "tooltip": false
   }
   ,"custom/div-temp-clock": {
@@ -137,7 +136,7 @@
     "tooltip": false
   }
   ,"custom/power-r-flair": {
-    "format": "",
+    "format": "",
     "tooltip": false
   }
 

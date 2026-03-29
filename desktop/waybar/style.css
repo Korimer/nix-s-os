@@ -140,7 +140,7 @@ window#waybar.empty {
 
 #custom-div-memory-temp {
   color: @memory;
-  color: @temp;
+  background-color: @temp;
 }
 
 #temperature {
@@ -148,7 +148,7 @@ window#waybar.empty {
 }
 
 #custom-div-temp-clock {
-  color: @clock;
+  color: @temperature;
   background-color: @time;
 }
 
@@ -156,8 +156,13 @@ window#waybar.empty {
   background-color: @time;
 }
 
+#custom-div-clock-power {
+  color: @time;
+  background-color: @power;
+}
+
 #custom-power {
   padding: 0px 8px;
   border-radius: 0px 8px 8px 0px;
-  background-color: magenta;
+  background-color: @power;
 }
