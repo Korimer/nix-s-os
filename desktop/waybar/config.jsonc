@@ -27,7 +27,9 @@
     "temperature",
     "custom/div-temp-clock",
     "clock",
-    "custom/div-clock-power",
+    "custom/div-clock-wireplumber",
+    "wireplumber",
+    "custom/div-wireplumber-power",
     "custom/power",
     "custom/power-r-flair" ]
 
@@ -65,6 +67,16 @@
     "on-click-right": "minimize"
   }
 
+  ,"wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "{volume}% 󰝟",
+    "on-click": "helvum",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "max-volume": 150,
+    "scroll-step": 1,
+    "format-icons": ["", "", ""]
+  }
+
   ,"custom/power": {
     "format" : "⏻ ",
     "tooltip": false,
@@ -86,7 +98,7 @@
     "on-click": "sleep 0.1 && swaync-client -t -sw",
     "on-click-right": "sleep 0.1 && swaync-client -d -sw",
     "escape": true
-  } 
+  }
 
   ,"custom/div-swaync-workspaces": {
     "format": "",
@@ -132,7 +144,11 @@
     "format": "",
     "tooltip": false
   }
-  ,"custom/div-clock-power": {
+  ,"custom/div-clock-wireplumber": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-wireplumber-power": {
     "format": "",
     "tooltip": false
   }

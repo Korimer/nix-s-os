@@ -13,6 +13,7 @@
 @define-color temperature-warning @yellow;
 @define-color temperature-critical @red;
 @define-color time @orange;
+@define-color audio @blue;
 @define-color power @magenta;
 
 * {
@@ -50,7 +51,8 @@ window#waybar.empty {
 #custom-div-cpu-memory,
 #custom-div-memory-temp,
 #custom-div-temp-clock,
-#custom-div-clock-power,
+#custom-div-clock-wireplumber,
+#custom-div-wireplumber-power,
 #custom-power-r-flair 
 {
   font-size: 28px;
@@ -146,17 +148,16 @@ window#waybar.empty {
 }
 
 #temperature {
-  border-color: rgba(255, 255, 255, 0.5);
-  background-color: red;
-  color: @temperature-normal;
+  border: white;
+  background-color: @temperature-normal;
   border-style: solid;
   border-width: 4px 10px;
 }
 #temperature.warning {
-  color: @temperature-warning;
+  background-color: @temperature-warning;
 }
 #temperature.critical {
-  color: @temperature-critical;
+  background-color: @temperature-critical;
 }
 
 #custom-div-temp-clock {
@@ -168,10 +169,22 @@ window#waybar.empty {
   background-color: @time;
 }
 
-#custom-div-clock-power {
+#custom-div-clock-wireplumber {
   color: @time;
+  background-color: @audio;
+}
+
+#wireplumber {
+  font-size: 18px;
+  padding: 0px 10px;
+  background-color: @audio;
+}
+
+#custom-div-wireplumber-power {
+  color: @audio;
   background-color: @power;
 }
+
 
 #custom-power {
   padding: 0px 8px;
