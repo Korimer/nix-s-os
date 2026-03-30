@@ -29,7 +29,7 @@
     fuzzel # App Launcher
     kitty # Terminal
     nemo # File explorer
-    copyq # Clipboard Manager
+    wl-clipboard # Clipboard Manager
   ];
 
   fonts = {

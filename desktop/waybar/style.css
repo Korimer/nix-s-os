@@ -8,9 +8,11 @@
 @define-color window @blue;
 @define-color taskbar @purple;
 @define-color cpu @yellow;
-@define-color temperature @green;
 @define-color memory @orange;
-@define-color time @red;
+@define-color temperature-normal @green;
+@define-color temperature-warning @yellow;
+@define-color temperature-critical @red;
+@define-color time @orange;
 @define-color power @magenta;
 
 * {
@@ -140,15 +142,25 @@ window#waybar.empty {
 
 #custom-div-memory-temp {
   color: @memory;
-  background-color: @temp;
+  background-color: white;
 }
 
 #temperature {
-  background-color: @temperature;
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: red;
+  color: @temperature-normal;
+  border-style: solid;
+  border-width: 4px 10px;
+}
+#temperature.warning {
+  color: @temperature-warning;
+}
+#temperature.critical {
+  color: @temperature-critical;
 }
 
 #custom-div-temp-clock {
-  color: @temperature;
+  color: white;
   background-color: @time;
 }
 
