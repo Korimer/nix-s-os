@@ -41,7 +41,8 @@ window#waybar.empty {
     background-color: transparent;
 }
 
-#custom-div-swaync-workspaces,
+#custom-div-swaync-wireplumber,
+#custom-div-wireplumber-workspaces,
 #custom-div-workspaces-tray,
 #custom-div-tray-window,
 #custom-window-r-flair,
@@ -66,12 +67,23 @@ window#waybar.empty {
   background-color: @notification;
 }
 
-#custom-div-swaync-workspaces {
+#custom-div-swaync-wireplumber {
   margin-left: -5px;
   margin-right: -10px;
   padding-right: 10px;
-  color: @workspaces;
+  color: @audio;
   background-color: @notification;
+}
+
+#wireplumber {
+  font-size: 18px;
+  padding: 0px 10px;
+  background-color: @audio;
+}
+
+#custom-div-wireplumber-workspaces {
+  color: @workspaces;
+  background-color: @audio;
 }
 
 #workspaces {
@@ -169,22 +181,10 @@ window#waybar.empty {
   background-color: @time;
 }
 
-#custom-div-clock-wireplumber {
+#custom-div-clock-power {
   color: @time;
-  background-color: @audio;
-}
-
-#wireplumber {
-  font-size: 18px;
-  padding: 0px 10px;
-  background-color: @audio;
-}
-
-#custom-div-wireplumber-power {
-  color: @audio;
   background-color: @power;
 }
-
 
 #custom-power {
   padding: 0px 8px;
