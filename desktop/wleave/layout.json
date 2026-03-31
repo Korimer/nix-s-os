@@ -10,7 +10,7 @@
   "buttons": [
     {
       "label": "lock",
-      "action": "swaylock",
+      "action": "loginctl lock-session",
       "text": "Lock",
       "keybind": "l",
       "icon": "/etc/wleave/icons/lock.svg"
