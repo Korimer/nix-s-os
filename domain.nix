@@ -9,7 +9,6 @@
   # Packages
   #
   environment.systemPackages = with pkgs; [
-    vim
     # AD
     adcli
     krb5
@@ -56,6 +55,20 @@
       chgrp 'lab admins' /etc/nixos -R
       chmod 775 /etc/nixos -R
     '';
+  };
+
+  # Ensures that this system is discoverable to others on the network.
+  # Akin to setting network discovery in windows.
+  # I MAY need to override system.nssDatabases.hosts to ensure this works.
+  services.samba-wsdd = {
+    enable = true;
+    discovery = false;
+    hostname = "FORTNITE";
+  };
+  services.samba = {
+    enable = true;
+    nsswins = true;
+    smbd.enable = true;
   };
 
   #
@@ -118,10 +131,5 @@
       '';
     };
   };
-    # Ensures that this system is discoverable to others on the network.
-    # Akin to setting network discovery in windows.
-    services.samba.enable = true;
-    services.samba.nsswins = true;
-    # I MAY need to override system.nssDatabases.hosts to ensure this works.
 }
 
