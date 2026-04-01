@@ -2,11 +2,12 @@
 {
   environment.systemPackages = [ pkgs.hypridle ];
   environment.etc."xdg/hypr/hypridle.conf".text = ''
+    $lock_exec = swaylock
     $lock = swaylock --screenshots --effect-blur 10x5 --clock --indicator -lk
     $unlock = pkill -SIGUSR1 swaylock
     
     general {
-      lock_cmd = pidof $lock || $lock
+      lock_cmd = pgrep -u $(whoami) $lock_exec || $lock
       unlock_cmd = $unlock
       before_sleep_cmd = loginctl lock-session; sleep 1
       after_sleep_cmd = loginctl unlock-session
