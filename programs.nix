@@ -34,6 +34,7 @@ let
     maven zulu25 postman
 
     # Dev tools
+    stdenv.cc.cc
     gamescope
     mediawriter
     lutris

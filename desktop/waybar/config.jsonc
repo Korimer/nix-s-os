@@ -29,6 +29,7 @@
     "temperature",
     "custom/div-temp-clock",
     "clock",
+    "battery",
     "custom/div-clock-power",
     "custom/power",
     "custom/power-r-flair" ]
@@ -75,6 +76,19 @@
     "max-volume": 150,
     "scroll-step": 1,
     "format-icons": ["", "", ""]
+  }
+
+  ,"battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": "{capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-full": " {capacity}%",
+    "format-icons": ["", "", ""]
   }
 
   ,"custom/power": {

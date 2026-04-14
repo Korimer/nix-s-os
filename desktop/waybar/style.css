@@ -3,6 +3,7 @@
 @import "colors.css";
 
 @define-color notification @yellow;
+@define-color audio @blue;
 @define-color workspaces @cyan;
 @define-color tray @purple;
 @define-color window @blue;
@@ -13,7 +14,7 @@
 @define-color temperature-warning @yellow;
 @define-color temperature-critical @red;
 @define-color time @orange;
-@define-color audio @blue;
+@define-color battery @yellow;
 @define-color power @magenta;
 
 * {
@@ -179,6 +180,10 @@ window#waybar.empty {
 
 #clock {
   background-color: @time;
+}
+
+#battery {
+  background-color: @battery;
 }
 
 #custom-div-clock-power {
