@@ -15,7 +15,7 @@
       ./ll_config/boot.nix
 
       # Sddm uwsm fmcl i hate four letter acronyms
-      ./login.nix
+      ./login
 
       # Include my personal customizations
       ./desktop/core.nix

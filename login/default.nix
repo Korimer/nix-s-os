@@ -3,6 +3,8 @@ let
   custom_astro = pkgs.sddm-astronaut.override { embeddedTheme = "black_hole"; };
   chosen_theme = 
     "${custom_astro}/share/sddm/themes/sddm-astronaut-theme";
+
+
 in {
   services.displayManager = {
     autoLogin = {
