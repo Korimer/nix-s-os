@@ -1,0 +1,31 @@
+Authentication agent
+Wallpaper
+Notification Daemon
+Application launcher
+File manager
+Status bar/shell
+Clipboard
+
+-- terminal options --
+Kitty, alacritty, foot, wezterm, konsole, gnome-terminal, xterm
+-- file managers --
+dolphin, thunar, pcmanfm, nautilus, nemo
+-- launcher options --
+hyprlauncher, fuzzel, wofi, rofi -show run, anyrun, tofi-drun --drun-launch=true
+
+-- Basic Config --
+Go to ~/.config/hypr/hyprland.conf, and add exec-once = appname to launch relevant startup apps
+relevant startup apps:
+- hyprpaper
+- waybar
+
+default shortcuts:
+- S-Q = Terminal
+- S-E = File Manager
+- S-R = Launcher
+- S-C = close window
+- S-V = toggle floating
+- S-M = Exit Hyprland
+- S-[1-9] = Workspace 1-9
+- S-Shift-[1-9] = Move window to workspace 1-9
+- S-Arrow = Move focus around

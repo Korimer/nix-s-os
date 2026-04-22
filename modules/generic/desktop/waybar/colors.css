@@ -1,0 +1,29 @@
+/* Colors (gruvbox-material) */
+@define-color foreground #c0caf5;
+@define-color red #f7768e;
+@define-color orange #ff9e64;
+@define-color yellow #e0af68;
+@define-color green #9ece6a;
+@define-color cyan #1abc9c;
+@define-color blue #41a6b5;
+@define-color purple #bb9af7;
+@define-color magenta #ff007c;
+
+@define-color foreground-inactive #565f89;
+@define-color background #24283b;
+@define-color background-alt #1f2335;
+@define-color background-alpha rgba(36, 40, 59, 0.87);
+
+@define-color workspace_fg @foreground;
+@define-color act_wrk_fg rgba(0, 0, 0, 1);
+@define-color use_wrk_fg @color5;
+
+@define-color unfocused @foreground-inactive;
+@define-color focused @cyan;
+@define-color inactive @purple;
+@define-color sound @magenta;
+@define-color network @purple;
+@define-color temp @green;
+@define-color battery @cyan;
+@define-color date @background-alt;
+@define-color time @yellow;
