@@ -8,6 +8,11 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    den = {
+      url = "github:denful/den";
+      inputs.nixpkgs.lib.follows = "nixpkgs";
+    };
+
     import-tree.url = "github:vic/import-tree";
 
     nixpkgs.url = "github:nixos/nixpkgs/25.11";

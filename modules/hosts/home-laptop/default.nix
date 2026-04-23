@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  flake.modules.nixosHosts.fortnite = {
+  flake.modules.nixosHosts.hope = {
     unstable = true;
 
   #  modules = [
