@@ -1,0 +1,50 @@
+{
+  "pins": {
+    "den": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "den"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "0af82e24be89b9fd400bd0b58b0fed5ea0f269ad",
+      "url": "https://github.com/vic/den/archive/0af82e24be89b9fd400bd0b58b0fed5ea0f269ad.tar.gz",
+      "hash": "0insm3sqyjwdpnrlnx05n61547ifgkwx86bkfx5hzpw4glhrg1db"
+    },
+    "import-tree": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "import-tree"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "c41e7d58045f9057880b0d85e1152d6a4430dbf1",
+      "url": "https://github.com/vic/import-tree/archive/c41e7d58045f9057880b0d85e1152d6a4430dbf1.tar.gz",
+      "hash": "1y0mp9ykp6k8px7m7k7ilj0iphwiyklp7igk2hkjax81v5v7dmh6"
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre985930.01fbdeef22b7/nixexprs.tar.xz",
+      "hash": "1q2rvqwj48jrvk6s2bhd4m91xnqkd0x5r8vhcxz4lnbzbcpnxbia"
+    },
+    "with-inputs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "with-inputs"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "b4cbe858b381c0ee0fe617498549f0562090ad04",
+      "url": "https://github.com/vic/with-inputs/archive/b4cbe858b381c0ee0fe617498549f0562090ad04.tar.gz",
+      "hash": "1p58zdbprnx74vwd2bdp1qmq32l55gh52fnyfxpjy3capkh9j0hs"
+    }
+  },
+  "version": 5
+}

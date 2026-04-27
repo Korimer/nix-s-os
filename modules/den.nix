@@ -2,12 +2,12 @@
 {
   imports = [ inputs.den.flakeModule ];
 
-  den.hosts.x86_64-linux.igloo.users.korimer = { };
+  den.hosts.x86_64-linux.magic.users.korimer = { };
 
   den.aspects.magic = {
     nixos = { pkgs, ... }: {
       environment.systemPackages = [ pkgs.hello ];
-      boot.loader.grub.enable = false;  # TODO: remove for real hardware
+      boot.loader.grub.enable = false; 
       fileSystems."/".device = "/dev/null";
     };
   };
