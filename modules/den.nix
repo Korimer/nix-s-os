@@ -5,8 +5,8 @@
 
   den.default.nixos = {
     # remove for real host
-    fileSystems."/".device = "/dev/fake";
-    fileSystems."/".fsType = "auto";
+    #fileSystems."/".device = "/dev/fake";
+    #fileSystems."/".fsType = "auto";
     boot.loader.grub.enable = false;
   };
 
