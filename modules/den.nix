@@ -10,8 +10,8 @@
     boot.loader.grub.enable = false;
   };
 
-  # tux user on igloo host, using nix-maid
-  den.hosts.x86_64-linux.igloo.users = {
+  # tux user on magic host, using nix-maid
+  den.hosts.x86_64-linux.magic.users = {
     korimer.classes = [];
   };
 
@@ -19,7 +19,7 @@
   # den.hosts.aarch64-darwin.apple.users.tux.classes = [ "hjem" ];
 
   # host aspect
-  den.aspects.igloo = {
+  den.aspects.magic = {
     nixos =
       { pkgs, ... }:
       {
