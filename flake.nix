@@ -30,13 +30,14 @@
 # }).config.flake; # (6)
 #  in
 #with-inputs outputs # (7)
-
-
 {
   outputs = inputs:
     (inputs.nixpkgs.lib.evalModules {
-      modules = [ (inputs.import-tree ./modules) ];
-      specialArgs = { inherit inputs; };
+     modules = [ 
+     (inputs.import-tree.filterNot (path:
+                                    builtins.elem "unused" (builtins.split "/" path)
+                                   ) ./modules ) ];
+     specialArgs = { inherit inputs; };
     }).config.flake;
 
   inputs = {
