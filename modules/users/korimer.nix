@@ -1,0 +1,8 @@
+{ ... }:
+{
+  den.aspects.korimer = {
+    nixos = {
+
+    };
+  };
+}

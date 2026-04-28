@@ -6,9 +6,19 @@
     };
   };
   den.aspects.magic = {
-    nixos =
-    {
+    nixos = {
       imports = [ ./_nondendric/system-specific/home-laptop/core.nix ];
+    };
+  };
+  den.aspects.netzach = {
+    nixos = {
+      imports = [ ./_nondendric/system-specific/home-pc/core.nix ];
+    };
+
+  };
+  den.aspects.fortnite = {
+    nixos = {
+      imports = [ ./_nondendric/system-specific/work-pc/core.nix ];
     };
   };
 }
