@@ -15,7 +15,7 @@ let
           then
             ln -sfn ${escaped_src} ${escaped_dest}
           elif [ -e ${escaped_dest} ]; then
-            echo "Error: destination exists: ${escaped_dest}" >&2
+            echo "Error: destination exists: ${escaped_dest}"
             exit 1
           else
             ln -s ${escaped_src} ${escaped_dest}
@@ -31,7 +31,7 @@ in
 
   imports = [
     ../auto-move/targets.nix
-    ../../system-specific/auto-move/targets.nix
+    ../../system-specific/home-laptop/auto-move/targets.nix
   ];
 
   options.autoMkLink.targets = lib.mkOption {

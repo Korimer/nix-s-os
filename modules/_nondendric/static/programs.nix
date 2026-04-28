@@ -37,11 +37,11 @@ let
     stdenv.cc.cc
     gamescope
     mediawriter
-    lutris
-    dxvk
-    wine
-    wineWowPackages.stable
-    winetricks
+    #lutris
+    #dxvk
+    #wine
+    #wineWow64Packages.stable
+    #winetricks
     wireshark
     live-server
     python3

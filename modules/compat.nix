@@ -1,8 +1,12 @@
-{ den, inputs, ... }:
+{ ... }:
 {
+  den.default = {
+    nixos = {
+      imports = [ ./_nondendric/static/configuration.nix ];
+    };
+  };
   den.aspects.magic = {
     nixos =
-    { pkgs, ... }:
     {
       imports = [ ./_nondendric/system-specific/home-laptop/core.nix ];
     };
