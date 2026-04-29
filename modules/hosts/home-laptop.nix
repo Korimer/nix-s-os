@@ -8,7 +8,7 @@
     nixos =
       { pkgs, ... }:
       {
-        systemd.sleep.settings.Sleep = "HibernateMode=shutdown";
+        systemd.sleep.settings.Sleep.HibernateMode = "shutdown";
         environment.systemPackages = [
           pkgs.vim
         ];
