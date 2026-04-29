@@ -14,7 +14,7 @@
     
     # experimenting with some alternates
     #swaybg # Wallpaper Manager
-    swww
+    awww
     # dunst # Notification Daemon
     swaynotificationcenter
 
