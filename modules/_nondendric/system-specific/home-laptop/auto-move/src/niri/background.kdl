@@ -1,1 +1,1 @@
-spawn-at-startup "swww" "img" "/etc/nixos/home-system/static/_resources/punpunbg.png" "--outputs" "DP-1" "--resize" "crop"
+../../../../home-system/auto-move/src/niri/background.kdl

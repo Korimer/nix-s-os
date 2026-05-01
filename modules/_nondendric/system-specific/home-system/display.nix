@@ -21,7 +21,6 @@
     modesetting.enable = true;
     powerManagement.enable = true; #without this after suspend was black screen without cursor; when true, cursor appears
   #    powerManagement.finegrained = false;
-    open = true;
   #  nvidiaSettings = true;
   #  package = config.boot.kernelPackages.nvidiaPackages.stable;
   };

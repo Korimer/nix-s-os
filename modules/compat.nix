@@ -12,13 +12,13 @@
   };
   den.aspects.netzach = {
     nixos = {
-      imports = [ ./_nondendric/system-specific/home-pc/core.nix ];
+      imports = [ ./_nondendric/system-specific/home-system/core.nix ];
     };
 
   };
   den.aspects.fortnite = {
     nixos = {
-      imports = [ ./_nondendric/system-specific/work-pc/core.nix ];
+      imports = [ ./_nondendric/system-specific/lab-system/core.nix ];
     };
   };
 }
