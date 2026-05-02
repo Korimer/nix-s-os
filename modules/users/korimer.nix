@@ -9,11 +9,15 @@ globalsClass = { class, aspect-chain }: den.provides.forward {
   fromAspect = _: lib.head aspect-chain;
 };
 in
+{ den, ... }:
 {
   imports = [
     (inputs.den.namespace "korimer" true)
   ];
   den.aspects.korimer = {
     includes = [ korimer.everywhere globalsClass ];
+    nixos = { pkgs, ... }:
+    {
+    };
   };
 }
