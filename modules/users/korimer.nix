@@ -1,8 +1,9 @@
-{ ... }:
+{ korimer, inputs, ... }:
 {
+  imports = [
+    (inputs.den.namespace "korimer" true)
+  ];
   den.aspects.korimer = {
-    nixos = { pkgs, ... }:
-    {
-    };
+    includes = [ korimer.everywhere ];
   };
 }
