@@ -1,6 +1,6 @@
 let
   sources = import ./npins;
-  with-inputs = import sources.with-inputs sources { };
+  with-inputs = import sources.with-inputs sources (import  ./follows.nix);
   outputs = inputs:
     (inputs.nixpkgs.lib.evalModules {
       modules = [ (inputs.import-tree ./modules) ];
