@@ -1,7 +1,21 @@
 { den, inputs, lib, ... }:
 {
+
+  flake-file.inputs = {
+    den.url = "github:vic/den";
+    flake-file.url = "github:vic/flake-file";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-aspects.url = "github:vic/flake-aspects";
+    import-tree.url = "github:vic/import-tree";
+    with-inputs.url = "github:vic/with-inputs";
+    with-inputs.flake = false;
+  };
+
   # we can import this flakeModule even if we dont have flake-parts as input!
-  imports = [ inputs.den.flakeModule ];
+  imports = [
+    inputs.den.flakeModule
+    inputs.flake-file.flakeModules.default
+  ];
   den.ctx.user.includes = [ den.provides.define-user ];
 
   den.default.nixos = {
