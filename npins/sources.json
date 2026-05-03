@@ -22,9 +22,22 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "1de208c9ba96502c4e53ac01c1044d6da2065471",
-      "url": "https://github.com/schembriaiden/helium-browser-nix-flake/archive/1de208c9ba96502c4e53ac01c1044d6da2065471.tar.gz",
-      "hash": "sha256-FqwjhUWRGzpHyYRDYB9f4r9nhlFRv31on7UsX9WqVrs="
+      "revision": "98e2d707c457106f0821166ad29e053f6ed0f872",
+      "url": "https://github.com/schembriaiden/helium-browser-nix-flake/archive/98e2d707c457106f0821166ad29e053f6ed0f872.tar.gz",
+      "hash": "sha256-zWkQZAYf18e841e081y1DiZ3wdSNekpcAQGYASi7SWs="
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "0379e433a85184be523f98ffd1715d0fb4320bc9",
+      "url": "https://github.com/nix-community/home-manager/archive/0379e433a85184be523f98ffd1715d0fb4320bc9.tar.gz",
+      "hash": "sha256-vvrCrXeL2tkiUOQOYMrhlhnkPmUQxP5oT4IsIiuaOPk="
     },
     "import-tree": {
       "type": "Git",
