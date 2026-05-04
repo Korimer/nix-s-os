@@ -13,10 +13,10 @@
 
   imports = [
     inputs.den.flakeModule
-    inputs.flake-file.flakeModules.npins
+    inputs.flake-file.flakeModules.flakeless-parts
   ];
 
-  flake-file.lol = "pls";
+  #flake-file.outputs = "flake-parts";
 
   den.ctx.user.includes = [ den.provides.define-user ];
 
