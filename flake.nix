@@ -1,0 +1,2 @@
+{ outputs = _: import ./.; }
+

@@ -7,6 +7,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-aspects.url = "github:vic/flake-aspects";
     import-tree.url = "github:vic/import-tree";
+    home-manager.url = "github:nix-community/home-manager";
     with-inputs.url = "github:vic/with-inputs";
     with-inputs.flake = false;
   };
