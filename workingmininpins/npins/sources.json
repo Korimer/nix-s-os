@@ -16,6 +16,32 @@
       "url": "https://api.github.com/repos/vic/flake-file/tarball/refs/tags/v0.6.0",
       "hash": "sha256-RZVtJefKKy3Z2UvKWSbtRF3cUxt/2fHga2adN6MZQ1U="
     },
+    "flake-parts": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "hercules-ci",
+        "repo": "flake-parts"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "5250617bffd85403b14dbf43c3870e7f255d2c16",
+      "url": "https://github.com/hercules-ci/flake-parts/archive/5250617bffd85403b14dbf43c3870e7f255d2c16.tar.gz",
+      "hash": "sha256-EPIFsulyon7Z1vLQq5Fk64GR8L7cQsT+IPhcsukVbgk="
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "4625f26228f4f7ea3cf65eee3023359a8221fcff",
+      "url": "https://github.com/nix-community/home-manager/archive/4625f26228f4f7ea3cf65eee3023359a8221fcff.tar.gz",
+      "hash": "sha256-jzln9xcpVcmEB1zfhJ+FIHd7/kaVHgGF+gQQHxj2fGI="
+    },
     "import-tree": {
       "type": "GitRelease",
       "repository": {
@@ -36,6 +62,19 @@
       "type": "Tarball",
       "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz",
       "hash": "sha256-TT4ptFjjqRdOAlPQRwXpV0ChKARdTvUYYpLMrDSVW4s="
+    },
+    "nixpkgs-lib": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "9face6a87d97f20068bcd69de5eac3de0049c3df",
+      "url": "https://github.com/nix-community/nixpkgs.lib/archive/9face6a87d97f20068bcd69de5eac3de0049c3df.tar.gz",
+      "hash": "sha256-o/87U1M3Kvk6TsMLFu9PSdV8Qtz8q44B1tIhewR6vj8="
     },
     "with-inputs": {
       "type": "GitRelease",

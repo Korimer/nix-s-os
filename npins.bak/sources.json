@@ -1,0 +1,121 @@
+{
+  "pins": {
+    "den": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "den"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "0af82e24be89b9fd400bd0b58b0fed5ea0f269ad",
+      "url": "https://github.com/vic/den/archive/0af82e24be89b9fd400bd0b58b0fed5ea0f269ad.tar.gz",
+      "hash": "sha256-q4WXIX2E3w9Ld3MZ1Pl8Lh5SgrEFdEuzvY1Lj/Wo2kY="
+    },
+    "flake-aspects": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "denful",
+        "repo": "flake-aspects"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.7.0",
+      "revision": "b51a00bc0140e7708e421a64f20170a2e8ccae93",
+      "url": "https://api.github.com/repos/denful/flake-aspects/tarball/refs/tags/v0.7.0",
+      "hash": "sha256-sPPriYJpLmukixc6/KBzeOhw83OSodco5YbeayHzAgo="
+    },
+    "flake-file": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "flake-file"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.6.0",
+      "revision": "7d16dfaeb912d5efdff0d0eda2aabc0c934168dd",
+      "url": "https://api.github.com/repos/vic/flake-file/tarball/refs/tags/v0.6.0",
+      "hash": "sha256-RZVtJefKKy3Z2UvKWSbtRF3cUxt/2fHga2adN6MZQ1U="
+    },
+    "flake-parts": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "hercules-ci",
+        "repo": "flake-parts"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "5250617bffd85403b14dbf43c3870e7f255d2c16",
+      "url": "https://github.com/hercules-ci/flake-parts/archive/5250617bffd85403b14dbf43c3870e7f255d2c16.tar.gz",
+      "hash": "sha256-EPIFsulyon7Z1vLQq5Fk64GR8L7cQsT+IPhcsukVbgk="
+    },
+    "helium-browser-nix-flake": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "schembriaiden",
+        "repo": "helium-browser-nix-flake"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "98e2d707c457106f0821166ad29e053f6ed0f872",
+      "url": "https://github.com/schembriaiden/helium-browser-nix-flake/archive/98e2d707c457106f0821166ad29e053f6ed0f872.tar.gz",
+      "hash": "sha256-zWkQZAYf18e841e081y1DiZ3wdSNekpcAQGYASi7SWs="
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "0379e433a85184be523f98ffd1715d0fb4320bc9",
+      "url": "https://github.com/nix-community/home-manager/archive/0379e433a85184be523f98ffd1715d0fb4320bc9.tar.gz",
+      "hash": "sha256-vvrCrXeL2tkiUOQOYMrhlhnkPmUQxP5oT4IsIiuaOPk="
+    },
+    "import-tree": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "import-tree"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "c41e7d58045f9057880b0d85e1152d6a4430dbf1",
+      "url": "https://github.com/vic/import-tree/archive/c41e7d58045f9057880b0d85e1152d6a4430dbf1.tar.gz",
+      "hash": "sha256-BtZ2dtkBdSUnFPPFc+n0kcMbgaTxzFNPv2iaO326Ffg="
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.05pre987567.6368eda62c97/nixexprs.tar.xz",
+      "hash": "sha256-V6plRCpzkUz2ry6deCNounU4SGCNTsfIfyUKLTreITc="
+    },
+    "with-inputs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vic",
+        "repo": "with-inputs"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "b4cbe858b381c0ee0fe617498549f0562090ad04",
+      "url": "https://github.com/vic/with-inputs/archive/b4cbe858b381c0ee0fe617498549f0562090ad04.tar.gz",
+      "hash": "sha256-GgKZ4LyKDS9vd946UeArhYqBKw63LdH4JqfbfFf7qNw="
+    }
+  },
+  "version": 7
+}

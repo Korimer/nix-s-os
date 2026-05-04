@@ -11,20 +11,31 @@
     with-inputs.flake = false;
   };
 
-  # we can import this flakeModule even if we dont have flake-parts as input!
   imports = [
     inputs.den.flakeModule
-    inputs.flake-file.flakeModules.default
+    inputs.flake-file.flakeModules.npins
   ];
+
+  flake-file.lol = "pls";
+
   den.ctx.user.includes = [ den.provides.define-user ];
 
-  den.default.nixos = {
-    # remove for real host
-    fileSystems."/".device = lib.mkDefault "/dev/fake";
-    #fileSystems."/".fsType = "auto";
-    boot.loader.grub.enable = lib.mkDefault false;
-  };
+  den.default = {
+    includes = [
+      den.provides.define-user
+      #  den.provides.hostname
+        den.provides.inputs'
+        den.provides.self'
+    ];
 
+    nixos = {
+# remove for real host
+      fileSystems."/".device = lib.mkDefault "/dev/fake";
+#fileSystems."/".fsType = "auto";
+      boot.loader.grub.enable = lib.mkDefault false;
+    };
+
+  };
   # include den batteries or your own re-usable aspects
   # this affects all users, could also be done per user
 }

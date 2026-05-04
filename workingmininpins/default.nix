@@ -1,7 +1,10 @@
 let
   sources = import ./npins;
   with-inputs = import sources.with-inputs sources {
+
   };
+
+  #outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   outputs =
     inputs:
