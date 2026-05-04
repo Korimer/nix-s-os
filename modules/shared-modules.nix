@@ -1,6 +1,6 @@
-{ den, ... }:
+{ den, korimer, ... }:
 {
   den.default.includes = [
-    den.aspects.fish
+    korimer.everywhere
   ];
 }

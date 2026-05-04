@@ -7,7 +7,6 @@
   den.aspects.fortnite = {
     includes = [
       #den.aspects.nvidia
-      den.aspects.shellAliases.provides.nhUpdate
     ];
     nixos =
     #{ pkgs, ... }:
