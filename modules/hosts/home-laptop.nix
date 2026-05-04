@@ -7,7 +7,6 @@
   den.aspects.magic = {
     includes = [
       den.aspects.nvidia
-      den.aspects.shellAliases.provides.nhUpdate
     ];
     nixos =
     { pkgs, ... }:
