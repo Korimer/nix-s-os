@@ -1,22 +1,19 @@
 { korimer, inputs, den, lib, ... }:
 let
-#everywhereClass = { class, aspect-chain }: den.provides.forward
-#{
-#  each = lib.singleton true;
-#  fromClass = _: "everywher";
-#  intoClass = _: class;
-#  intoPath  = _: [];
-#  fromAspect = _: {
-#    includes = lib.attrValues ((lib.head aspect-chain));
-#
-#  };
-#};
+# see https://den.oeiuwq.com/guides/custom-classes/#example-alias-a-class-into-the-target-root
+globalsClass = { class, aspect-chain }: den.provides.forward {
+  each = [ "nixos" "darwin" ];
+  fromClass = _: "os";
+  intoClass = lib.id;
+  intoPath = _: [ ]; # top-level
+  fromAspect = _: lib.head aspect-chain;
+};
 in
 {
   imports = [
     (inputs.den.namespace "korimer" true)
   ];
   den.aspects.korimer = {
-    includes = [ korimer.everywhere ];
+    includes = [ korimer.everywhere globalsClass ];
   };
 }
