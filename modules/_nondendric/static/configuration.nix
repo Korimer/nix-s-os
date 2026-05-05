@@ -64,8 +64,6 @@
     '';
   };
 
-  users.defaultUserShell = lib.mkDefault pkgs.zsh;
-
   users.groups.korimer = {};
   users.users.korimer = {
     createHome = true;
