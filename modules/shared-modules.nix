@@ -1,41 +1,25 @@
 { den, korimer, lib, ... }:
-let
-# see https://den.oeiuwq.com/guides/custom-classes/#example-alias-a-class-into-the-target-root
-globalsClass = { class, aspect-chain }:
-den.provides.forward {
-  each = lib.singleton class;
-  fromClass = _: "global";
-  intoClass = _: "provides";
-  intoPath = _: [ ];
-  fromAspect = _: lib.head aspect-chain;
-  adaptArgs = { config, ... }: { public = config; };
-};
-
-personalsClass = { class, aspect-chain }:
-den.provides.forward {
-  each = lib.singleton class;
-  fromClass = _: "personal";
-  intoClass = _: "provides";
-  intoPath = _: [ ];
-  fromAspect = _: lib.head aspect-chain;
-  adaptArgs = { config, ... }: {
-    private = lib.mkMerge (lib.attrValues config);
-  };
-};
-
-in
 {
-  den.default = {
+  den.default = {config, ...}: {
     includes = [
-      korimer.everywhere
-      #den.aspects.personalScripts.all
-      den.aspects.korimer.allProvides
+
     ];
 
-    allProvides = {};
+    meta.allProvides = (lib.attrValues config.provides);
 
-    provides.allProvides = { class, aspect-chain }: {
-      includes = (lib.attrValues (class.provides));
-    };
+    allProvides = (lib.attrValues config.provides);
+  };
+
+  den.ctx.host = {
+
+    includes = [
+      den.aspects.importAllUserProvides
+    ];
+  };
+
+  den.aspects.importAllUserProvides = { host, ... }: {
+    includes = (lib.flatten (
+  lib.mapAttrsToList (_: u: lib.attrValues (den.aspects.${_}.provides or {})) host.users
+)  );
   };
 }

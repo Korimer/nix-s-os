@@ -1,12 +1,12 @@
 { den, lib, inputs, ... }:
 {
 
-  den.aspects.personalScripts = {
-    all = {
-      includes = [
-        (lib.attrValues den.aspects.personalScripts.provides)
-      ];
-    };
+  den.aspects.korimer.provides.personalScripts = { config, ... }: {
+
+    includes = with den.aspects.korimer.provides.personalScripts.provides; [
+      nhrebuild
+    ];
+
     provides = {
       nhrebuild = { host, ... }: {
         nixos = { pkgs, ... }: {

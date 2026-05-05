@@ -1,11 +1,8 @@
-{ korimer, ... }:
+{ den, lib, ... }:
 {
-  korimer.everywhere.includes = [ korimer.shellAliases ];
-  korimer.shellAliases.provides = {
+  den.aspects.korimer.shellAliases.provides = {
 
-    includes = with korimer.shellAliases.provides; [
-      nhUpdate
-    ];
+    includes = lib.attrValues den.aspects.korimer.shellAliases.provides;
 
     nhUpdate = { host, ... }: {
       nixos = { pkgs, ... }: { environment.shellAliases.update = "${pkgs.nh}/bin/nh os switch --file /etc/nixos/ nixosConfigurations.${host.name}"; };

@@ -1,7 +1,6 @@
-{ korimer, ... }:
+{ ... }:
 {
-  korimer.everywhere.includes = [ korimer.fish ];
-  korimer.fish = {
+  den.aspects.korimer.provides.fish = {
     nixos = { pkgs, ... }:
     {
       programs.fish.enable = true;

@@ -1,4 +1,4 @@
-{ korimer, inputs, ... }:
+{ inputs, ... }:
 {
 
 
@@ -6,8 +6,7 @@
   #  url = "github:vikingnope/helium-browser-nix-flake";
   #};
 
-  korimer.everywhere.includes = [ korimer.helium ];
-  korimer.helium = {
+  den.aspects.korimer.provides.helium = {
     nixos = { pkgs, ... }: {
       environment.systemPackages = [
         inputs.helium-browser-nix-flake.packages.${pkgs.system}.default

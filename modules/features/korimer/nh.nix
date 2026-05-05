@@ -1,5 +1,4 @@
-{ korimer, ... }:
+{ ... }:
 {
-  korimer.everywhere.includes = [ korimer.nh ];
-  korimer.nh = { nixos = { pkgs, ...}: { environment.systemPackages = [ pkgs.nh ]; }; };
+  den.aspects.korimer.provides.nh = { nixos = { pkgs, ...}: { environment.systemPackages = [ pkgs.nh ]; }; };
 }
