@@ -1,14 +1,17 @@
 { userpublic, config, inputs, den, korimer, lib, ... }:
-{
-  den.default = {config, ...}: {
-    includes = [
-
-    ];
-
-    meta.allProvides = (lib.attrValues config.provides);
-
-    allProvides = (lib.attrValues config.provides);
+let
+  importNamespace = { user, ... }:
+  {
+    userpublic.usr.${user.name} = {name = user.name;};
   };
+in
+{
+
+  imports = [
+    (inputs.den.namespace "userpublic" true)
+  ];
+
+  userpublic.usr = {};
 
   den.ctx.host = {
 
@@ -17,11 +20,11 @@
     ];
   };
 
+  #{nixos = {pkgs, ...}: { environment.systemPackages = [ pkgs.etcd ]; };}
+
   den.ctx.user = {
     includes = [
-
-    #({ host, user }: {userpublic.${user.name} = user.name;})
-    #({ host, user }: {includes = lib.attrValues den.aspects.${user.name}.provides;})
+      importNamespace
     ];
   };
 
