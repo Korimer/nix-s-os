@@ -19,7 +19,7 @@
 
   den.aspects.importAllUserProvides = { host, ... }: {
     includes = (lib.flatten (
-  lib.mapAttrsToList (_: u: lib.attrValues (den.aspects.${_}.provides or {})) host.users
+  lib.mapAttrsToList (_: u: lib.attrValues (den.aspects.${u.name}.provides or {})) host.users
 )  );
   };
 }
