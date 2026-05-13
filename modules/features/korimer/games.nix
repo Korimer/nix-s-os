@@ -10,6 +10,7 @@
     nixos = { pkgs, ... }: {
       environment.systemPackages = [
         pkgs.everest
+        (pkgs.olympus.override {celesteWrapper = "steam-run";})
       ];
       #nixpkgs.overlays = [
       #  inputs.helium.overlays.default
