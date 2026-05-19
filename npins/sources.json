@@ -97,6 +97,19 @@
       "url": "https://github.com/vic/import-tree/archive/c41e7d58045f9057880b0d85e1152d6a4430dbf1.tar.gz",
       "hash": "sha256-BtZ2dtkBdSUnFPPFc+n0kcMbgaTxzFNPv2iaO326Ffg="
     },
+    "kondritic": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Korimer",
+        "repo": "kondritic"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6d509fca31868bb5463a2f98e5da73c49ec46f3b",
+      "url": "https://github.com/Korimer/kondritic/archive/6d509fca31868bb5463a2f98e5da73c49ec46f3b.tar.gz",
+      "hash": "sha256-HDjDT/vvZK48l5+Ry39z5J93QkBnLZ+vO1TC64Gjffk="
+    },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
