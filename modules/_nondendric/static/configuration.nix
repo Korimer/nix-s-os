@@ -30,7 +30,6 @@
       ./programs.nix
 
       # Include the extras
-      ./misc/cargo.nix
       ./misc/rdp.nix
     ];
 
