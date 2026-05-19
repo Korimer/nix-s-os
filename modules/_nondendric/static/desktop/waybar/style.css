@@ -1,0 +1,198 @@
+/* shoutouts to https://codeberg.org/ranjan/waybar/src/branch/main/powerline for inspiration */
+
+@import "colors.css";
+
+@define-color notification @yellow;
+@define-color audio @blue;
+@define-color workspaces @cyan;
+@define-color tray @purple;
+@define-color window @blue;
+@define-color taskbar @purple;
+@define-color cpu @yellow;
+@define-color memory @orange;
+@define-color temperature-normal @green;
+@define-color temperature-warning @yellow;
+@define-color temperature-critical @red;
+@define-color time @orange;
+@define-color battery @yellow;
+@define-color power @magenta;
+
+* {
+    padding: 0px;
+    margin: 0px;
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    min-height: 16px;
+}
+
+window#waybar {
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-bottom: 0px;
+    padding: 0px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.empty {
+    background-color: transparent;
+}
+
+#custom-div-swaync-wireplumber,
+#custom-div-wireplumber-workspaces,
+#custom-div-workspaces-tray,
+#custom-div-tray-window,
+#custom-window-r-flair,
+#custom-taskbar-l-flair,
+#custom-taskbar-r-flair,
+#custom-cpu-l-flair,
+#custom-div-cpu-memory,
+#custom-div-memory-temp,
+#custom-div-temp-clock,
+#custom-div-clock-wireplumber,
+#custom-div-wireplumber-power,
+#custom-power-r-flair 
+{
+  font-size: 28px;
+  margin: 0px;
+}
+
+#custom-swaync {
+  padding: 0px 5px;
+  border-radius: 8px 0px 0px 8px;
+  padding-left: 10px;
+  background-color: @notification;
+}
+
+#custom-div-swaync-wireplumber {
+  margin-left: -5px;
+  margin-right: -10px;
+  padding-right: 10px;
+  color: @audio;
+  background-color: @notification;
+}
+
+#wireplumber {
+  font-size: 18px;
+  padding: 0px 10px;
+  background-color: @audio;
+}
+
+#custom-div-wireplumber-workspaces {
+  color: @workspaces;
+  background-color: @audio;
+}
+
+#workspaces {
+  padding: 4px 10px;
+  background-color: @workspaces;
+}
+#workspaces button:hover {
+}
+#workspaces button.active {
+  background-color: @blue;
+  color: @foreground;
+}
+
+#custom-div-workspaces-tray {
+  color: @workspaces;
+  background-color: @tray;
+}
+
+#tray {
+  background-color: @tray;
+}
+
+#custom-div-tray-window {
+  padding-left: 5px;
+  color: @window;
+  background-color: @taskbar;
+}
+
+#window {
+  background-color: @window;
+}
+#custom-window-r-flair {
+  color: @window;
+}
+
+
+#taskbar {
+  padding: 4px 10px;
+  background-color: @taskbar;
+}
+#taskbar button {
+  padding: 1px 4px;
+  margin: 0px 4px;
+}
+#custom-taskbar-l-flair, #custom-taskbar-r-flair {
+  color: @taskbar;
+}
+
+
+#cpu, #memory, #temperature, #clock{
+  padding: 0px 10px;
+}
+
+
+#custom-cpu-l-flair {
+  color: @cpu;
+}
+#cpu {
+  background-color: @cpu;
+}
+
+#custom-div-cpu-memory {
+  color: @cpu;
+  background-color: @memory;
+}
+
+#memory {
+  background-color: @memory;
+}
+
+#custom-div-memory-temp {
+  color: @memory;
+  background-color: white;
+}
+
+#temperature {
+  border: white;
+  background-color: @temperature-normal;
+  border-style: solid;
+  border-width: 4px 10px;
+}
+#temperature.warning {
+  background-color: @temperature-warning;
+}
+#temperature.critical {
+  background-color: @temperature-critical;
+}
+
+#custom-div-temp-clock {
+  color: white;
+  background-color: @time;
+}
+
+#clock {
+  background-color: @time;
+}
+
+#battery {
+  background-color: @battery;
+}
+
+#custom-div-clock-power {
+  color: @time;
+  background-color: @power;
+}
+
+#custom-power {
+  padding: 0px 8px;
+  border-radius: 0px 8px 8px 0px;
+  background-color: @power;
+}

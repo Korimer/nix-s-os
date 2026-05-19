@@ -1,0 +1,20 @@
+#!/usr/bin/env pwsh
+$errorActionPreference = "Stop"
+
+$commitMsg = if ($null -eq $args[0]) {"sync"} else {$args[0]}
+
+function Push-Submodule {
+  param (
+    [String]$curModule
+  )
+  $modules = git -C "$curModule" submodule
+  if ($null -ne $modules) {
+    $modules | % {($_ -split " " | where {$_ -ne ""})[1]} |
+      % { Push-Submodule (Join-Path -Path $curModule -ChildPath $_) }
+  }
+  git -C "$curModule" add .
+  git -C "$curModule" commit -m "$commitMsg"
+  git -C "$curModule" push
+}
+
+Push-Submodule $pwd

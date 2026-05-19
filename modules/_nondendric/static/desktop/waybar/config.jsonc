@@ -1,0 +1,178 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+
+  "modules-left": [
+    "custom/swaync",
+    "custom/div-swaync-wireplumber",
+    "wireplumber",
+    "custom/div-wireplumber-workspaces",
+    "niri/workspaces",
+    "custom/div-workspaces-tray",
+    "tray",
+    "custom/div-tray-window",
+    "niri/window",
+    "custom/window-r-flair"
+  ],
+  "modules-center": [
+    "custom/taskbar-l-flair",
+    "wlr/taskbar",
+    "custom/taskbar-r-flair"
+  ],
+  "modules-right": [
+    "custom/cpu-l-flair",
+    "cpu",
+    "custom/div-cpu-memory",
+    "memory",
+    "custom/div-memory-temp",
+    "temperature",
+    "custom/div-temp-clock",
+    "clock",
+    "battery",
+    "custom/div-clock-power",
+    "custom/power",
+    "custom/power-r-flair" ]
+
+  ,"tray": {
+    "icon-size": 18,
+    "spacing": 10
+  }
+
+  ,"cpu": {
+    "format": "{usage}% ",
+    "tooltip": false
+  }
+  ,"memory": {
+    "format": "{}% "
+  }
+  ,"temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "warning-threshold": 60,
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C ",
+    "format-warning": "{temperatureC}°C ",
+    "format-critical": "{temperatureC}°C "
+  }
+  ,"clock": {
+    "timezone": "America/Denver",
+    "format": "{:%I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  }
+
+  ,"wlr/taskbar": {
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-click-right": "minimize"
+  }
+
+  ,"wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "{volume}% 󰝟",
+    "on-click": "helvum",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "max-volume": 150,
+    "scroll-step": 1,
+    "format-icons": ["", "", ""]
+  }
+
+  ,"battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": "{capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-full": " {capacity}%",
+    "format-icons": ["", "", ""]
+  }
+
+  ,"custom/power": {
+    "format" : "⏻ ",
+    "tooltip": false,
+    "on-click": "wleave --layout /etc/wleave/layout.json --css /etc/wleave/style.css"
+  }
+
+  ,"custom/swaync": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
+      "dnd-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  }
+
+  ,"custom/div-swaync-wireplumber": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-wireplumber-workspaces": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-workspaces-tray": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-tray-window": {
+    "format": " ",
+    "tooltip": false
+  }
+  ,"custom/window-r-flair": {
+    "format": " ",
+    "tooltip": false
+  }
+  ,"tray-r-flair": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/taskbar-l-flair": {
+    "format": " ",
+    "tooltip": false
+  }
+  ,"custom/taskbar-r-flair": {
+    "format": " ",
+    "tooltip": false
+  }
+  ,"custom/cpu-l-flair": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-cpu-memory": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-memory-temp": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-temp-clock": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-clock-wireplumber": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/div-wireplumber-power": {
+    "format": "",
+    "tooltip": false
+  }
+  ,"custom/power-r-flair": {
+    "format": "",
+    "tooltip": false
+  }
+
+}

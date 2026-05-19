@@ -1,0 +1,2 @@
+spawn-at-startup "swww" "img" "Documents/resources/todaysface.png" "--outputs" "HDMI-A-1" "--resize" "stretch"
+spawn-at-startup "swww" "img" "/etc/nixos/home-system/static/_resources/punpunbg.png" "--outputs" "DP-1" "--resize" "crop"
