@@ -43,20 +43,17 @@
       "hash": "sha256-sPPriYJpLmukixc6/KBzeOhw83OSodco5YbeayHzAgo="
     },
     "flake-file": {
-      "type": "GitRelease",
+      "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "vic",
+        "owner": "denful",
         "repo": "flake-file"
       },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
+      "branch": "main",
       "submodules": false,
-      "version": "v0.6.0",
-      "revision": "7d16dfaeb912d5efdff0d0eda2aabc0c934168dd",
-      "url": "https://api.github.com/repos/vic/flake-file/tarball/refs/tags/v0.6.0",
-      "hash": "sha256-RZVtJefKKy3Z2UvKWSbtRF3cUxt/2fHga2adN6MZQ1U="
+      "revision": "c58eb27d9434e5be0c8693f1eb18d47035bc21ba",
+      "url": "https://github.com/denful/flake-file/archive/c58eb27d9434e5be0c8693f1eb18d47035bc21ba.tar.gz",
+      "hash": "sha256-+jbXnODsR19pFKB0x/6kHhFgW6yV6N+CGClFr45eDU8="
     },
     "flake-parts": {
       "type": "Git",
