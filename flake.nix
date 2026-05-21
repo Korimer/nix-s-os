@@ -11,12 +11,6 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    flatpak = {
-      type = "github";
-      owner = "gmodena";
-      repo = "nix-flatpak";
-      ref = "latest";
-    };
     helium.url = "github:vikingnope/helium-browser-nix-flake";
     import-tree.url = "github:vic/import-tree";
     nix-auto-follow = {
