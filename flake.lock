@@ -69,6 +69,22 @@
         "type": "github"
       }
     },
+    "flatpak": {
+      "locked": {
+        "lastModified": 1767983141,
+        "narHash": "sha256-7ZCulYUD9RmJIDULTRkGLSW1faMpDlPKcbWJLYHoXcs=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "440818969ac2cbd77bfe025e884d0aa528991374",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "latest",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "helium": {
       "inputs": {
         "nixpkgs": "nixpkgs_2",
@@ -168,6 +184,7 @@
         "fenix": "fenix",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
+        "flatpak": "flatpak",
         "helium": "helium",
         "import-tree": "import-tree",
         "nix-auto-follow": "nix-auto-follow",
