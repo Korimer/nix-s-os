@@ -8,7 +8,7 @@
       nhUpdate = { host, ... }: {
         nixos = { config, pkgs, ... }: {
           environment.shellAliases.update =
-            "${pkgs.nh}/bin/nh os switch --file /etc/nixos nixosConfigurations.${host.name}";
+            "${pkgs.nh}/bin/nh os switch /etc/nixos --impure";
         };
       };
       writeFlake = {
