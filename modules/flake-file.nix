@@ -1,8 +1,9 @@
-{ inputs, ... }:
+{ lib, ff, inputs, ... }:
 {
-  imports = with inputs.flake-file.flakeModules; [
-    dendritic
-    npins
+  imports = [
+    inputs.flake-file.flakeModules.dendritic
+      inputs.flake-file.flakeModules.npins
+      (inputs.den.namespace "ff" true)
   ];
 
   flake-file = {
@@ -14,6 +15,13 @@
       flake-aspects.url = "github:vic/flake-aspects";
       import-tree.url = "github:vic/import-tree";
       systems.url = "github:nix-systems/nix-systems";
+      helium.url = "github:vikingnope/helium-browser-nix-flake";
+
+      fenix = {
+        url = "github:nix-community/fenix";
+        flake = false;
+      };
+
 
       with-inputs = {
         url = "github:vic/with-inputs";
