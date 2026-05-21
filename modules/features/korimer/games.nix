@@ -1,27 +1,27 @@
-{ den, ... }:
+{ den, lib, ... }:
 {
   den.aspects.korimer.provides.games = {
 
-    includes = [ den.aspects.flatpak ];
+    includes = [
+      den.aspects.flatpak
+    ]
+    ++
+    (lib.attrValues den.aspects.korimer.provides.games.provides)
+    ;
 
-    nixos = { pkgs, ... }: {
-      environment.systemPackages = with pkgs; [
-        everest
-          (olympus.override {celesteWrapper = "steam-run";})
-      ];
+    provides = {
+      celeste.nixos = { pkgs, ... }: {
+        environment.systemPackages = with pkgs; [
+          everest
+            (olympus.override {celesteWrapper = "steam-run";})
+        ];
+      };
 
-      services.flatpak.packages = [
-        "org.vinegarhq.Sober"
-      ];
-
-      systemd.services.flatpak-repo = {
-        wantedBy = [ "multi-user.target" ];
-        path = [ pkgs.flatpak ];
-        script =
-          ''
-          flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-          '';
-      }; 
+      sober.nixos = { ... }: {
+        services.flatpak.packages = [
+          "org.vinegarhq.Sober"
+        ];
+      };
     };
   };
 }
