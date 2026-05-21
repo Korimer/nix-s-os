@@ -6,7 +6,6 @@
   inputs = {
     den.url = "github:vic/den";
     fenix.url = "github:nix-community/fenix";
-    flake-aspects.url = "github:vic/flake-aspects";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -15,13 +14,5 @@
     helium.url = "github:vikingnope/helium-browser-nix-flake";
     import-tree.url = "github:vic/import-tree";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
-    systems = {
-      url = "github:nix-systems/nix-systems";
-      flake = false;
-    };
-    with-inputs = {
-      url = "github:vic/with-inputs";
-      flake = false;
-    };
   };
 }

@@ -1,5 +1,7 @@
 { inputs, ... }:
 {
+  flake-file.inputs.fenix.url = "github:nix-community/fenix";
+
   den.aspects.korimer.provides.cargo = {
     nixos = { pkgs, ... }: {
       nixpkgs.overlays = [ inputs.fenix.overlays.default ];

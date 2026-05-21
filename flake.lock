@@ -34,21 +34,6 @@
         "type": "github"
       }
     },
-    "flake-aspects": {
-      "locked": {
-        "lastModified": 1773552804,
-        "narHash": "sha256-a0kjpCZGnD5lt7yW6C3hzPhSf5KjnTyvX6XZ2NuhGs4=",
-        "owner": "vic",
-        "repo": "flake-aspects",
-        "rev": "56fa8d4d4772d58eb7f9d66c28c1cd2762b60423",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vic",
-        "repo": "flake-aspects",
-        "type": "github"
-      }
-    },
     "flake-file": {
       "locked": {
         "lastModified": 1779051720,
@@ -167,14 +152,11 @@
       "inputs": {
         "den": "den",
         "fenix": "fenix",
-        "flake-aspects": "flake-aspects",
         "flake-file": "flake-file",
         "flake-parts": "flake-parts",
         "helium": "helium",
         "import-tree": "import-tree",
-        "nixpkgs": "nixpkgs_3",
-        "systems": "systems_2",
-        "with-inputs": "with-inputs"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "rust-analyzer-src": {
@@ -209,22 +191,6 @@
         "type": "github"
       }
     },
-    "systems_2": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754899873,
-        "narHash": "sha256-aytckc4IKHgIamxePU3u0oVCP1V91PqzczrSSmu1k6g=",
-        "owner": "nix-systems",
-        "repo": "nix-systems",
-        "rev": "e5775d986f77d9186686db7f7878b27916deed4f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "nix-systems",
-        "type": "github"
-      }
-    },
     "utils": {
       "inputs": {
         "systems": "systems"
@@ -240,22 +206,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "with-inputs": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1777938927,
-        "narHash": "sha256-efneEYyUSQ7HOg/peGvfotb/P1N1+WWp10P1kMQSpe8=",
-        "owner": "vic",
-        "repo": "with-inputs",
-        "rev": "e8729bdb4afb57fc72c2a7084a77a7ee09c7e38f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vic",
-        "repo": "with-inputs",
         "type": "github"
       }
     }
