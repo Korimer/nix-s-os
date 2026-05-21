@@ -14,14 +14,16 @@
       flake-parts.url = "github:hercules-ci/flake-parts";
       flake-aspects.url = "github:vic/flake-aspects";
       import-tree.url = "github:vic/import-tree";
-      systems.url = "github:nix-systems/nix-systems";
       helium.url = "github:vikingnope/helium-browser-nix-flake";
 
-      fenix = {
-        url = "github:nix-community/fenix";
+      systems = {
+        url = "github:nix-systems/nix-systems";
         flake = false;
       };
 
+      fenix = {
+        url = "github:nix-community/fenix";
+      };
 
       with-inputs = {
         url = "github:vic/with-inputs";
