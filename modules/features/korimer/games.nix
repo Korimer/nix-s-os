@@ -8,7 +8,7 @@
       celeste.nixos = { pkgs, ... }: {
         environment.systemPackages = with pkgs; [
           everest
-            (olympus.override {celesteWrapper = "steam-run";})
+          (olympus.override {celesteWrapper = "steam-run";})
         ];
       };
 
