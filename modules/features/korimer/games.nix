@@ -8,17 +8,18 @@
       celeste.nixos = { pkgs, ... }: {
         environment.systemPackages = with pkgs; [
           everest
-          (olympus.override {celesteWrapper = "steam-run";})
+            (olympus.override {celesteWrapper = "steam-run";})
         ];
       };
 
-      sober.nixos = { ... }: {
+      sober = {
         includes = [ den.aspects.flatpak ];
-        services.flatpak.packages = [
-          "org.vinegarhq.Sober"
-        ];
+        nixos = _: {
+          services.flatpak.packages = [
+            "org.vinegarhq.Sober"
+          ];
+        };
       };
     };
   };
 }
-
