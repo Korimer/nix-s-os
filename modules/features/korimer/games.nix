@@ -2,12 +2,7 @@
 {
   den.aspects.korimer.provides.games = {
 
-    includes = [
-      den.aspects.flatpak
-    ]
-    ++
-    (lib.attrValues den.aspects.korimer.provides.games.provides)
-    ;
+    includes = lib.attrValues den.aspects.korimer.provides.games.provides;
 
     provides = {
       celeste.nixos = { pkgs, ... }: {
@@ -18,6 +13,7 @@
       };
 
       sober.nixos = { ... }: {
+        includes = [ den.aspects.flatpak ];
         services.flatpak.packages = [
           "org.vinegarhq.Sober"
         ];
