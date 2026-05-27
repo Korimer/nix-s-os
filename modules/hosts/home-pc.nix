@@ -1,16 +1,12 @@
 { den, ... }:
 {
   den.hosts.x86_64-linux.netzach.users = {
-    korimer.classes = [];
+    korimer = {};
   };
 
   den.aspects.netzach = {
     includes = [
       den.aspects.nvidia
     ];
-    nixos =
-    #{ pkgs, ... }:
-    {
-    };
   };
 }

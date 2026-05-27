@@ -1,15 +1,14 @@
 { den, ... }:
 {
   den.hosts.x86_64-linux.magic.users = {
-    korimer.classes = [];
+    korimer = {};
   };
 
   den.aspects.magic = {
     includes = [
       den.aspects.nvidia
     ];
-    nixos =
-    { pkgs, ... }:
+    nixos = { pkgs, ... }:
     {
       systemd.sleep.settings.Sleep.HibernateMode = "shutdown";
       environment.systemPackages = [
