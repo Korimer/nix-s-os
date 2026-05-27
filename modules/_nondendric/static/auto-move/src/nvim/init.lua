@@ -5,6 +5,8 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.termguicolors = true
+
 -- give me good indentation
 vim.cmd("set noautoindent")
 vim.cmd("set smartindent")
