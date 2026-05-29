@@ -8,7 +8,6 @@ let
     dunst               = ".config";
     kitty               = ".config";
     niri                = ".config";
-    nvim                = ".config";
   };
   to_move = {
     zshrc = "${userhome}/.zshrc";

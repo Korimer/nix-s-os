@@ -20,6 +20,10 @@
     helium.url = "github:vikingnope/helium-browser-nix-flake";
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
+    korimerNvimRepo = {
+      url = "github:Korimer/vimcfg";
+      flake = false;
+    };
     nix-auto-follow = {
       url = "github:fzakaria/nix-auto-follow";
       inputs.nixpkgs.follows = "nixpkgs";

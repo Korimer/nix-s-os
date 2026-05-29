@@ -1,4 +1,0 @@
-[
-  "mod"
-  "use"
-] @keyword.import
