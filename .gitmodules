@@ -1,3 +1,6 @@
-[submodule "nvim"]
-	path = modules/_submodules/nvim
-	url = https://github.com/Korimer/vimcfg
+[submodule "UtilScripts"]
+	path = modules/_submodules/UtilScripts
+	url = git@github.com:/Korimer/Mini-Utility-Scripts
+[submodule "dotfiles"]
+	path = modules/_submodules/dotfiles
+	url = git@github.com:/Korimer/dots
