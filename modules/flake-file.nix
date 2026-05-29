@@ -10,6 +10,7 @@
     inputs = {
       den.url = "github:vic/den";
       import-tree.url = "github:vic/import-tree";
+      self.submodules = true;
     };
     prune-lock.enable = true;
   };
