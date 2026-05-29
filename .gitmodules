@@ -1,0 +1,3 @@
+[submodule "nvim"]
+	path = modules/_submodules/nvim
+	url = https://github.com/Korimer/vimcfg
