@@ -5,6 +5,8 @@
   {
     environment.systemPackages = with pkgs; [
       lutris-unwrapped
+      umu-launcher
+      heroic
     ];
   };
   };
