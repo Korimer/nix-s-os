@@ -1,6 +1,8 @@
 [submodule "UtilScripts"]
 	path = modules/_submodules/UtilScripts
 	url = git@github.com:/Korimer/Mini-Utility-Scripts
+        branch = main
 [submodule "dotfiles"]
 	path = modules/_submodules/dotfiles
 	url = git@github.com:/Korimer/dots
+        branch = main
