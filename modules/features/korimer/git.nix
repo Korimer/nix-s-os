@@ -14,10 +14,8 @@
           core.fileMode = false;
           push.autosetupremote=true;
 
-          user = lib.mkIf (user.name == "korimer") {
-            name = "Korimer";
-            email = "thekclov@gmail.com";
-          };
+          user.name = "Korimer";
+          user.email = "thekclov@gmail.com";
         };
       };
     };
