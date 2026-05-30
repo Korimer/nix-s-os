@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  dotfileDir = "${inputs.self}/modules/_submodules/dotfiles";
+  dotfileDir = "${inputs.self}/git-submodules/dotfiles";
   dotfileAttrs = builtins.readDir dotfileDir;
 
   home-items = builtins.filter
