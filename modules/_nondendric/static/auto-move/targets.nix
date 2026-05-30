@@ -14,11 +14,11 @@ let
   };
   all_targets = home_files // to_move;
 in {
-  autoMkLink.targets = lib.mapAttrs' (key: val:
-    lib.nameValuePair
-      "${config.environment.variables.NIXROOT}static/auto-move/src/${key}"
-      val
-    )
-    all_targets
-  ;
+  #autoMkLink.targets = lib.mapAttrs' (key: val:
+  #  lib.nameValuePair
+  #    "${config.environment.variables.NIXROOT}static/auto-move/src/${key}"
+  #    val
+  #  )
+  #  all_targets
+  #;
 }

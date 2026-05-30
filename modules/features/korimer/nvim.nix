@@ -10,7 +10,6 @@
     {
       programs.neovide.enable = true;
       programs.neovim.enable = true;
-      home.file.".config/nvim".source = inputs.korimerNvimRepo;
     };
   };
 }
