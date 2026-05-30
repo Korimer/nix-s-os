@@ -14,6 +14,8 @@
     includes = [ examplename.beastmode ];
   };
 
+  den.default.includes = [ den.batteries.self' den.batteries.inputs' ];
+
   den.default.nixos = {
 # remove for real host
     fileSystems."/".device = lib.mkDefault "/dev/fake";
