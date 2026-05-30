@@ -1,4 +1,6 @@
 { ... }:
 {
-  den.aspects.korimer.homeManager.home.stateVersion = "26.05";
+  den.aspects.korimer = { user, ... }: {
+    homeManager.home.stateVersion = "26.05";
+  };
 }

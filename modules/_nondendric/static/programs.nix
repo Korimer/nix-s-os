@@ -4,9 +4,9 @@ let
   sys_programs_to_enable = {
     steam = {};
     firefox = import ./programs/firefox.nix {};
-    git = {
-      package = pkgs.gitFull;
-    };
+    #git = {
+    #  package = pkgs.gitFull;
+    #};
     thunderbird = {};
     zsh = import ./programs/zsh.nix {};
     #neovim = {
