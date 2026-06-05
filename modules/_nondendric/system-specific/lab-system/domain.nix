@@ -50,13 +50,6 @@
     };
   };
   
-  system.activationScripts.setNixConfigPerms = {
-    text = ''
-      chgrp 'lab admins' /etc/nixos -R
-      chmod 775 /etc/nixos -R
-    '';
-  };
-
   # Ensures that this system is discoverable to others on the network.
   # Akin to setting network discovery in windows.
   # I MAY need to override system.nssDatabases.hosts to ensure this works.
