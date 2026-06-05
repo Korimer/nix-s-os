@@ -8,7 +8,7 @@ let
     #  package = pkgs.gitFull;
     #};
     thunderbird = {};
-    zsh = import ./programs/zsh.nix {};
+    zsh = {};
     #neovim = {
     #  vimAlias = true;
     #  viAlias = true;
