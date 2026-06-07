@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake-file.inputs.url = "github:noctalia-dev/noctalia-shell";
+  flake-file.inputs.noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
 
   den.aspects.korimer.provides.noctalia-shell.nixos = { pkgs, ... }:
   {
