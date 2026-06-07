@@ -8,6 +8,7 @@
         lutris-unwrapped
           umu-launcher
           heroic
+          pcsx2
       ];
 
       services.flatpak.packages = [ "com.usebottles.bottles" ];
