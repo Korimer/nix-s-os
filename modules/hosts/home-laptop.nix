@@ -6,6 +6,7 @@
 
   den.aspects.magic = {
     includes = [
+      den.aspects.bluetooth
       den.aspects.nvidia
     ];
     nixos = { pkgs, ... }:

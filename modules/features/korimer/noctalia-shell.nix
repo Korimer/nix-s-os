@@ -3,27 +3,24 @@
   flake-file.inputs.noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
 
   den.aspects.korimer.provides.noctalia-shell = {
-    includes = [ den.aspects.niriconfig ];
+    includes = [
+      den.aspects.niriconfig
+      # System settings
+      den.aspects.power
+      den.aspects.networking
+    ];
 
-    nixos = { pkgs, ... }:
+    nixos =
     {
       niriconfig.niristartup.text = ''
-        spawn-at-startup "qs" "-c" "noctalia-shell"
+        spawn-at-startup "noctalia-shell"
       '';
+    };
 
-      environment.systemPackages = [
-        inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-      ];
-      systemd.user.services.noctalia-shell = {
-        enable = true;
-        after = [ "default.target" ];
-        wantedBy = [ "default.target" ];
-        description = "Runs noctalia shell, hopefully on startup";
-        serviceConfig = {
-          Type = "simple";
-          ExecStart = ''/run/current-system/sw/bin/noctalia-shell'';
-        };
-      };
+    homeManager = {
+      imports = [ inputs.noctalia.homeModules.default ];
+
+      programs.noctalia-shell.enable = true;
     };
   };
 
