@@ -57,16 +57,16 @@
       };
     };
 
-    provides.plugins.homeManager.programs.noctalia-shell.plugins =
+    provides.plugins.homeManager.programs.noctalia-shell =
     let
       enableAll = list: builtins.listToAttrs (
         builtins.map
-          (item: { name = item; value = {enable = true;}; })
+          (item: { name = item; value = {enabled = true;}; })
           list
       );
     in
     {
-      states = enableAll [
+      plugins.states = enableAll [
         "custom-sticker"
         "catwalk"
         "activate-linux"
