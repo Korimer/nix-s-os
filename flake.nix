@@ -5,9 +5,14 @@
     inputs:
     inputs.flake-parts.lib.mkFlake {
       inherit inputs;
-      specialArgs = {
-        flake-root = (import ./flake-root.nix);
-      };
+      specialArgs = 
+        let root = (import ./flake-root.nix); in
+        {
+          flake-root = {
+            path = root;
+            literal = builtins.unsafeDiscardStringContext (builtins.toString root);
+          };
+        };
     } (inputs.import-tree ./modules);
 
   inputs = {

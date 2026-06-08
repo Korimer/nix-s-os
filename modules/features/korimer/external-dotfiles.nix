@@ -1,4 +1,4 @@
-{ inputs, den, ... }:
+{ inputs, flake-root, ... }:
 let
 
 dotfileDir = "${inputs.self}/git-submodules/dotfiles";
@@ -23,11 +23,10 @@ home-items = builtins.filter
 {
   den.aspects.korimer.provides.external-dotfiles =  {
 
-    homeManager = { config, self', inputs', lib, ...}:
+    homeManager = { config, ...}:
       let
         #replace with lib.getExe self'.packages.flake-root;
-        flakeRoot = "/etc/nixos"; 
-        trueDotFileDir = "${flakeRoot}/git-submodules/dotfiles";
+        trueDotFileDir = "${flake-root.literal}/git-submodules/dotfiles";
       in
     {
       programs.emacs.enable = true;
