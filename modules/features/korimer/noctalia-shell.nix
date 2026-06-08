@@ -19,7 +19,7 @@
 
       environment.systemPackages = with pkgs; [
         playerctl
-        mpv
+        (mpv.override { scripts = [ pkgs.mpvScripts.mpris ]; })
         yt-dlp
         jq
         ffmpeg
