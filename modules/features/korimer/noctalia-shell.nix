@@ -1,4 +1,4 @@
-{ den, inputs, ... }:
+{ den, inputs, flake-root, ... }:
 {
   flake-file.inputs.noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
 
@@ -7,6 +7,7 @@
       # Customizations of my choice
       den.aspects.korimer.provides.noctalia-shell.provides.plugins
       den.aspects.korimer.provides.noctalia-shell.provides.bar
+      den.aspects.korimer.provides.noctalia-shell.provides.qs-root
       # My custom niri config module
       den.aspects.niriconfig
       # System settings
@@ -52,6 +53,11 @@
               name = "Official Noctalia Plugins";
               url = "https://github.com/noctalia-dev/noctalia-plugins";
             }
+            {
+              enabled = true;
+              name = "Korimer ripoff noctalia plugins";
+              url = "https://github.com/Korimer/noctalia-plugins";
+            }
           ];
         };
       };
@@ -79,6 +85,10 @@
           customizeText = true;
           firstLine = " ";
           secondLine = " ";
+        };
+        not-just-text = {
+          listEnabled = true;
+          textFile = "${flake-root.path}/git-submodules/dotfiles/quotes/anni3/taglines.txt";
         };
       };
     };
@@ -112,6 +122,9 @@
         }
       ];
       widgets.right = [
+        {
+          id = "plugin:not-just-text";
+        }
         {
           id = "Tray";
         }
