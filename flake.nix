@@ -18,12 +18,6 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    flake-root = {
-      type = "github";
-      owner = "srid";
-      repo = "flake-root";
-      rev = "b759a56851e10cb13f6b8e5698af7b59c44be26e";
-    };
     flatpak = {
       type = "github";
       owner = "gmodena";
