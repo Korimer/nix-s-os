@@ -4,6 +4,10 @@
 
   den.aspects.korimer.provides.noctalia-shell = {
     includes = [
+      # Customizations of my choice
+      den.aspects.korimer.provides.noctalia-shell.provides.plugins
+      den.aspects.korimer.provides.noctalia-shell.provides.bar
+      # My custom niri config module
       den.aspects.niriconfig
       # System settings
       den.aspects.power
@@ -12,16 +16,97 @@
 
     nixos =
     {
-      niriconfig.niristartup.text = ''
+      niriconfig.noctaliastartup.text = ''
         spawn-at-startup "noctalia-shell"
+      '';
+      niriconfig.noctaliawallpaper.text = ''
+        // Set the regular wallpaper on the backdrop.
+        layer-rule {
+          match namespace="^noctalia-wallpaper*"
+          place-within-backdrop true
+        }
+
+        // Set transparent workspace background color so you see the backdrop at all times.
+        layout {
+          background-color "transparent"
+        }
+
+        // Optionally, disable the workspace shadows in the overview.
+        overview {
+          workspace-shadow {
+            off
+          }
+        }
       '';
     };
 
     homeManager = {
       imports = [ inputs.noctalia.homeModules.default ];
 
-      programs.noctalia-shell.enable = true;
+      programs.noctalia-shell = {
+        enable = true;
+        plugins = {
+          sources = [
+            {
+              enabled = true;
+              name = "Official Noctalia Plugins";
+              url = "https://github.com/noctalia-dev/noctalia-plugins";
+            }
+          ];
+        };
+      };
+    };
+
+    provides.plugins.homeManager.programs.noctalia-shell.plugins =
+    let
+      enableAll = list: builtins.listToAttrs (
+        builtins.map
+          (item: { name = item; value = {enable = true;}; })
+          list
+      );
+    in
+    {
+      states = enableAll [
+        "custom-sticker"
+        "catwalk"
+        "activate-linux"
+        "kaomoji-provider"
+        "not-just-text"
+        "giphy-search"
+      ];
+      pluginSettings = {
+        activate-linux = {
+          customizeText = true;
+          firstLine = "";
+          secondLine = "";
+        };
+      };
+    };
+
+    provides.bar.homeManager.programs.noctalia-shell.settings.bar =
+    let
+      setIds = list: builtins.map (item: { id = item; }) list;
+    in
+    {
+      barType = "framed";
+      widgets.left = setIds [
+        "Launcher"
+        "Clock"
+        "SystemMonitor"
+        "ActiveWindow"
+        "MediaMini"
+      ];
+      widgets.center = setIds [
+        "Workspace"
+      ];
+      widgets.right = setIds [
+        "Tray"
+        "NotificationHistory"
+        "Battery"
+        "Volume"
+        "Brightness"
+        "ControlCenter"
+      ];
     };
   };
-
 }
