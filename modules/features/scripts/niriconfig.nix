@@ -24,7 +24,7 @@
       });
     };
 
-    environment.etc."niri/nix-managed.kdl".text =
+    config.environment.etc."niri/nix-managed.kdl".text =
       let
         entries = lib.mapAttrsToList
           (name: value: value // { inherit name; })
@@ -35,6 +35,8 @@
             (a: b: a.priority < b.priority)
             entries;
       in
-        sortedEntries;
+        lib.concatStringsSep "\n"
+          (map (entry: entry.text) sortedEntries)
+      ;
   };
 }
