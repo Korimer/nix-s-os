@@ -7,7 +7,6 @@
       # Customizations of my choice
       den.aspects.korimer.provides.noctalia-shell.provides.plugins
       den.aspects.korimer.provides.noctalia-shell.provides.bar
-      den.aspects.korimer.provides.noctalia-shell.provides.qs-root
       # My custom niri config module
       den.aspects.niriconfig
       # System settings
