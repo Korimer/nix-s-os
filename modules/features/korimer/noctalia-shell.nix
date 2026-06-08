@@ -92,7 +92,7 @@
         }
         {
           id = "Clock";
-          horizontalBar = "h:mm AP ddd, MMM dd";
+          formatHorizontal = "h:mm AP ddd, MMM dd";
         }
         {
           id = "SystemMonitor";
