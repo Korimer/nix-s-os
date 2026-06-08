@@ -14,8 +14,18 @@
       den.aspects.networking
     ];
 
-    nixos =
+    nixos = { pkgs, ... }:
     {
+
+      environment.systemPackages = with pkgs; [
+        playerctl
+        mpv
+        yt-dlp
+        jq
+        ffmpeg
+        evtest
+      ];
+
       niriconfig.noctaliastartup.text = ''
         spawn-at-startup "noctalia-shell"
       '';
@@ -78,6 +88,11 @@
         "kaomoji-provider"
         "not-just-text"
         "giphy-search"
+        "slowbongo"
+        "todo"
+        "privacy-indicator"
+        "lyrics-fetch"
+        "music-search"
       ];
       pluginSettings = {
         activate-linux = {
@@ -88,6 +103,9 @@
         not-just-text = {
           listEnabled = true;
           textFile = "${flake-root.path}/git-submodules/dotfiles/quotes/anni3/taglines.txt";
+        };
+        lyrics-fetch = {
+          hideWhenEmpty = false;
         };
       };
     };
@@ -100,6 +118,9 @@
           id = "Launcher";
         }
         {
+          id = "plugin:privacy-indicator";
+        }
+        {
           id = "Clock";
           formatHorizontal = "h:mm AP ddd, MMM dd";
         }
@@ -107,10 +128,7 @@
           id = "SystemMonitor";
         }
         {
-          id = "ActiveWindow";
-        }
-        {
-          id = "MediaMini";
+          id = "plugin:music-search";
         }
       ];
       widgets.center = [
@@ -118,6 +136,9 @@
           id = "Workspace";
           showApplications = true;
           colorizeIcons = true;
+        }
+        {
+          id = "plugin:lyrics-fetch";
         }
       ];
       widgets.right = [
