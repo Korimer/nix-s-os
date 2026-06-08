@@ -77,35 +77,59 @@
       pluginSettings = {
         activate-linux = {
           customizeText = true;
-          firstLine = "";
-          secondLine = "";
+          firstLine = " ";
+          secondLine = " ";
         };
       };
     };
 
     provides.bar.homeManager.programs.noctalia-shell.settings.bar =
-    let
-      setIds = list: builtins.map (item: { id = item; }) list;
-    in
     {
       barType = "framed";
-      widgets.left = setIds [
-        "Launcher"
-        "Clock"
-        "SystemMonitor"
-        "ActiveWindow"
-        "MediaMini"
+      widgets.left = [
+        {
+          id = "Launcher";
+        }
+        {
+          id = "Clock";
+          horizontalBar = "h:mm AP ddd, MMM dd";
+        }
+        {
+          id = "SystemMonitor";
+        }
+        {
+          id = "ActiveWindow";
+        }
+        {
+          id = "MediaMini";
+        }
       ];
-      widgets.center = setIds [
-        "Workspace"
+      widgets.center = [
+        {
+          id = "Workspace";
+          showApplications = true;
+          colorizeIcons = true;
+        }
       ];
-      widgets.right = setIds [
-        "Tray"
-        "NotificationHistory"
-        "Battery"
-        "Volume"
-        "Brightness"
-        "ControlCenter"
+      widgets.right = [
+        {
+          id = "Tray";
+        }
+        {
+          id = "NotificationHistory";
+        }
+        {
+          id = "Battery";
+        }
+        {
+          id = "Volume";
+        }
+        {
+          id = "Brightness";
+        }
+        {
+          id = "ControlCenter";
+        }
       ];
     };
   };
