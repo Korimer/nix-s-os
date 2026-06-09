@@ -4,10 +4,6 @@
   outputs = inputs: import ./make-flake.nix inputs;
 
   inputs = {
-    calibre-bookfusion = {
-      url = "github:BookFusion/calibre-plugin";
-      flake = false;
-    };
     den.url = "github:vic/den";
     fenix.url = "github:nix-community/fenix";
     flake-file.url = "github:vic/flake-file";
