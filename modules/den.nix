@@ -5,7 +5,7 @@
     (inputs.den.namespace "examplename" true)
     inputs.den.flakeModule
   ];
-  den.ctx.user.includes = [ den.provides.define-user ];
+  den.schema.user.includes = [ den.provides.define-user ];
 
   examplename.beastmode = {
   };

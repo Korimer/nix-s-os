@@ -13,12 +13,6 @@ in
 
   userpublic.usr = {};
 
-  den.ctx.host = {
-    includes = [
-      den.aspects.korimer
-    ];
-  };
-
   den.schema.user = {
     #classes = [ "homeManager" ];
     includes = [
