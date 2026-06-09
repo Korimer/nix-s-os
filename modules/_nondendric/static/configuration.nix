@@ -24,7 +24,6 @@
       # Include general activation scripts
       ./scripts/startup.nix
       ./scripts/auto-mklink.nix
-      ./auto-move/targets.nix
 
       # Include the stuff I actually want to install
       ./programs.nix

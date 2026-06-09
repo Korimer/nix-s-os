@@ -30,7 +30,6 @@ in
 {
 
   imports = [
-    ../auto-move/targets.nix
     ../../system-specific/home-laptop/auto-move/targets.nix
   ];
 

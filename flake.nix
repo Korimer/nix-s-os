@@ -1,16 +1,12 @@
 # DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
-  outputs =
-    inputs:
-    inputs.flake-parts.lib.mkFlake {
-      inherit inputs;
-      specialArgs = {
-        flake-root = (import ./flake-root.nix);
-      };
-    } (inputs.import-tree ./modules);
-
+  outputs = inputs: import ./make-flake.nix { inherit inputs; };
   inputs = {
+    calibre-bookfusion = {
+      url = "github:BookFusion/calibre-plugin";
+      flake = false;
+    };
     den.url = "github:vic/den";
     fenix.url = "github:nix-community/fenix";
     flake-file.url = "github:vic/flake-file";

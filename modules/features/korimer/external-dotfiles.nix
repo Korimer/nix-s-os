@@ -25,7 +25,6 @@ home-items = builtins.filter
 
     homeManager = { config, ...}:
       let
-        #replace with lib.getExe self'.packages.flake-root;
         trueDotFileDir = "${flake-root.literal}/git-submodules/dotfiles";
       in
     {

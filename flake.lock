@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "calibre-bookfusion": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779807854,
+        "narHash": "sha256-u1rEWHLeKvMCDFijGl2D0A4LO98FDYtu9K2EcmVykgY=",
+        "owner": "BookFusion",
+        "repo": "calibre-plugin",
+        "rev": "e316b7808c394aeb3f52a6c66570ea7f31d4c6e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BookFusion",
+        "repo": "calibre-plugin",
+        "type": "github"
+      }
+    },
     "den": {
       "locked": {
         "lastModified": 1780803601,
@@ -234,18 +250,15 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1780749050,
-        "narHash": "sha256-3av0pIjlOWQ6rDbNOmpUSvbNnJkGORQKKjb4LtCZsIY=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "a799d3e3886da994fa307f817a6bc705ae538eeb",
-        "type": "github"
+        "lastModified": 1780747962,
+        "narHash": "sha256-d86UGSjwACWRttincQzeiAEZYVPtP3kODhr9hYZD4e8=",
+        "rev": "cbb5cf358f50aa6acc9efd6113b7bcfbc352cd73",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1011620.cbb5cf358f50/nixexprs.tar.xz"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
     "nixpkgs_5": {
@@ -386,6 +399,7 @@
     },
     "root": {
       "inputs": {
+        "calibre-bookfusion": "calibre-bookfusion",
         "den": "den",
         "fenix": "fenix",
         "flake-file": "flake-file",
