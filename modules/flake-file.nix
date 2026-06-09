@@ -13,7 +13,7 @@ in
 
   flake-file = {
     outputs = ''
-        inputs: import ./make-flake.nix inputs;
+        inputs: import ./make-flake.nix inputs
       '';
     inputs = {
       den.url = "github:vic/den";

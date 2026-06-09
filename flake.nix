@@ -2,6 +2,7 @@
 # Use `nix run .#write-flake` to regenerate it.
 {
   outputs = inputs: import ./make-flake.nix inputs;
+
   inputs = {
     calibre-bookfusion = {
       url = "github:BookFusion/calibre-plugin";
