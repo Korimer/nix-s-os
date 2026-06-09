@@ -13,13 +13,7 @@ in
 
   flake-file = {
     outputs = ''
-      inputs: inputs.flake-parts.lib.mkFlake {
-        inherit inputs;
-        specialArgs = {
-          flake-root = (import ./flake-root.nix);
-        };
-      }
-      (inputs.import-tree ./modules)
+        inputs: import ./make-flake.nix inputs;
       '';
     inputs = {
       den.url = "github:vic/den";
