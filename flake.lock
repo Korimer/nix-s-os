@@ -137,6 +137,24 @@
         "type": "github"
       }
     },
+    "korimer-mini-server": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1780978224,
+        "narHash": "sha256-oOznCsTltpZmb2Dmsyv5tGd5jp2g9lUlrq5+vlmkTps=",
+        "owner": "Korimer",
+        "repo": "MinimalNixServer",
+        "rev": "af811c91081d77bafa3e81cef9fb1d1829e06c08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Korimer",
+        "repo": "MinimalNixServer",
+        "type": "github"
+      }
+    },
     "nix-auto-follow": {
       "inputs": {
         "nixpkgs": [
@@ -159,7 +177,7 @@
     },
     "nix-index-database": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1780816331,
@@ -266,9 +284,22 @@
         "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
+    "nixpkgs_8": {
+      "locked": {
+        "lastModified": 1780747962,
+        "narHash": "sha256-d86UGSjwACWRttincQzeiAEZYVPtP3kODhr9hYZD4e8=",
+        "rev": "cbb5cf358f50aa6acc9efd6113b7bcfbc352cd73",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1011620.cbb5cf358f50/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
+      }
+    },
     "noctalia": {
       "inputs": {
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_7",
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
@@ -333,7 +364,7 @@
     },
     "noctalia-shell": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7",
+        "nixpkgs": "nixpkgs_8",
         "noctalia-qs": "noctalia-qs_2"
       },
       "locked": {
@@ -360,9 +391,10 @@
         "helium": "helium",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "korimer-mini-server": "korimer-mini-server",
         "nix-auto-follow": "nix-auto-follow",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "noctalia": "noctalia",
         "noctalia-shell": "noctalia-shell"
       }

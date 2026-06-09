@@ -5,14 +5,9 @@
     inputs:
     inputs.flake-parts.lib.mkFlake {
       inherit inputs;
-      specialArgs = 
-        let root = (import ./flake-root.nix); in
-        {
-          flake-root = {
-            path = root;
-            literal = builtins.unsafeDiscardStringContext (builtins.toString root);
-          };
-        };
+      specialArgs = {
+        flake-root = (import ./flake-root.nix);
+      };
     } (inputs.import-tree ./modules);
 
   inputs = {
@@ -32,6 +27,7 @@
     helium.url = "github:vikingnope/helium-browser-nix-flake";
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
+    korimer-mini-server.url = "github:Korimer/MinimalNixServer";
     nix-auto-follow = {
       url = "github:fzakaria/nix-auto-follow";
       inputs.nixpkgs.follows = "nixpkgs";

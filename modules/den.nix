@@ -14,7 +14,11 @@
     includes = [ examplename.beastmode ];
   };
 
-  den.default.includes = [ den.batteries.self' den.batteries.inputs' ];
+  den.default.includes = [
+    den.batteries.self'
+    den.batteries.inputs'
+    den.batteries.hostname
+  ];
 
   den.default.nixos = {
 # remove for real host
