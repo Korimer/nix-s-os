@@ -1,36 +1,78 @@
-{ flake-root, ... }:
+{ flake-root, inputs, ... }:
 {
-  den.korimer.provides.waybar = {
-    nixos = {config, pkgs, ...}:
-    {
-      environment.systemPackages = with pkgs; [
-        wttrbar
-          waybar
-      ];
+  den.aspects.korimer.provides.waybar.homeManager = { config, ... }:
+  let
+  colorscheme = import "${inputs.self}/modules/_nondendric/colorschemes/powerline.nix";
+  colors = {
+    swaync      = colorscheme.yellow;
+    wireplumber = colorscheme.blue;
+    workspaces  = colorscheme.cyan;
+    tray        = colorscheme.purple;
+    window      = colorscheme.blue;
+    taskbar     = colorscheme.purple;
+    cpu         = colorscheme.yellow;
+    memory      = colorscheme.orange;
+    temperature = colorscheme.green;
+    clock       = colorscheme.orange;
+    battery     = colorscheme.yellow;
+    power       = colorscheme.magenta;
+  };
 
-      # Make sure Wayland + portals are properly wired
-      xdg.portal = {
-        enable = true;
-        wlr.enable = true;
-      };
+  modules = {
+    left = [
+      "custom/swaync"
+        "custom/div-swaync-wireplumber"
+        "wireplumber"
+        "custom/div-wireplumber-workspaces"
+        "niri/workspaces"
+        "custom/div-workspaces-tray"
+        "tray"
+        "custom/div-tray-window"
+        "niri/window"
+        "custom/window-r-flair"
+    ];
+    center = [
+      "wlr/taskbar"
+    ];
+    right = [
+      "custom/cpu-l-flair"
+        "cpu"
+        "custom/div-cpu-memory"
+        "memory"
+        "custom/div-memory-temperature"
+        "temperature"
+        "custom/div-temperature-clock"
+        "clock"
+        "battery"
+        "custom/div-clock-power"
+        "custom/power"
+        "custom/power-r-flair"
+    ];
+  };
 
-      # Ensure DBus has appindicator support (tray icons)
-      services.dbus.packages = with pkgs; [
-        libappindicator
-      ];
+  allmodules = modules.left ++ modules.right ++ modules.center;
 
-      autoMkLink.targets.
-        "${config.environment.variables.NIXROOT}/static/desktop/waybar"
-        = "/etc/xdg/waybar"
-        ;
-    };
-    
-    homeManager = { config, ... }:
-    let
-      trueDotFileDir = "${flake-root.literal}/git-submodules/dotfiles";
-    in
-    {
-      #config.lib.file.mkOutOfStoreSymlink "${trueDotFileDir}/${value}";
+  colorOptions = builtins.concatStringsSep "|" (builtins.attrNames colors);
+  matchdiv = "custom\/div-(${colorOptions})-(${colorOptions})";
+  customModules = builtins.filter
+    (mod: mod != null)
+    (builtins.map
+      (modname: builtins.match matchdiv modname)
+      (allmodules)
+    );
+  in
+  {
+    programs.waybar = {
+      settings = [{
+        modules-left = modules.left;
+        modules-center = modules.center;
+        modules-right = modules.right;
+      }];
+      enable = true;
+      systemd.enable = true;
+      style = ''
+        @import "${flake-root.literal}/modules/features/korimer/waybar/style.css"
+      '';
     };
   };
 }
