@@ -53,13 +53,36 @@
   allmodules = modules.left ++ modules.right ++ modules.center;
 
   colorOptions = builtins.concatStringsSep "|" (builtins.attrNames colors);
-  matchdiv = "custom\/div-(${colorOptions})-(${colorOptions})";
-  customModules = builtins.filter
+  matchdiv = "(custom\/div-(${colorOptions})-(${colorOptions}))";
+  divModules = builtins.filter
     (mod: mod != null)
     (builtins.map
       (modname: builtins.match matchdiv modname)
       (allmodules)
     );
+
+  divAttrs = builtins.listToAttrs 
+    (map (mod: {
+        name = builtins.head mod;
+        value = {
+          format = "";
+          tooltip = false;
+        };
+      })
+      divModules
+    );
+
+  divCSS = let elm = builtins.elemAt; in
+  builtins.concatStringsSep "\n" (
+    builtins.map
+      (list: ''
+        #${elm list 0} {
+          color: ${colors."${(elm list 1)}"};
+          background-color: ${colors."${(elm list 2)}"};
+        }
+      '')
+      divModules
+  );
   in
   {
     programs.waybar = {
@@ -67,12 +90,16 @@
         modules-left = modules.left;
         modules-center = modules.center;
         modules-right = modules.right;
-      }];
+      }
+      divAttrs
+      ];
       enable = true;
       systemd.enable = true;
       style = ''
-        @import "${flake-root.literal}/modules/features/korimer/waybar/style.css"
-      '';
+        @import "${flake-root.literal}/modules/features/korimer/waybar/style.css";
+      ''
+      + divCSS
+      ;
     };
   };
 }
