@@ -19,10 +19,21 @@ divTemplate = let elm = builtins.elemAt; in list: ''
 }
 '';
 
-lor = side: if side == "r" then "color" else "background-color";
+getAdjModuleColor = bar: side:
+  let
+  list =
+    let key = {l="left";c="center";r="right";};
+    in modules.${key.${bar}};
+  first = builtins.elemAt list 1;
+  last = builtins.elemAt ((builtins.length list) - 1);
+  module = if side == "l" then first else last;
+  moduleName = builtins.elemAt (builtins.match "custom\/.(*?)-") 1;
+  in
+  colors.${module};
+
 flairTemplate = let elm = builtins.elemAt; in list: ''
 #${builtins.replaceStrings ["/"] ["-"] (elm list 0)} {
-  ${lor (elm list 2)}: ${colors."${elm list 1}"};
+  color: ${getAdjModuleColor (elm list 1) (elm list 2)};
   font-size: 28px;
   margin: 0px;
 }

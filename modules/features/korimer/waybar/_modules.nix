@@ -1,5 +1,6 @@
 rec {
   left = [
+    "custom/flair-l-l"
     "custom/swaync"
       "custom/div-swaync-wireplumber"
       "wireplumber"
@@ -9,15 +10,15 @@ rec {
       "tray"
       "custom/div-tray-window"
       "niri/window"
-      "custom/flair-window-r"
+      "custom/flair-l-r"
   ];
   center = [
-    "custom/flair-taskbar-l"
+    "custom/flair-c-l"
     "wlr/taskbar"
-    "custom/flair-taskbar-r"
+    "custom/flair-c-r"
   ];
   right = [
-    "custom/flair-cpu-l"
+    "custom/flair-r-l"
       "cpu"
       "custom/div-cpu-memory"
       "memory"
@@ -28,7 +29,7 @@ rec {
       "battery"
       "custom/div-clock-power"
       "custom/power"
-      "custom/flair-power-r"
+      "custom/flair-r-r"
   ];
   all = left ++ right ++ center;
 }

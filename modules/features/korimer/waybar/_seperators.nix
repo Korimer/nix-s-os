@@ -24,7 +24,7 @@ genAttrs = modules: builtins.listToAttrs
 );
 
 matchdiv = "(custom\/div-(${colorOptions})-(${colorOptions}))";
-matchflair = "(custom\/flair-(${colorOptions})-(r|l))";
+matchflair = "(custom\/flair-(r|c|l)-(r|l))";
 in
 rec {
   divs = {
