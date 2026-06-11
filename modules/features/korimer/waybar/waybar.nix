@@ -77,6 +77,8 @@ builtins.concatStringsSep "\n" (
       #${builtins.replaceStrings ["/"] ["-"] (elm list 0)} {
         color: ${colors."${(elm list 1)}"};
         background-color: ${colors."${(elm list 2)}"};
+        font-size: 28px;
+        margin: 0px;
       }
     '')
     divModules
