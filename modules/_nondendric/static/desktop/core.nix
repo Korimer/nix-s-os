@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./hypridle.nix
-    ./waybar.nix
     ./wleave.nix
   ];
 
