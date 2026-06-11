@@ -1,5 +1,9 @@
 { inputs }:
 let
-divs = import ./_divs.nix { inherit inputs; };
+sep = import ./_seperators.nix { inherit inputs; };
+
+allAttrs = {}
+  // sep.divs.attrs
+;
 in
-divs.attrs
+allAttrs

@@ -9,13 +9,15 @@ rec {
       "tray"
       "custom/div-tray-window"
       "niri/window"
-      "custom/window-r-flair"
+      "custom/flair-window-r"
   ];
   center = [
+    "custom/flair-taskbar-l"
     "wlr/taskbar"
+    "custom/flair-taskbar-r"
   ];
   right = [
-    "custom/cpu-l-flair"
+    "custom/flair-cpu-l"
       "cpu"
       "custom/div-cpu-memory"
       "memory"
@@ -26,7 +28,7 @@ rec {
       "battery"
       "custom/div-clock-power"
       "custom/power"
-      "custom/power-r-flair"
+      "custom/flair-power-r"
   ];
   all = left ++ right ++ center;
 }
