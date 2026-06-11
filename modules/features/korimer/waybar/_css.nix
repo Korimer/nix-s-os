@@ -15,7 +15,7 @@ builtins.concatStringsSep "\n" (
         margin: 0px;
       }
     '')
-    divs.divModules
+    divs.modules
 );
 in
 moduleCSS
