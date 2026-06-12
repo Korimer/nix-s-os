@@ -21,6 +21,8 @@ rec {
   ];
   right = [
     "custom/flair-r-l"
+    "custom/lyrics"
+    "custom/div-lyrics-cpu"
     "cpu"
     "custom/div-cpu-memory"
     "memory"

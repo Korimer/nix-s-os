@@ -1,5 +1,5 @@
 {
-  fortune = "blue";
+  fortune     = "blue";
   swaync      = "yellow";
   wireplumber = "blue";
   privacy     = "foreground";
@@ -7,6 +7,7 @@
   tray        = "purple";
   window      = "blue";
   taskbar     = "purple";
+  lyrics      = "blue";
   cpu         = "yellow";
   memory      = "orange";
   temperature = "foreground";

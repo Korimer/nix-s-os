@@ -159,6 +159,21 @@
     };
   };
 
+  privacy = {
+    selector = "#privacy";
+    attrs = {
+      background-color = "@privacy";
+    };
+  };
+
+  lyrics = {
+    selector = "#custom-lyrics";
+    attrs = {
+      background-color = "@lyrics";
+      padding = "0 10px";
+    };
+  };
+
   power = {
     selector = "#custom-power";
     attrs = {

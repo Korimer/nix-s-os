@@ -16,7 +16,7 @@ divs //
   };
 
   cpu = {
-    format = "{usage}% ";
+    format = "{usage:3}% ";
     tooltip = false;
   };
 
@@ -57,6 +57,26 @@ divs //
     format-icons = [ "" "" "" ];
   };
 
+  privacy = {
+    modules = [
+      {
+        type = "screenshare";
+        tooltip = true;
+        tooltip-icon-size = 24;
+      }
+      {
+        type = "audio-out";
+        tooltip = true;
+        tooltip-icon-size = 24;
+      }
+      {
+        type = "audio-in";
+        tooltip = true;
+        tooltip-icon-size = 24;
+      }
+    ];
+  };
+
   battery = {
     states = {
       warning = 30;
@@ -69,6 +89,28 @@ divs //
     format-alt = "{time} {icon}";
     format-full = " {capacity}%";
     format-icons = [ "" "" "" ];
+  };
+
+
+  "custom/lyrics" = {
+    return-type = "json";
+    format = "{icon} {0}";
+    hide-empty-text = true;
+
+    format-icons = {
+      playing = "";
+      paused = "";
+      lyric = "";
+      music = "󰝚";
+      no_lyric = "";
+      getting = "";
+    };
+
+    exec-if = "which waybar-lyric";
+    exec = "waybar-lyric --quiet";
+    on-click = "waybar-lyric next";
+    on-click-middle = "waybar-lyric play-pause";
+    on-click-right = "waybar-lyric previous``";
   };
 
   "custom/power" = {

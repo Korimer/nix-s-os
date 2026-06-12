@@ -5,7 +5,16 @@ let
   css = import ./_css.nix { inherit inputs; };
 in
 {
-  den.aspects.korimer.provides.waybar.homeManager =
+  den.aspects.korimer.provides.waybar = 
+  {
+    nixos = { pkgs, ... }: {
+      environment.systemPackages = with pkgs; [
+        waybar-lyric
+        waybar-mpris
+        gpu-usage-waybar
+      ];
+    };
+    homeManager =
   {
     home.file."tmp.css".text = css;
     programs.waybar = {
@@ -25,5 +34,6 @@ in
       #'' +
       css;
     };
+  };
   };
 }
