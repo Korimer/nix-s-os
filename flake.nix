@@ -21,6 +21,7 @@
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
     korimer-mini-server.url = "github:Korimer/MinimalNixServer";
+    muffon-OLD-REPLACE-WHEN-MERGED.url = "github:r-ryantm/nixpkgs/auto-update/muffon";
     nix-auto-follow = {
       url = "github:fzakaria/nix-auto-follow";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -155,6 +155,22 @@
         "type": "github"
       }
     },
+    "muffon-OLD-REPLACE-WHEN-MERGED": {
+      "locked": {
+        "lastModified": 1769689814,
+        "narHash": "sha256-N8LFTpmftL2f4uPWA8bw1ra3Xx5GwkbNzkBuw8aehP8=",
+        "owner": "r-ryantm",
+        "repo": "nixpkgs",
+        "rev": "5d71d2f4870ffd4f3d9aa370982d1baaf52e62c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "r-ryantm",
+        "ref": "auto-update/muffon",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nix-auto-follow": {
       "inputs": {
         "nixpkgs": [
@@ -392,6 +408,7 @@
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "korimer-mini-server": "korimer-mini-server",
+        "muffon-OLD-REPLACE-WHEN-MERGED": "muffon-OLD-REPLACE-WHEN-MERGED",
         "nix-auto-follow": "nix-auto-follow",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_6",

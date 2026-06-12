@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake-file.inputs.muffon-OLD-REPLACE-WHEN-MERGED.url = "github::r-ryantm/nixpkgs/auto-update/muffon";
+  flake-file.inputs.muffon-OLD-REPLACE-WHEN-MERGED.url = "github:r-ryantm/nixpkgs/auto-update/muffon";
   den.aspects.korimer.provides.muffon.nixos = { pkgs, ... }:
   {
     environment.systemPackages = [
