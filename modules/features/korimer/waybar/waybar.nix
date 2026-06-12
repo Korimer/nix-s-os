@@ -1,8 +1,8 @@
 { flake-root, inputs, ... }:
 let
   modules = import ./_resources/modules.nix;
+  settings = import ./_resources/settings.nix;
   css = import ./_css.nix { inherit inputs; };
-  attrs = import ./_attrs.nix { inherit inputs; };
 in
 {
   den.aspects.korimer.provides.waybar.homeManager =
@@ -10,12 +10,12 @@ in
     home.file.tmp.text = css;
     programs.waybar = {
       settings = [(
-      {
-        modules-left = modules.left;
-        modules-center = modules.center;
-        modules-right = modules.right;
-      }
-      // attrs
+        {
+          modules-left = modules.left;
+          modules-center = modules.center;
+          modules-right = modules.right;
+        }
+        // settings
       )];
       enable = true;
       systemd.enable = true;

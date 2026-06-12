@@ -1,6 +1,6 @@
 let
-modules = import ./_resources/modules.nix;
-colors = import ./_resources/colors.nix;
+modules = import ./modules.nix;
+colors = import ./colors.nix;
 colorOptions = builtins.concatStringsSep "|" (builtins.attrNames colors);
 
 filterMatch = regex: builtins.filter
@@ -22,17 +22,18 @@ genAttrs = modules: builtins.listToAttrs
 );
 
 matchdiv = "(custom\/div-(${colorOptions})-(${colorOptions}))";
-matchflair = "(custom\/flair-(r|c|l)-(r|l))";
+#matchflair = "(custom\/flair-(r|c|l)-(r|l))";
 in
-rec {
-  divs = {
-    modules = filterMatch matchdiv;
-    attrs = genAttrs divs.modules;
-    matcher = matchdiv;
-  };
-  flairs = {
-    modules = filterMatch matchflair;
-    attrs = genAttrs flairs.modules;
-    matcher = matchflair;
-  };
-}
+genAttrs ( filterMatch matchdiv )
+#rec {
+#  divs = {
+#    modules = filterMatch matchdiv;
+#    attrs = genAttrs divs.modules;
+#    matcher = matchdiv;
+#  };
+#  flairs = {
+#    modules = filterMatch matchflair;
+#    attrs = genAttrs flairs.modules;
+#    matcher = matchflair;
+#  };
+#}
