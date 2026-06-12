@@ -9,6 +9,12 @@ divs //
   "custom/flair-c-r".format = " ";
   "custom/flair-r-l".format = "";
   "custom/flair-r-r".format = "";
+
+  tray = {
+    icon-size = 18;
+    spacing = 10;
+  };
+
   #"custom/div-wireplumber-workspaces" = {
   #  format = "";
   #};

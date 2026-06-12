@@ -1,3 +1,9 @@
+# How to use: the name is relevant for automatically detecting colorschemes,
+# and subsequently adding correctly-colored powerline dividers (ily nerdfonts)
+# Names are determined via builtins.baseName.
+# For example, "custom/power-config" would look here for a "power-config" entry.
+# Names are otherwise irrelevant - "selector" is what is actually used in the generated CSS.
+
 {
   # Just an example for now
   flair-l-l.attrs = { };
@@ -53,7 +59,7 @@
     attrs = {
       font-size = "18px";
       padding = "0px 10px";
-      background-color = "@audio";
+      background-color = "@wireplumber";
     };
   };
 
@@ -63,14 +69,17 @@
       padding = "4px 10px";
       background-color = "@workspaces";
     };
-
-    active = {
-      selector = "#workspaces button.active";
-      attrs = {
-        background-color = "@blue";
-        color = "@foreground";
-      };
+  };
+  workspaces-active = {
+    selector = "#workspaces button.active";
+    attrs = {
+      background-color = "@blue";
+      color = "@foreground";
     };
+  };
+  workspaces-hover = {
+    selector = "#workspaces button:hover";
+    attrs = { };
   };
 
   tray = {
@@ -94,12 +103,12 @@
       background-color = "@taskbar";
     };
 
-    button = {
-      selector = "#taskbar button";
-      attrs = {
-        padding = "1px 4px";
-        margin = "0px 4px";
-      };
+  };
+  taskbar-button = {
+    selector = "#taskbar button";
+    attrs = {
+      padding = "1px 4px";
+      margin = "0px 4px";
     };
   };
 
@@ -128,23 +137,21 @@
       border-style = "solid";
       border-width = "4px 10px";
     };
-
-    warning = {
-      selector = "#temperature.warning";
-      attrs.background-color = "@temperature-warning";
-    };
-
-    critical = {
-      selector = "#temperature.critical";
-      attrs.background-color = "@temperature-critical";
-    };
+  };
+  temperature-warning = {
+    selector = "#temperature.warning";
+    attrs.background-color = "@temperature-warning";
+  };
+  temperature-critical = {
+    selector = "#temperature.critical";
+    attrs.background-color = "@temperature-critical";
   };
 
   clock = {
     selector = "#clock";
     attrs = {
       padding = "0px 10px";
-      background-color = "@time";
+      background-color = "@clock";
     };
   };
 
