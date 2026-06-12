@@ -1,6 +1,8 @@
 {
+  fortune = "blue";
   swaync      = "yellow";
   wireplumber = "blue";
+  privacy     = "foreground";
   workspaces  = "cyan";
   tray        = "purple";
   window      = "blue";

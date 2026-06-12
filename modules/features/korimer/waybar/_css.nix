@@ -35,7 +35,8 @@ getAdjModuleColor = bar: side:
     last = builtins.elemAt list ((builtins.length list) - 2);
     module = if side == "l" then first else last;
   in
-    CSS.${moduleToCssKey module}.attrs.background-color;
+    colors.${moduleToCssKey module};
+    #CSS.${moduleToCssKey module}.attrs.background-color;
 
 divTemplate = {id, color, bg}:
 {
@@ -49,6 +50,13 @@ divTemplate = {id, color, bg}:
 };
 
 flairTemplate = {id, bar, side}:
+  let
+    key = moduleToCssKey id;
+    additionalAttrs =
+      if ( CSS ? ${key} ) && ( CSS.${key} ? attrs)
+      then CSS.${moduleToCssKey id}.attrs else {};
+  in
+
   {
     selector = moduleToSelector id;
     attrs = {
@@ -56,7 +64,7 @@ flairTemplate = {id, bar, side}:
       font-size = "28px";
       margin = "0px";
     }
-    // CSS.${moduleToCssKey id}.attrs or {};
+    // additionalAttrs;
   };
 
 colorOptions = builtins.concatStringsSep "|" ( builtins.attrNames colors );
@@ -68,7 +76,7 @@ dispatchTemplate = spec:
     elm = n: builtins.elemAt match n;
   in
     if match == null
-      then CSS.${moduleToCssKey spec}
+      then if (CSS ? ${moduleToCssKey spec}) then CSS.${moduleToCssKey spec} else {}
     else
       if (elm 1) == "div"
       then divTemplate {id=elm 0; color=elm 2; bg=elm 3;}
