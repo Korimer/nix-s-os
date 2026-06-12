@@ -13,7 +13,7 @@ convertToCss = target:
   builtins.concatStringsSep "\n" (
     [ "${target.selector} {" ]
     ++ (inputs.nixpkgs.lib.mapAttrsToList
-      (name: value: "${name}: ${value};")
+      (name: value: "  ${name}: ${value};")
       target.attrs
     )
     ++ [ "}" ]
@@ -24,20 +24,22 @@ moduleToSelector = name:
   then "#${builtins.replaceStrings ["/"] ["-"] name}"
   else "#${builtins.baseNameOf name}";
 
+moduleToCssKey = name: builtins.baseNameOf name;
+
 getAdjModuleColor = bar: side:
   let
     list =
       let key = {l="left";c="center";r="right";};
       in modules.${key.${bar}};
     first = builtins.elemAt list 1;
-    last = builtins.elemAt ((builtins.length list) - 1);
+    last = builtins.elemAt list ((builtins.length list) - 2);
     module = if side == "l" then first else last;
   in
-    CSS.${moduleToSelector module}.background-color;
+    CSS.${moduleToCssKey module}.attrs.background-color;
 
 divTemplate = {id, color, bg}:
 {
-  header = builtins.replaceStrings ["/"] ["-"] id;
+  selector = moduleToSelector id;
   attrs = {
     color = colors.${color};
     background-color = colors.${bg};
@@ -48,7 +50,7 @@ divTemplate = {id, color, bg}:
 
 flairTemplate = {id, bar, side}:
   {
-    header = builtins.replaceStrings ["/"] ["-"] id;
+    selector = moduleToSelector id;
     attrs = {
       color = getAdjModuleColor bar side;
       font-size = "28px";
@@ -65,17 +67,17 @@ dispatchTemplate = spec:
     elm = n: builtins.elemAt match n;
   in
     if match == null
-      then CSS.${moduleToSelector spec}
+      then CSS.${moduleToCssKey spec}
     else
       if (elm 1) == "div"
-      then divTemplate {id=elm 2; color=elm 3; bg=elm 4;}
-      else flairTemplate {id=elm 2; bar=elm 3; side=elm 4;}
+      then divTemplate {id=elm 0; color=elm 2; bg=elm 3;}
+      else flairTemplate {id=elm 0; bar=elm 2; side=elm 3;}
   ;
 
-moduleCSS = builtins.concatStringsSep "\n" (
+moduleCSS = builtins.concatStringsSep "\n\n" (
   map
     (spec: convertToCss (dispatchTemplate spec))
-    (builtins.attrValues modules.all)
+    modules.all
 );
 in
 moduleCSS

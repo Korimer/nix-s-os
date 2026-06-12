@@ -1,6 +1,6 @@
 { flake-root, inputs, ... }:
 let
-  modules = import ./_modules.nix;
+  modules = import ./_resources/modules.nix;
   css = import ./_css.nix { inherit inputs; };
   attrs = import ./_attrs.nix { inherit inputs; };
 in
