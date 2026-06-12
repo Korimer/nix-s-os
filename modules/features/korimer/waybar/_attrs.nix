@@ -1,6 +1,6 @@
 { inputs }:
 let
-sep = import ./_seperators.nix { inherit inputs; };
+sep = import ./_seperators.nix;
 
 flairs = {
 };

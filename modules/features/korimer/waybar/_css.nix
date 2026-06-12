@@ -1,50 +1,81 @@
 { inputs }:
 let
-modules = import ./_modules.nix;
-sep = import ./_seperators.nix { inherit inputs; };
-colors = import ./_colors.nix { inherit inputs; };
+colorsBases = import ./_resources/colors.nix;
+modules = import ./_resources/modules.nix;
+CSS = import ./_resources/css-template.nix;
+colorscheme = import "${inputs.self}/modules/_nondendric/colorschemes/powerline.nix";
 
-makeCSS = template: targets: builtins.concatStringsSep "\n" (
-  builtins.map
-  template
-  targets
-);
+colors = builtins.mapAttrs
+  (_: value: colorscheme.${value})
+  colorsBases;
 
-divTemplate = let elm = builtins.elemAt; in list: ''
-#${builtins.replaceStrings ["/"] ["-"] (elm list 0)} {
-  color: ${colors."${(elm list 1)}"};
-  background-color: ${colors."${(elm list 2)}"};
-  font-size: 28px;
-  margin: 0px;
-}
-'';
+convertToCss = target:
+  builtins.concatStringsSep "\n" (
+    [ "${target.selector} {" ]
+    ++ (inputs.nixpkgs.lib.mapAttrsToList
+      (name: value: "${name}: ${value};")
+      target.attrs
+    )
+    ++ [ "}" ]
+  );
+
+moduleToSelector = name:
+  if inputs.nixpkgs.lib.hasPrefix "custom/" name
+  then "#${builtins.replaceStrings ["/"] ["-"] name}"
+  else "#${builtins.baseNameOf name}";
 
 getAdjModuleColor = bar: side:
   let
-  list =
-    let key = {l="left";c="center";r="right";};
-    in modules.${key.${bar}};
-  first = builtins.elemAt list 1;
-  last = builtins.elemAt ((builtins.length list) - 1);
-  module = if side == "l" then first else last;
-  moduleName = builtins.elemAt (builtins.match "custom\/.(*?)-") 1;
+    list =
+      let key = {l="left";c="center";r="right";};
+      in modules.${key.${bar}};
+    first = builtins.elemAt list 1;
+    last = builtins.elemAt ((builtins.length list) - 1);
+    module = if side == "l" then first else last;
   in
-  colors.${module};
+    CSS.${moduleToSelector module}.background-color;
 
-flairTemplate = let elm = builtins.elemAt; in list: ''
-#${builtins.replaceStrings ["/"] ["-"] (elm list 0)} {
-  color: ${getAdjModuleColor (elm list 1) (elm list 2)};
-  font-size: 28px;
-  margin: 0px;
-}
-'';
+divTemplate = {id, color, bg}:
+{
+  header = builtins.replaceStrings ["/"] ["-"] id;
+  attrs = {
+    color = colors.${color};
+    background-color = colors.${bg};
+    font-size = "28px";
+    margin = "0px";
+  };
+};
 
-divCSS = makeCSS divTemplate sep.divs.modules;
-flairCSS = makeCSS flairTemplate sep.flairs.modules;
+flairTemplate = {id, bar, side}:
+  {
+    header = builtins.replaceStrings ["/"] ["-"] id;
+    attrs = {
+      color = getAdjModuleColor bar side;
+      font-size = "28px";
+      margin = "0px";
+    };
+  };
 
-moduleCSS = builtins.concatStringsSep "\n" [
-  divCSS
-  flairCSS
-];
+colorOptions = builtins.concatStringsSep "|" ( builtins.attrNames colors );
+matchrgx = "(custom\/(div|flair)-(${colorOptions}|r|c|l)-(${colorOptions}|r|l))";
+
+dispatchTemplate = spec:
+  let
+    match = builtins.match matchrgx spec;
+    elm = n: builtins.elemAt match n;
+  in
+    if match == null
+      then CSS.${moduleToSelector spec}
+    else
+      if (elm 1) == "div"
+      then divTemplate {id=elm 2; color=elm 3; bg=elm 4;}
+      else flairTemplate {id=elm 2; bar=elm 3; side=elm 4;}
+  ;
+
+moduleCSS = builtins.concatStringsSep "\n" (
+  map
+    (spec: convertToCss (dispatchTemplate spec))
+    (builtins.attrValues modules.all)
+);
 in
 moduleCSS

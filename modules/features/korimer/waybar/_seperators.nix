@@ -1,8 +1,6 @@
-{ inputs }:
 let
-modules = import ./_modules.nix;
-
-colors = import ./_colors.nix { inherit inputs; };
+modules = import ./_resources/modules.nix;
+colors = import ./_resources/colors.nix;
 colorOptions = builtins.concatStringsSep "|" (builtins.attrNames colors);
 
 filterMatch = regex: builtins.filter
@@ -30,9 +28,11 @@ rec {
   divs = {
     modules = filterMatch matchdiv;
     attrs = genAttrs divs.modules;
+    matcher = matchdiv;
   };
   flairs = {
     modules = filterMatch matchflair;
     attrs = genAttrs flairs.modules;
+    matcher = matchflair;
   };
 }
