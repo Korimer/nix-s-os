@@ -50,7 +50,7 @@
       padding = "0px 5px";
       border-radius = "8px 0px 0px 8px";
       padding-left = "10px";
-      background-color = "@notification";
+      background-color = "@swaync";
     };
   };
 
