@@ -132,19 +132,16 @@
     selector = "#temperature";
     attrs = {
       padding = "0px 10px";
-      border = "white";
-      background-color = "@temperature-normal";
-      border-style = "solid";
-      border-width = "4px 10px";
+      background-color = "@temperature";
     };
   };
   temperature-warning = {
     selector = "#temperature.warning";
-    attrs.background-color = "@temperature-warning";
+    attrs.color = "@yellow";
   };
   temperature-critical = {
     selector = "#temperature.critical";
-    attrs.background-color = "@temperature-critical";
+    attrs.background-color = "@red";
   };
 
   clock = {

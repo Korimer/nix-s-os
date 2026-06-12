@@ -7,9 +7,7 @@
   taskbar     = "purple";
   cpu         = "yellow";
   memory      = "orange";
-  temperature = "green";
-  temperature-warning = "yellow";
-  temperature-critical = "red";
+  temperature = "foreground";
   clock       = "orange";
   battery     = "yellow";
   power       = "magenta";
