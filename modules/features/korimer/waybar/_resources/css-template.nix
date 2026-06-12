@@ -1,4 +1,23 @@
 {
+  flair-l-l.attrs = {
+
+  };
+  flair-l-r.attrs = {
+
+  };
+  flair-c-l.attrs = {
+
+  };
+  flair-c-r.attrs = {
+
+  };
+  flair-r-l.attrs = {
+
+  };
+  flair-r-r.attrs = {
+
+  };
+
   swaync = {
     selector = "#custom-swaync";
     attrs = {

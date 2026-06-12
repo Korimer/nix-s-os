@@ -55,7 +55,7 @@ flairTemplate = {id, bar, side}:
       color = getAdjModuleColor bar side;
       font-size = "28px";
       margin = "0px";
-    };
+    } // CSS.${moduleToCssKey id}.attrs;
   };
 
 colorOptions = builtins.concatStringsSep "|" ( builtins.attrNames colors );
