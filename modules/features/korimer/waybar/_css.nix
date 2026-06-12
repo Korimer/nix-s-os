@@ -9,7 +9,7 @@ colors = builtins.mapAttrs
   (_: value: colorscheme.${value})
   colorsBases;
 
-convertToCss = target:
+convertToCss = target: if !(target ? selector) then "" else
   builtins.concatStringsSep "\n" (
     [ "${target.selector} {" ]
     ++ (inputs.nixpkgs.lib.mapAttrsToList
@@ -55,7 +55,8 @@ flairTemplate = {id, bar, side}:
       color = getAdjModuleColor bar side;
       font-size = "28px";
       margin = "0px";
-    } // CSS.${moduleToCssKey id}.attrs;
+    }
+    // CSS.${moduleToCssKey id}.attrs or {};
   };
 
 colorOptions = builtins.concatStringsSep "|" ( builtins.attrNames colors );
@@ -74,10 +75,35 @@ dispatchTemplate = spec:
       else flairTemplate {id=elm 0; bar=elm 2; side=elm 3;}
   ;
 
+
+defineColor = name: val: "@define-color ${name} ${val};";
+colorImports = builtins.concatStringsSep "\n" (
+  (inputs.nixpkgs.lib.mapAttrsToList
+    (name: value: defineColor name value)
+    colorscheme
+  )
+  ++
+  (inputs.nixpkgs.lib.mapAttrsToList
+    (name: value: defineColor name "@${value}")
+    colorsBases
+  )
+);
+
+processedModules = map
+  (spec: dispatchTemplate spec)
+  modules.all;
+
+CompleteCssSpec = 
+  processedModules
+  ++ (builtins.attrValues CSS)
+;
+
 moduleCSS = builtins.concatStringsSep "\n\n" (
-  map
-    (spec: convertToCss (dispatchTemplate spec))
-    modules.all
+  [ colorImports ] ++
+  (map
+    (spec: convertToCss spec)
+    CompleteCssSpec
+  )
 );
 in
 moduleCSS

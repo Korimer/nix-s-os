@@ -7,7 +7,7 @@ in
 {
   den.aspects.korimer.provides.waybar.homeManager =
   {
-    home.file.tmp.text = css;
+    home.file."tmp.css".text = css;
     programs.waybar = {
       settings = [(
         {
@@ -19,10 +19,11 @@ in
       )];
       enable = true;
       systemd.enable = true;
-      style = ''
-        @import "${flake-root.literal}/modules/features/korimer/waybar/style.css";
-      ''
-      + css;
+      style = 
+      #''
+      #  @import "${flake-root.literal}/modules/features/korimer/waybar/style.css";
+      #'' +
+      css;
     };
   };
 }

@@ -1,21 +1,41 @@
 {
-  flair-l-l.attrs = {
+  # Just an example for now
+  flair-l-l.attrs = { };
 
+  global = {
+    selector = "*";
+    attrs = {
+      padding = "0px";
+      margin = "0px";
+      font-family = "FontAwesome, Roboto, Helvetica, Arial, sans-serif";
+      font-size = "13px";
+      min-height = "16px";
+    };
   };
-  flair-l-r.attrs = {
 
+  window-waybar = {
+    selector = "window#waybar";
+    attrs = {
+      background-color = "transparent";
+      transition-property = "background-color";
+      transition-duration = ".5s";
+      border-bottom = "0px";
+      padding = "0px";
+    };
   };
-  flair-c-l.attrs = {
 
+  window-waybar-hidden = {
+    selector = "window#waybar.hidden";
+    attrs = {
+      opacity = "0.2";
+    };
   };
-  flair-c-r.attrs = {
 
-  };
-  flair-r-l.attrs = {
-
-  };
-  flair-r-r.attrs = {
-
+  window-waybar-empty = {
+    selector = "window#waybar.empty";
+    attrs = {
+      background-color = "transparent";
+    };
   };
 
   swaync = {
