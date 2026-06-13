@@ -9,12 +9,9 @@
       den.aspects.bluetooth
       den.aspects.nvidia
     ];
-    nixos = { pkgs, ... }:
+    nixos =
     {
-      systemd.sleep.settings.Sleep.HibernateMode = "shutdown";
-      environment.systemPackages = [
-        pkgs.vim
-      ];
+      systemd.sleep.settings.Sleep.HibernateMode = "platform";
     };
   };
 }
