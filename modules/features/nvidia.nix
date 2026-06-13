@@ -10,6 +10,7 @@
       boot.extraModprobeConfig = ''
         blacklist nouveau
         options nouveau modeset=0
+        options nvidia NVreg_PreserveVideoMemoryAllocations=0
         '';
       services.xserver.videoDrivers = [ "nvidia" ];
       hardware.graphics.enable = true;
