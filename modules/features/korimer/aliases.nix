@@ -12,9 +12,14 @@
         };
       };
       writeFlake = {
-        nixos = { config, ... }: {
-          environment.shellAliases.WriteFlake =
-            "(cd /etc/nixos && nix run .#write-flake)";
+        nixos = { pkgs, ... }:
+        {
+          environment.systemPackages = [
+            (pkgs.writeShellScriptBin "write-flake" ''
+             cd /etc/nixos
+             exec nix run .#write-flake
+             '')
+          ];
         };
       };
     };
