@@ -1,4 +1,4 @@
-{ den, lib, ... }:
+{ den, lib, flake-root, ... }:
 {
   den.aspects.korimer.provides.shellAliases = {
 
@@ -16,7 +16,7 @@
         {
           environment.systemPackages = [
             (pkgs.writeShellScriptBin "write-flake" ''
-             cd /etc/nixos
+             cd ${flake-root.literal}
              exec nix run .#write-flake
              '')
           ];
