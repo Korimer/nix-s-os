@@ -7,3 +7,7 @@
 	path = git-submodules/PersonalUtilScripts
 	url = git@github.com:Korimer/Mini-Utility-Scripts
 	branch = main
+[submodule "quotes"]
+	path = git-submodules/quotes
+	url = git@github.com:Korimer/Quotes.git
+	branch = main

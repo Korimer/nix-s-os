@@ -54,6 +54,11 @@
     };
   };
 
+  fortune = {
+    selector = "#custom-fortune";
+    attrs.background-color = "@fortune";
+  };
+
   wireplumber = {
     selector = "#wireplumber";
     attrs = {

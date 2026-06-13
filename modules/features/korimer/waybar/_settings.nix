@@ -1,5 +1,6 @@
+{ flake-root, ... }:
 let
-  divs = import ./div-generation.nix;
+  divs = import ./_resources/div-generation.nix;
 in
 divs //
 {
@@ -91,6 +92,12 @@ divs //
     format-icons = [ "" "" "" ];
   };
 
+  "custom/fortune" = {
+    exec = "waybar-fortune ${flake-root.literal}/git-submodules/quotes/all.txt";
+    interval = 1800;
+    return-type = "json";
+    tooltip = true;
+  };
 
   "custom/lyrics" = {
     return-type = "json";
@@ -137,6 +144,7 @@ divs //
     on-click-right = "sleep 0.1 && swaync-client -d -sw";
     escape = true;
   };
+
   #"custom/div-wireplumber-workspaces" = {
   #  format = "";
   #};

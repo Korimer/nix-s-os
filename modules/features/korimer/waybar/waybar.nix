@@ -1,12 +1,15 @@
-{ flake-root, inputs, ... }:
+{ den, inputs, flake-root, ... }:
 let
   modules = import ./_resources/modules.nix;
-  settings = import ./_resources/settings.nix;
+
+  settings = import ./_settings.nix { inherit flake-root; };
   css = import ./_css.nix { inherit inputs; };
 in
 {
   den.aspects.korimer.provides.waybar = 
   {
+    includes = [ den.aspects.korimer.provides.waybar.provides.waybar-fortune ];
+
     nixos = { pkgs, ... }: {
       environment.systemPackages = with pkgs; [
         waybar-lyric
