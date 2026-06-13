@@ -2,7 +2,7 @@
 {
   flake-file.inputs.noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
 
-  den.aspects.korimer.provides.noctalia-shell = {
+  den.aspects.korimer.provides.noctalia-shell.provides.full-noctalia-customizations = {
     includes = [
       # Customizations of my choice
       den.aspects.korimer.provides.noctalia-shell.provides.plugins
