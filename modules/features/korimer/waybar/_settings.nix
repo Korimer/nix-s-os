@@ -93,7 +93,7 @@ divs //
   };
 
   "custom/fortune" = {
-    exec = "waybar-fortune ${flake-root.literal}/git-submodules/quotes/all.txt";
+    exec = "waybar-fortune ${flake-root.path}/git-submodules/quotes/all.txt";
     interval = 1800;
     return-type = "json";
     tooltip = true;
