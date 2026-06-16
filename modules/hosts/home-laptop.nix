@@ -8,7 +8,8 @@
     includes = [
       den.aspects.bluetooth
       den.aspects.nvidia
-    ];
+    ]
+    ;
     nixos =
     {
       systemd.sleep.settings.Sleep.HibernateMode = "platform";

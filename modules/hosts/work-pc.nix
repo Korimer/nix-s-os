@@ -10,7 +10,7 @@
 
   den.aspects.fortnite = {
     includes = [
-
-    ];
+    ]
+    ;
   };
 }
