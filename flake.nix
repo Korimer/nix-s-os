@@ -20,6 +20,11 @@
     helium.url = "github:vikingnope/helium-browser-nix-flake";
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
+    impure-context = {
+      type = "path";
+      path = "./context";
+      flake = false;
+    };
     korimer-mini-server.url = "github:Korimer/MinimalNixServer";
     muffon-OLD-REPLACE-WHEN-MERGED.url = "github:r-ryantm/nixpkgs/auto-update/muffon";
     nix-auto-follow = {
@@ -27,6 +32,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia-shell.url = "github:noctalia-dev/noctalia-shell";

@@ -1,7 +1,7 @@
 let
   writeFlakeRoot = pkgs: pkgs.writeShellScriptBin "write-flake-root"
   ''
-    echo "$PWD" > "$PWD/flake-root.nix"
+    echo "$PWD" > "$PWD/context/flake-root.nix"
   '';
 in
 {
