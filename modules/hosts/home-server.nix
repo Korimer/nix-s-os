@@ -6,13 +6,39 @@
   };
 
   den.aspects.vorkuta = {
-    includes = builtins.attrValues den.aspects.asya.provides;
-    nixos = {
+    nixos = { pkgs, ... }:
+    {
+      nixpkgs.buildPlatform = builtins.currentSystem;
+      nixpkgs.hostPlatform = "aarch64-linux";
+      system.stateVersion = "26.11";
+
+      # Hardware
+      fileSystems = {
+        "/" = {
+          device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
+          fsType = "ext4";
+        };
+      };
+      swapDevices = [ { device = "/swapfile"; size = 1024; } ];
+
+      hardware.enableRedistributableFirmware = true;
+
+      # networking
+      networking.wireless.enable = true;  
       networking.hostName = "vorkuta";
-      nixpkgs.virtualization.forwardPorts = [{
-        # roman numeral for 5 is v btw
-        host.port = 11053;
-      }];
+
+      time.timeZone = "America/Denver";
+      services.openssh.enable = true;
+
+      security.sudo.wheelNeedsPassword = false;
+
+      # Boot
+      boot.kernelPackages = pkgs.linuxPackages_latest;
+
+      boot.kernelParams = [
+        "console=ttyS1,115200n8"
+      ];
+
     };
   };
 }
