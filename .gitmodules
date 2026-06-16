@@ -11,8 +11,3 @@
 	path = git-submodules/quotes
 	url = git@github.com:Korimer/Quotes.git
 	branch = main
-[submodule "impure-context"]
-	path = git-submodules/impure-context
-	url = ./git-submodules/impure-context/
-	branch = main
-	ignore = dirty
