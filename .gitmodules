@@ -15,4 +15,3 @@
 	path = git-submodules/impure-context
 	url = git@github.com:Korimer/Empty.git
 	branch = main
-	ignore = all
