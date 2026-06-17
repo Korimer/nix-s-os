@@ -1,4 +1,10 @@
 { inputs, ... }:
+let
+  track-impurities = pkgs: pkgs.writeShellScriptBin "write-host-system"
+  ''
+    git add --intent-to-add ./git-submodules/impure-context
+  '';
+in
 {
   imports = with inputs.flake-file.flakeModules; [
     dendritic
@@ -19,6 +25,13 @@
       };
       self.submodules = true;
     };
+    write-hooks = [
+    {
+      index = 901;
+      program = track-impurities;
+    }
+    ];
+
     prune-lock.enable = true;
   };
 }
