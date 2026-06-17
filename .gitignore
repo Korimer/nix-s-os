@@ -1,4 +1,1 @@
 result
-context/*
-!context/make-flake.nix
-!context/*.tracked.nix
