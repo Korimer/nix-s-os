@@ -140,11 +140,11 @@
     "impure-context": {
       "flake": false,
       "locked": {
-        "path": "./context",
+        "path": "./git-submodules/impure-context",
         "type": "path"
       },
       "original": {
-        "path": "./context",
+        "path": "./git-submodules/impure-context",
         "type": "path"
       },
       "parent": []

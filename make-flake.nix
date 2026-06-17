@@ -20,4 +20,4 @@ inputs.flake-parts.lib.mkFlake {
     };
     currentSystem = currentSystem;
   };
-} (inputs.import-tree ../modules)
+} (inputs.import-tree ./modules)

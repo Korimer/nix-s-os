@@ -1,7 +1,7 @@
 # DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
-  outputs = inputs: import ./context/make-flake.nix inputs;
+  outputs = inputs: import ./make-flake.nix inputs;
 
   inputs = {
     den.url = "github:vic/den";
@@ -22,7 +22,7 @@
     import-tree.url = "github:vic/import-tree";
     impure-context = {
       type = "path";
-      path = "./context";
+      path = "./git-submodules/impure-context";
       flake = false;
     };
     korimer-mini-server.url = "github:Korimer/MinimalNixServer";

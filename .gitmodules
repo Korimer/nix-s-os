@@ -11,3 +11,8 @@
 	path = git-submodules/quotes
 	url = git@github.com:Korimer/Quotes.git
 	branch = main
+[submodule "Empty-Repo"]
+	path = git-submodules/impure-context
+	url = git@github.com:Korimer/Empty.git
+	branch = main
+	ignore = all
