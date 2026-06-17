@@ -7,6 +7,7 @@
   den.aspects.netzach = {
     includes = [
       den.aspects.nvidia
+      den.aspects.binfmt.provides.aarch64-linux
     ]
     ;
   };
