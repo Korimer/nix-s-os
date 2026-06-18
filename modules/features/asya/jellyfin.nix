@@ -9,7 +9,6 @@
     environment.systemPackages = with pkgs; [
       jellyfin-web
       jellyfin-ffmpeg
-      delfin
     ];
   };
 }
