@@ -16,8 +16,8 @@
       environment.variables.GPG_TTY="$(tty)";
       environment.systemPackages = with pkgs; [ pinentry-curses ];
       services.gnome.gnome-online-accounts.enable = lib.mkForce false;
-      services.gnome.gnome-keyring.enable = lib.mkForce false;
       programs.seahorse.enable = lib.mkForce false;
+      services.gnome.gnome-keyring.enable = false;
     };
   };
 }
