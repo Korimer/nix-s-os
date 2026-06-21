@@ -1,14 +1,21 @@
+{ flake-file, ... }:
 {
+  flake-file.inputs.nixflix.url = "github:kiriwalawren/nixflix";
+
   den.aspects.asya.provides.jellyfin.nixos = { pkgs, ... }:
   {
-    services.jellyfin = {
-      enable = true;
-      openFirewall = true;
-    };
+    imports = [ flake-file.inputs.nixflix.nixosModules.default ];
 
-    environment.systemPackages = with pkgs; [
-      jellyfin-web
-      jellyfin-ffmpeg
-    ];
+    nixflix = {
+      enable = true;
+      nginx.enable = true;
+
+      jellyfin = {
+        enable = true;
+        users = {
+          
+        };
+      };
+    };
   };
 }
