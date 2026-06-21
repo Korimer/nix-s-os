@@ -38,5 +38,6 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
     self.submodules = true;
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 }
