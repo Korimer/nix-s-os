@@ -25,7 +25,7 @@ home-items = builtins.filter
 
     homeManager = { config, ...}:
       let
-        trueDotFileDir = "${flake-root.literal}/git-submodules/dotfiles";
+        trueDotFileDir = "${flake-root}/git-submodules/dotfiles";
       in
     {
       programs.emacs.enable = true;

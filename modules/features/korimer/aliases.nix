@@ -16,7 +16,7 @@
         {
           environment.systemPackages = [
             (pkgs.writeShellScriptBin "write-flake" ''
-             cd ${flake-root.literal}
+             cd ${flake-root}
              exec nix run .#write-flake
              '')
           ];
