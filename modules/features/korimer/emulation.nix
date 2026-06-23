@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.korimer.provides.fish = {
+  den.aspects.korimer.provides.emulation = {
     includes = [ den.aspects.flatpak ];
     nixos = { pkgs, ... }:
     {

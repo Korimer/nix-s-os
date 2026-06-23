@@ -31,9 +31,11 @@
     };
 
     provides.defaultShell = { user }:
-      { nixos = { pkgs, ...}: {
+      { nixos = if user.isRemoteUser then {} else
+        { pkgs, ...}: {
           # Is this correct? Unsure whether to use name or username
           users.users.${user.name}.shell = pkgs.zsh;
-      };};
+        };
+      };
   };
 }

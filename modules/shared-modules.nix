@@ -31,6 +31,11 @@ in
   #  ];
   #};
 
+  den.schema.user = { user, ... }: {
+    options.isRemoteUser = lib.mkEnableOption "If said user does not have an account in users.users.<name>";
+    config.isRemoteUser = lib.mkDefault false;
+  };
+
   den.aspects.korimer = allProvides;
   den.aspects.asya = allProvides;
 

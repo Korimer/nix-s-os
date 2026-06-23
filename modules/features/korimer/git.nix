@@ -10,9 +10,13 @@
       programs.git = {
         enable = true;
         settings = {
-          init.defaultBranch = "master";
+          init.defaultBranch = "main";
           core.fileMode = false;
           push.autosetupremote=true;
+
+          pull.ff = "only";
+
+          credential.helper = "libsecret";
 
           user.name = "Korimer";
           user.email = "thekclov@gmail.com";
