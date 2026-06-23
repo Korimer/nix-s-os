@@ -1,5 +1,8 @@
+{ den, ... }:
 {
   den.aspects.korimer.provides.zsh = {
+    includes = [ den.aspects.korimer.provides.zsh.provides.defaultShell ];
+
     nixos = {
       programs.zsh.enable = true;
       environment.pathsToLink = [ "/share/zsh" ];
@@ -26,5 +29,11 @@
 
       home.packages = with pkgs; [ fzf pay-respects ];
     };
+
+    provides.defaultShell = { user }:
+      { nixos = { pkgs, ...}: {
+          # Is this correct? Unsure whether to use name or username
+          users.users.${user.name}.shell = pkgs.zsh;
+      };};
   };
 }
