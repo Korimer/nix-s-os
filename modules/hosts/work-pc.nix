@@ -10,7 +10,15 @@
 
   den.aspects.fortnite = {
     includes = [
-    ]
-    ;
+    ];
+    provides.nirimonitors = {
+      includes = [ den.aspects.niriconfig ];
+
+      nixos = {
+        niriconfig.monitors = ''
+          
+        '';
+      };
+    };
   };
 }

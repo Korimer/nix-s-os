@@ -8,7 +8,16 @@
     includes = [
       den.aspects.nvidia
       den.aspects.binfmt.provides.aarch64-linux
-    ]
-    ;
+    ];
+
+    provides.nirimonitors = {
+      includes = [ den.aspects.niriconfig ];
+
+      nixos = {
+        niriconfig.monitors = ''
+          
+        '';
+      };
+    };
   };
 }

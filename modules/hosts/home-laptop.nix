@@ -8,11 +8,21 @@
     includes = [
       den.aspects.bluetooth
       den.aspects.nvidia
-    ]
-    ;
+      den.aspects.magic.provides.nirimonitors
+    ];
     nixos =
     {
       systemd.sleep.settings.Sleep.HibernateMode = "platform";
+    };
+
+    provides.nirimonitors = {
+      includes = [ den.aspects.niriconfig ];
+
+      nixos = {
+        niriconfig.monitors = ''
+          
+        '';
+      };
     };
   };
 }
