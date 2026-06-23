@@ -15,7 +15,7 @@
       includes = [ den.aspects.niriconfig ];
 
       nixos = {
-        niriconfig.monitors = ''
+        niriconfig.monitors.text = ''
           
         '';
       };
