@@ -13,8 +13,22 @@
 
     provides.shellInit = {
       nixos = { lib, ... }: {
-        environment.shellInit = lib.mkAfter ''
-          
+        programs.bash.interactiveShellInit = lib.mkAfter ''
+          if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+            exec tmux attach || exec tmux new-session
+          fi
+        '';
+
+        programs.zsh.initExtra = lib.mkAfter ''
+          if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+            exec tmux attach || exec tmux new-session
+          fi
+        '';
+
+        programs.fish.interactiveShellInit = lib.mkAfter ''
+          if test -z "$TMUX"; and test -n "$PS1"
+            exec tmux attach; or tmux new-session
+          end
         '';
       };
     };
