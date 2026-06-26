@@ -8,8 +8,8 @@
         viAlias = true;
       };
     };
-  };
-  homeManager = {
-    programs.neovim.defaultEditor = true;
+    homeManager = {
+      programs.neovim.defaultEditor = true;
+    };
   };
 }
