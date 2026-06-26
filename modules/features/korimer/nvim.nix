@@ -9,4 +9,7 @@
       };
     };
   };
+  homeManager = {
+    programs.neovim.defaultEditor = true;
+  };
 }
