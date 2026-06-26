@@ -18,6 +18,8 @@
 
           credential.helper = "libsecret";
 
+          safe.directory = "/etc/nixos";
+
           user.name = "Korimer";
           user.email = "thekclov@gmail.com";
         };
