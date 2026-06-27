@@ -4,6 +4,7 @@
   outputs = inputs: import ./make-flake.nix inputs;
 
   inputs = {
+    agenix.url = "github:ryantm/agenix";
     den.url = "github:vic/den";
     fenix.url = "github:nix-community/fenix";
     flake-file.url = "github:vic/flake-file";
@@ -38,6 +39,5 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
     self.submodules = true;
-    sops-nix.url = "github:Mic92/sops-nix";
   };
 }

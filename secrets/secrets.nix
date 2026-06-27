@@ -7,21 +7,12 @@ let
   (map
     (secret: {
      name = secret;
-     value = { publicKeys = [ vorkuta ];};
+     value = { publicKeys = [ asya ];};
     })
     vorkutaSecrets
   );
 
-  vorkutaSecrets = [
-    "tosya_pw.age"
-    "marina_pw.age"
-    "pw_sonarr.age"
-    "pw_radarr.age"
-    "pw_recyclarr.age"
-    "pw_lidarr.age"
-    "pw_prowlarr.age"
-    "jellyfin_base_apikey.age"
-  ];
+  vorkutaSecrets = import ./_secretList.nix;
 in
 vorkutaAttrs
 //

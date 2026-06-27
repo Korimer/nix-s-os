@@ -1,0 +1,10 @@
+[
+    "tosya_pw.age"
+    "marina_pw.age"
+    "pw_sonarr.age"
+    "pw_radarr.age"
+    "pw_recyclarr.age"
+    "pw_lidarr.age"
+    "pw_prowlarr.age"
+    "jellyfin_base_apikey.age"
+]
