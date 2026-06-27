@@ -1,11 +1,8 @@
 { lib, den, inputs, ... }:
 {
-  flake-file.inputs = {
-    sops-nix.url = "github:Mic92/sops-nix";
-  };
-  
-  den.default.includes = [ den.aspects.secrets ];
-  den.aspects.secrets = {
+  den.default.includes = [ den.aspects.gnupg ];
+
+  den.aspects.gnupg = {
     nixos = { pkgs, ... }: {
       programs.gnupg.agent = {
         enable = true;
@@ -13,6 +10,11 @@
         pinentryPackage = pkgs.pinentry-bemenu;
       };
 
+      environment.systemPackages = with pkgs; [
+        sops age
+      ];
+
+      # I loathe your chud defaults gnome
       services.gnome = {
         gnome-keyring.enable = false;
         gcr-ssh-agent.enable = false;
@@ -21,3 +23,4 @@
     };
   };
 }
+
