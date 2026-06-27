@@ -1,10 +1,11 @@
+map (fname: "${fname}.age")
 [
-    "tosya_pw.age"
-    "marina_pw.age"
-    "pw_sonarr.age"
-    "pw_radarr.age"
-    "pw_recyclarr.age"
-    "pw_lidarr.age"
-    "pw_prowlarr.age"
-    "jellyfin_base_apikey.age"
+    "tosya_pw"
+    "marina_pw"
+    "pw_sonarr"
+    "pw_radarr"
+    "pw_recyclarr"
+    "pw_lidarr"
+    "pw_prowlarr"
+    "jellyfin_base_apikey"
 ]
