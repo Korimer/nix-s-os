@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  den.aspects.asya.provides.nixflix.provides.jellyfin.nixos = { config, ... }:
+  den.aspects.asya.provides.nixflix.provides.jellyfin.nixos = { config, lib, ... }:
   let
     Secret = name:
       { _secret = config.age.secrets."${name}.age".path; }; 
@@ -10,6 +10,9 @@
       enable = true;
       openFirewall = true;
       apiKey = Secret "jellyfin_base_apikey";
+
+      # Blank = listen on all addresses; in theory
+      network.localNetworkAddresses = lib.mkForce [ "0.0.0.0" ];
 
       users = {
         tosya = {
