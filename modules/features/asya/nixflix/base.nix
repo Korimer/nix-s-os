@@ -4,11 +4,7 @@
 
   den.aspects.asya.provides.nixflix = {
     includes = builtins.attrValues den.aspects.asya.provides.nixflix.provides;
-    nixos = { config, ... }:
-    let
-      Secret = name:
-        { _secret = config.age.secrets."${name}.age".path; }; 
-    in
+    nixos =
     {
       imports = [ inputs.nixflix.nixosModules.default ];
 
