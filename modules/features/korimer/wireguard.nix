@@ -10,7 +10,7 @@
         interfaces = {
           wg-uni = {
             # TODO: add secret key
-            #privateKey = Secret "wg-edu-key";
+            privateKey = "lmao"; # Secret "wg-edu-key";
             address = [ "192.168.100.40/32" ];
             dns = [ "129.82.233.44" ];
             peers = [{
