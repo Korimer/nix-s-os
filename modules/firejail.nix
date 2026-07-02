@@ -1,5 +1,5 @@
 {
-  den.aspects.netns.nixos = {
+  den.aspects.firejail.nixos = {
     programs.firejail = {
       enable = true;
     };

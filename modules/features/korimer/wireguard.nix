@@ -1,4 +1,5 @@
 {
+  # also see https://discourse.nixos.org/t/wireguard-dns-over-systemd-resolved/47306/13
   den.aspects.korimer.provides.wireguard = {
     nixos = { config, ... }:
     let
@@ -6,13 +7,16 @@
         config.age.secrets."${name}.age".path;
     in
     {
-      networking.wg-quick = {
+      networking.wireguard = {
         interfaces = {
           wg-uni = {
+            interfaceNamespace = "csu-vpn";
             # TODO: add secret key
             privateKey = "lmao"; # Secret "wg-edu-key";
-            address = [ "192.168.100.40/32" ];
-            dns = [ "129.82.233.44" ];
+            # AKA address 
+            ips = [ "192.168.100.40/32" ];
+            # TODO: Add DNS to network namespace
+            #dns = [ "129.82.233.44" ];
             peers = [{
               publicKey = "129.82.233.44";
               allowedIPs = [
