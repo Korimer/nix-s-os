@@ -4,7 +4,10 @@
   den.aspects.wireguard = {
     provides.all.includes =
       (builtins.attrValues den.aspects.wireguard.provides.networks.provides)
-      ++ [ den.aspects.netns ]
+      ++ [
+        den.aspects.netns
+        den.aspects.firejail
+      ]
     ;
 
     nixos = { config, ... }:

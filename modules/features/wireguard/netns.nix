@@ -1,5 +1,7 @@
 { den, ... }:
 {
+  den.aspects.netns.includes = builtins.attrValues den.aspects.netns.provides;
+
   den.aspects.netns.provides.options.nixos = { lib, ... }: {
 
     options.my.netns = lib.mkOption {
