@@ -9,6 +9,7 @@
       den.aspects.bluetooth
       den.aspects.nvidia
       den.aspects.magic.provides.nirimonitors
+      den.aspects.wireguard.provides.networks.provides.csu-vpn
     ];
     nixos =
     {

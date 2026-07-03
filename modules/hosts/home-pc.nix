@@ -8,6 +8,7 @@
     includes = [
       den.aspects.nvidia
       den.aspects.binfmt.provides.aarch64-linux
+      den.aspects.wireguard.provides.networks.provides.csu-vpn
     ];
 
     provides.nirimonitors = {
