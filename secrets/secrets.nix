@@ -15,9 +15,15 @@ let
     (_: { publicKeys = owners; })
   ;
   
-  MergeAll = arrayOfAttrs: lib.zipAttrsWith
-    (name: values: lib.concatLists values)
-    arrayOfAttrs
+  MergeAll = secret: lib.zipAttrsWith
+    (_: owners: 
+      lib.unique (lib.concatLists (
+        map
+          (owner: owner.publicKeys)
+          owners
+      ))
+    )
+    secret
   ;
 
   AsSecrets = ownership:
@@ -30,12 +36,12 @@ let
   ;
     
 in
-#MapKeysTo "nixflix" [ hosts.asya ]
 AsSecrets
 (with hosts; {
   nixflix = [ asya ];
   csu-vpn = [ magic ];
 })
+#MapKeysTo "nixflix" [ hosts.asya ]
   #"armored-secret.age" = {
   #  publicKeys = [ vorkuta ];
   #  armor = true;

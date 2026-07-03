@@ -14,6 +14,6 @@ builtins.mapAttrs
     "jellyfin_base_apikey"
   ];
   csu-vpn = [
-    "wg-csu-vpn-key"
+    "wg-csu-key"
   ];
 }
