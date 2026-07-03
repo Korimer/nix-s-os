@@ -1,3 +1,10 @@
 {
+  den.aspects.default.provides.networking.nixos = { config, ... }: {
+    networking.networkmanager.enable = true;
 
+    networking.hosts = {
+      "127.0.0.1" = ["localhost"];
+      "127.0.1.1" = [config.networking.hostName];
+    };
+  };
 }
