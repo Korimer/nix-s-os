@@ -11,7 +11,6 @@
       ./ll_config/audio-video.nix
       ./ll_config/locale.nix
       ./ll_config/users.nix
-      ./ll_config/networking.nix
       ./ll_config/boot.nix
 
       # Sddm uwsm fmcl i hate four letter acronyms
