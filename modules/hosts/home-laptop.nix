@@ -10,6 +10,7 @@
       den.aspects.nvidia
       den.aspects.magic.provides.nirimonitors
       den.aspects.wireguard.provides.networks.provides.csu-vpn
+      den.aspects.wireguard.provides.networks.provides.proton-vpn
     ];
     nixos =
     {

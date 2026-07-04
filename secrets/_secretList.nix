@@ -9,9 +9,9 @@ rec {
   ownership = (with hosts; {
     nixflix = [ asya ];
     csu-vpn = [ magic netzach ];
-    netzach-proton = [ netzach ];
+    netzach-proton-vpn = [ netzach ];
+    magic-proton-vpn = [ magic ];
   });
-
   
   secrets = {
     nixflix = [
@@ -28,8 +28,11 @@ rec {
       "wg-csu-preshared-key"
       "wg-csu-private-key"
     ];
-    netzach-proton = [
+    netzach-proton-vpn = [
       "wg-netzach-proton-key"
+    ];
+    magic-proton-vpn = [
+      "wg-magic-proton-key"
     ];
   };
 }
