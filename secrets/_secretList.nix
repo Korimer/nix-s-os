@@ -23,7 +23,8 @@ rec {
       "jellyfin_base_apikey"
     ];
     csu-vpn = [
-      "wg-csu-key"
+      "wg-csu-preshared-key"
+      "wg-csu-private-key"
     ];
   };
 }
