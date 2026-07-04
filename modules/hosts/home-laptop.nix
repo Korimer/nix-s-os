@@ -14,6 +14,9 @@
     nixos =
     {
       systemd.sleep.settings.Sleep.HibernateMode = "platform";
+      boot.kernelParams = [
+        "pcie_aspm=off"
+      ];
     };
 
     provides.nirimonitors = {

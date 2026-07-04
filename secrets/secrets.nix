@@ -10,9 +10,13 @@ let
   pkgs = import (builtins.getFlake "nixpkgs") {};
   lib = pkgs.lib;
 
-  GenPair = group: file: lib.nameValuePair
-    file
-    ownership.${group};
+  GenPair = group: file: {
+    name = builtins.substring
+      0
+      (builtins.stringLength file - 4)
+      file;
+    value = ownership.${group};
+  };
 
   GenerateFileOwnerPairs = group: lib.foldl'
     (acc: x:

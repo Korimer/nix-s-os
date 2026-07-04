@@ -1,6 +1,7 @@
 {
   den.aspects.default.provides.kernel.nixos = { pkgs, ... }:
   {
-    boot.kernelPackages = pkgs.linuxPackages_lts;
+    # AKA LTS
+    boot.kernelPackages = pkgs.linuxPackages;
   };
 }

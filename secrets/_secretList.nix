@@ -15,7 +15,7 @@ rec {
     (name: value: 
       (map (fname: "${fname}.age") value)
     )
-    {
+  {
     nixflix = [
       "tosya_pw"
       "marina_pw"

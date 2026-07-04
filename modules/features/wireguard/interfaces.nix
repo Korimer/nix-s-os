@@ -28,19 +28,26 @@ let
   };
 in
 {
-  den.aspects.wireguard.provides.networks.provides = builtins.mapAttrs
-    (name: value: {
-      value = { nixos = { config, ... }: {
-        # Trivially set my custom netns config
-        my.netns.${name} = value.netns;
-        # Override the given secret to actually point to the obscured contents
-        networking.wireguard.interfaces = {
-          ${name} =
-            value.wg
-            // { privateKey = config.age.secrets.${value.wg.privateKey}.path; }
-          ;
-        };
-      };};
-    })
-    allInterfaces;
-  }
+  den.aspects.wireguard.provides.networks.provides.csu-vpn = {
+    nixos = { config, ... }: {
+      my.netns.csu-vpn = {
+        dns = "129.82.233.44";
+      };
+
+      networking.wireguard.interfaces.csu-vpn = {
+        ips = [ "192.168.100.40/32" ];
+        privateKey = config.age.secrets.wg-csu-key.path;
+        peers = [{
+          publicKey = "129.82.233.44";
+          allowedIPs = [
+            "129.82.0.0/16"
+            "10.1.0.0/16"
+            "10.2.0.0/16"
+          ];
+          endpoint = "129.82.233.44:52813";
+          persistentKeepalive = 30;
+        }];
+      };
+    };
+  };
+}
