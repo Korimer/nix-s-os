@@ -9,9 +9,9 @@
 
       networking.wireguard.interfaces.csu-vpn = {
         ips = [ "192.168.100.40/32" ];
-        privateKey = config.age.secrets.wg-csu-key.path;
+        privateKeyFile = config.age.secrets.wg-csu-key.path;
         peers = [{
-          publicKey = "129.82.233.44";
+          publicKey = "cdFaHjSCz3oe81Gyl/86W1th4Hj4LK3iORDCLZmF0gI=";
           allowedIPs = [
             "129.82.0.0/16"
             "10.1.0.0/16"
