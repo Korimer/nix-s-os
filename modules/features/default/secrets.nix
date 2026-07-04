@@ -1,15 +1,15 @@
 { inputs, ... }:
 let
   secretDir = inputs.self + "/secrets";
-  secret-registry = import "${secretDir}/_secretList.nix";
+  secretRegistry = import "${secretDir}/_secretList.nix";
 
   secretsFlattened = builtins.concatLists
-    (builtins.attrValues secret-registry.secrets);
+    (builtins.attrValues secretRegistry.secrets);
 
   secretsAll = builtins.listToAttrs 
     (map (secret: {
       name = secret;
-      value = { file = "${secretDir}/${secret}"; };
+      value = { file = "${secretDir}/${secret}.age"; };
       })
       secretsFlattened
     );

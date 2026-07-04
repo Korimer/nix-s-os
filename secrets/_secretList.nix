@@ -11,11 +11,7 @@ rec {
   });
 
   
-  secrets = builtins.mapAttrs
-    (name: value: 
-      (map (fname: "${fname}.age") value)
-    )
-  {
+  secrets = {
     nixflix = [
       "tosya_pw"
       "marina_pw"

@@ -11,10 +11,7 @@ let
   lib = pkgs.lib;
 
   GenPair = group: file: {
-    name = builtins.substring
-      0
-      (builtins.stringLength file - 4)
-      file;
+    name = "${file}.age";
     value = ownership.${group};
   };
 
