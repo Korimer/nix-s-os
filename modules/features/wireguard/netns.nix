@@ -51,7 +51,7 @@
     in
     lib.mapAttrs'
       (name: value: {
-        name = "netns/${name}";
+        name = "netns/${name}/resolv.conf";
         value = { text = GenerateAllText value; };
       })
       enabledNameservers
