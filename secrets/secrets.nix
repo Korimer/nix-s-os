@@ -11,7 +11,8 @@ let
   lib = pkgs.lib;
 
   GenPair = group: file: lib.nameValuePair
-    file ownership.${group};
+    file
+    ownership.${group};
 
   GenerateFileOwnerPairs = group: lib.foldl'
     (acc: x:
@@ -28,7 +29,8 @@ let
 
   allSecrets = lib.foldl'
     (acc: x: let
-      cur_keys = acc.${x.name} or [];
+      cur_keys =
+        if (acc ? ${x.name}) then acc.${x.name}.publicKeys else [];
     in 
     acc //
     {

@@ -8,7 +8,7 @@ let
         dns = "129.82.233.44";
       };
       wg = {
-        privateKeyFile = "wg-csu-vpn-key";
+        privateKeyFile = "wg-csu-key";
         # AKA address 
         ips = [ "192.168.100.40/32" ];
         # TODO: Add DNS to network namespace
