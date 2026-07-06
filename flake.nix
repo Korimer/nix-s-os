@@ -36,6 +36,7 @@
     nixflix.url = "github:kiriwalawren/nixflix";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nnwg.url = "github:Korimer/NNWG";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
     self.submodules = true;

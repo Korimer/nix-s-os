@@ -365,6 +365,22 @@
     },
     "nixpkgs_11": {
       "locked": {
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_12": {
+      "locked": {
         "lastModified": 1781229721,
         "narHash": "sha256-hCafbexZ0iZ/7QYkKWxCxviTU+c0PDhkieiUVVPCHtY=",
         "rev": "173d0ad7a974f8543a9ab01d2271b2e290341b33",
@@ -376,7 +392,7 @@
         "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
-    "nixpkgs_12": {
+    "nixpkgs_13": {
       "locked": {
         "lastModified": 1781229721,
         "narHash": "sha256-hCafbexZ0iZ/7QYkKWxCxviTU+c0PDhkieiUVVPCHtY=",
@@ -493,9 +509,27 @@
         "url": "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz"
       }
     },
-    "noctalia": {
+    "nnwg": {
       "inputs": {
         "nixpkgs": "nixpkgs_11"
+      },
+      "locked": {
+        "lastModified": 1783320388,
+        "narHash": "sha256-qwoDkeOXe+GCot1JGA2K1i0OYu/bHlYUXrAZUrUVLpY=",
+        "owner": "Korimer",
+        "repo": "NNWG",
+        "rev": "a7286153246de4e2b4e55fa41420a9e145e3cd00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Korimer",
+        "repo": "NNWG",
+        "type": "github"
+      }
+    },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_12"
       },
       "locked": {
         "lastModified": 1781316033,
@@ -513,7 +547,7 @@
     },
     "noctalia-shell": {
       "inputs": {
-        "nixpkgs": "nixpkgs_12"
+        "nixpkgs": "nixpkgs_13"
       },
       "locked": {
         "lastModified": 1781316033,
@@ -548,6 +582,7 @@
         "nixflix": "nixflix",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_10",
+        "nnwg": "nnwg",
         "noctalia": "noctalia",
         "noctalia-shell": "noctalia-shell"
       }
