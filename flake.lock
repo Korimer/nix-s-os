@@ -514,11 +514,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1783399039,
-        "narHash": "sha256-+/eO4rEoYuBVzBFa0XUW+3vZDWh3nWYu/7Yvhav2cvo=",
+        "lastModified": 1783399844,
+        "narHash": "sha256-7XS0vcc8zAHX+9gaxfNwcI1N+mXFfgYyjzR5YAye4gQ=",
         "owner": "Korimer",
         "repo": "NNWG",
-        "rev": "036ab9bd2cf7f92d056857d82ec6aa87e4aa46aa",
+        "rev": "9e9f4ba92a8e9e0fb1d9e4f17c7bdfd5eeda822b",
         "type": "github"
       },
       "original": {

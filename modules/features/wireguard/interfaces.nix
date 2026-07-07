@@ -6,9 +6,10 @@
       netNamespaces.toCreate.csu-vpn = {
         resolv = {
           dns = [ "129.82.233.44" ];
-          extraOptions = ''
-            options edns0
-          '';
+          #extraOptions = ''
+          #  search engr.colostate.edu
+          #  options edns0
+          #'';
         };
       };
       netNamespaces.createFor.wireguard = {
