@@ -5,7 +5,10 @@
 
       netNamespaces.toCreate.proton-netzach = {
         resolv = {
-          dns = [ "10.2.0.1" "2a07:b944::2:1" ];
+          dns = [
+            "10.2.0.1"
+            #"2a07:b944::2:1"
+          ];
         };
       };
 
@@ -22,7 +25,7 @@
           publicKey = "uQAr4o8x8M9aONM/nMu7DHLZCUobnRILlaTPmnD8ISw=";
           allowedIPs = [
             "0.0.0.0/0"
-            "::/0"
+            #"::/0"
           ];
           endpoint = "84.17.63.54:51820";
           persistentKeepalive = 25;
