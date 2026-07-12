@@ -9,8 +9,6 @@
       den.aspects.nvidia
       den.aspects.binfmt.provides.aarch64-linux
       den.aspects.netzach.provides.nirimonitors
-      den.aspects.wireguard.provides.networks.provides.csu-vpn
-      den.aspects.wireguard.provides.networks.provides.proton-vpn
     ];
 
     provides.nirimonitors = {

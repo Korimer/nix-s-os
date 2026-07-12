@@ -1,5 +1,11 @@
+{ den, ... }:
 {
-  den.aspects.wireguard.provides.networks.provides.csu-vpn.nixos = { config, ... }: {
+  den.aspects.magic.includes = with den.aspects.magic.provides; [
+    csu-vpn
+    proton-vpn
+  ];
+
+  den.aspects.magic.provides.csu-vpn.nixos = { config, ... }: {
     my.secretGroups = [ "csu-vpn" ];
 
       netNamespaces.toCreate.csu-vpn = {
@@ -55,10 +61,10 @@
     #};
   };
 
-  den.aspects.wireguard.provides.networks.provides.proton-vpn.nixos = { config, ... }: {
+  den.aspects.magic.provides.proton-vpn.nixos = { config, ... }: {
     my.secretGroups = [ "proton-vpn" ];
 
-    my.netns.csu-vpn = {
+    my.netns.proton-vpn = {
       dns = [ "10.2.0.1" "2a07:b944::2:1" ];
     };
 
@@ -79,3 +85,4 @@
     };
   };
 }
+
