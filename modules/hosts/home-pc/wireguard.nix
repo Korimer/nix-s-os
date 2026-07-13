@@ -27,12 +27,12 @@
       ips = [ "10.2.0.2/32" "2a07:b944::2:2/128" ];
       privateKeyFile = config.age.secrets.wg-netzach-proton-key.path;
       peers = [{
-        publicKey = "uQAr4o8x8M9aONM/nMu7DHLZCUobnRILlaTPmnD8ISw=";
+        publicKey = "KMZgG0stim9wMWWyTkfznUoapniGju1a7/0mmzYlez4=";
         allowedIPs = [
           "0.0.0.0/0"
           #"::/0"
         ];
-        endpoint = "84.17.63.54:51820";
+        endpoint = "95.173.221.219:51820";
         persistentKeepalive = 25;
       }];
     };
