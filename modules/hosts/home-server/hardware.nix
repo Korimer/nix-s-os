@@ -1,5 +1,5 @@
 {
-  den.aspects.vorkuta.nixos = { pkgs, ... }:
+  den.aspects.vorkuta.nixos = { pkgs, lib, ... }:
   {
     #Building
 
@@ -15,7 +15,7 @@
     hardware.enableRedistributableFirmware = true;
 
     # Boot
-    boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
     boot.initrd.availableKernelModules = [ "usbhid" ];
     boot.loader.grub.enable = false;
     boot.loader.generic-extlinux-compatible.enable = true;

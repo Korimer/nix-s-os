@@ -9,7 +9,7 @@
     nixflix.jellyfin = {
       enable = true;
       openFirewall = true;
-      apiKey = Secret "jellyfin_base_apikey";
+      apiKey = Secret "jellyfin_apikey_base";
 
       # Blank = listen on all addresses; in theory
       network.localNetworkAddresses = lib.mkForce [ "0.0.0.0" ];
