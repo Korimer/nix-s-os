@@ -3,7 +3,7 @@
   den.aspects.asya.provides.nixflix.provides.jellyfin.nixos = { config, lib, ... }:
   let
     Secret = name:
-      { _secret = config.age.secrets."${name}.age".path; }; 
+      { _secret = config.age.secrets.${name}.path; }; 
   in
   {
     nixflix.jellyfin = {

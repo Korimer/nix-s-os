@@ -17,12 +17,15 @@ rec {
     nixflix = [
       "tosya_pw"
       "marina_pw"
-      "pw_sonarr"
-      "pw_radarr"
-      "pw_recyclarr"
-      "pw_lidarr"
-      "pw_prowlarr"
-      "jellyfin_base_apikey"
+      "jellyfin_pw_sonarr"
+      "jellyfin_pw_radarr"
+      "jellyfin_pw_lidarr"
+      "jellyfin_pw_prowlarr"
+      "jellyfin_apikey_base"
+      "jellyfin_apikey_sonarr"
+      "jellyfin_apikey_radarr"
+      "jellyfin_apikey_lidarr"
+      "jellyfin_apikey_prowlarr"
     ];
     csu-vpn = [
       "wg-csu-preshared-key"

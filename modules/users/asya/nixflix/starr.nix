@@ -1,32 +1,30 @@
-let
-in
 {
   den.aspects.asya.provides.nixflix.provides.starr.nixos = { config, ... }:
   let
-    Secret = secret: { _secret = config.sops.secrets.${secret}.path; };
+    Secret = secret: { _secret = config.age.secrets.${secret}.path; };
     
-    cfg = [
+    options = [
       "radarr"
       "lidarr"
-      "recyclarr"
       "sonarr"
       "prowlarr"
     ];
 
-    cfg_base = builtins.listToAttrs (
-      map (name: {
-        name = name;
-        value = {
-          enable = true;
-          hostConfig.password = Secret "pw_${name}";
-        };
-      })
-        cfg
+    starr_base = builtins.listToAttrs (
+      (map (name: {
+          name = name;
+          value = {
+            enable = true;
+            config.apiKey = Secret "jellyfin_apikey_${name}";
+            config.hostConfig.password = Secret "jellyfin_pw_${name}";
+          };
+        })
+        options
+      )
     );
   in 
-    cfg
-    // 
     {
-      
+      nixflix = starr_base // {
+      };
     };
 }
