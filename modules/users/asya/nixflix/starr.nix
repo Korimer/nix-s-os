@@ -1,16 +1,33 @@
 {
-  den.aspects.asya.provides.nixflix.provides.starr.nixos = { config, ... }:
+  den.aspects.asya.provides.nixflix.provides.starr.nixos = { config, lib, ... }:
   let
     Secret = secret: { _secret = config.age.secrets.${secret}.path; };
     
-    options = [
+    target_services = [
       "radarr"
       "lidarr"
       "sonarr"
       "prowlarr"
     ];
 
-    starr_base = builtins.listToAttrs (
+    matchingServices =
+      builtins.filter
+        (service:
+          builtins.any (name: builtins.match ".*${name}.*" service != null) target_services)
+        (builtins.attrNames config.systemd.services);
+
+    forceNamespace = service:
+      { unitConfig.NetworkNamespacePath = lib.mkDefault "proton-vpn"; };
+
+    starrNamespaces = builtins.listToAttrs (
+      map ( name: {
+          name = name;
+          value = forceNamespace name;
+        })
+        matchingServices
+    );
+
+    starrBase = builtins.listToAttrs (
       (map (name: {
           name = name;
           value = {
@@ -19,12 +36,16 @@
             config.hostConfig.password = Secret "jellyfin_pw_${name}";
           };
         })
-        options
+        target_services
       )
     );
   in 
     {
-      nixflix = starr_base // {
+      nixflix =
+        starrBase //
+      {
       };
+
+      #systemd.services = starrNamespaces;
     };
 }
