@@ -1,7 +1,5 @@
-{ lib, den, inputs, ... }:
+{ den, ... }:
 {
-  den.default.includes = [ den.aspects.gnupg ];
-
   den.aspects.gnupg = {
     nixos = { pkgs, ... }: {
       programs.gnupg.agent = {
