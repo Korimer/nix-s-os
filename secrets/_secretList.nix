@@ -28,6 +28,7 @@ rec {
       "jellyfin_apikey_radarr"
       "jellyfin_apikey_lidarr"
       "jellyfin_apikey_prowlarr"
+      "jellyfin_apikey_seerr"
     ];
     csu-vpn = [
       "wg-csu-preshared-key"

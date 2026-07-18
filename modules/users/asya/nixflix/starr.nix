@@ -5,9 +5,9 @@
     
     target_services = [
       "radarr"
-      "lidarr"
       "sonarr"
-      "prowlarr"
+      #"prowlarr"
+      #"lidarr"
     ];
 
     starrBase = builtins.listToAttrs (
@@ -23,9 +23,30 @@
       )
     );
   in 
+  {
+    nixflix = starrBase //
     {
-      nixflix = starrBase //
-      {
+      seerr = {
+        enable = true;
+        apiKey = Secret "jellyfin_pw_seerr";
       };
+      prowlarr.config.indexers = [
+        #{
+        #  name = "DrunkenSlug";
+        #  apiKey ._secret = config.sops.secrets."indexer-api-keys/DrunkenSlug".path;
+        #}
+
+        #{
+        #  name = "NZBFinder";
+        #  apiKey._secret = config.sops.secrets."indexer-api-keys/NZBFinder".path;
+        #}
+
+        #{
+        #  name = "NzbPlanet";
+        #  apiKey._secret = config.sops.secrets."indexer-api-keys/NzbPlanet".path;
+        #}
+      ];          
     };
+  };
 }
+
