@@ -17,6 +17,7 @@ rec {
     nixflix = [
       "tosya_pw"
       "marina_pw"
+      "jellyfin_wg_config"
       "jellyfin_pw_sonarr"
       "jellyfin_pw_radarr"
       "jellyfin_pw_lidarr"

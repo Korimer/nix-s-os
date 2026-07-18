@@ -1,5 +1,5 @@
 {
-  den.aspects.asya.provides.nixflix.provides.starr.nixos = { config, lib, ... }:
+  den.aspects.asya.provides.nixflix.provides.starr.nixos = { config, ... }:
   let
     Secret = secret: { _secret = config.age.secrets.${secret}.path; };
     
@@ -9,23 +9,6 @@
       "sonarr"
       "prowlarr"
     ];
-
-    matchingServices =
-      builtins.filter
-        (service:
-          builtins.any (name: builtins.match ".*${name}.*" service != null) target_services)
-        (builtins.attrNames config.systemd.services);
-
-    forceNamespace = service:
-      { unitConfig.NetworkNamespacePath = lib.mkDefault "proton-vpn"; };
-
-    starrNamespaces = builtins.listToAttrs (
-      map ( name: {
-          name = name;
-          value = forceNamespace name;
-        })
-        matchingServices
-    );
 
     starrBase = builtins.listToAttrs (
       (map (name: {
@@ -41,11 +24,8 @@
     );
   in 
     {
-      nixflix =
-        starrBase //
+      nixflix = starrBase //
       {
       };
-
-      #systemd.services = starrNamespaces;
     };
 }
