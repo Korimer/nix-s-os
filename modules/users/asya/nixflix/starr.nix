@@ -26,10 +26,15 @@
   {
     nixflix = starrBase //
     {
+      downloadarr = {
+        enable = true;
+        qbittorrent.enable = true;
+      };
       seerr = {
         enable = true;
-        apiKey = Secret "jellyfin_pw_seerr";
+        apiKey = Secret "jellyfin_apikey_seerr";
       };
+      flaresolverr.enable = true;
       prowlarr.config.indexers = [
         #{
         #  name = "DrunkenSlug";

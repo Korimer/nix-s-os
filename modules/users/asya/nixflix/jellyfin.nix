@@ -15,7 +15,7 @@
       network.localNetworkAddresses = lib.mkForce [ "0.0.0.0" ];
 
       users = {
-        tosya = {
+        admin = {
           mutable = false;
           policy.isAdministrator = true;
           password = Secret "tosya_pw";
