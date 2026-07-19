@@ -4,8 +4,8 @@
   den.aspects.gnome-keyring.nixos = {
 
     services.gnome = {
-      gnome-keyring.enable = false;
-      gcr-ssh-agent.enable = false;
+      gnome-keyring.enable = true;
+      gcr-ssh-agent.enable = true;
       gnome-online-accounts.enable = false;
     };
   };
