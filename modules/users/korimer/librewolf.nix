@@ -1,5 +1,9 @@
+{ den, ... }:
 {
   den.aspects.korimer.provides.librewolf = {
+
+    includes = [ den.aspects.korimer.provides.librewolf.provides.defaultBrowser ];
+
     nixos = { pkgs, ... }: {
       environment.systemPackages = [ pkgs.librewolf ];
 
@@ -27,6 +31,19 @@
           }
         }
       '';
+    };
+
+    provides.defaultBrowser.homeManager = {
+      xdg.mimeApps = {
+        enable = true;
+        defaultApplications = {
+          "text/html" = "librewolf.desktop";
+          "x-scheme-handler/http" = "librewolf.desktop";
+          "x-scheme-handler/https" = "librewolf.desktop";
+          "x-scheme-handler/about" = "librewolf.desktop";
+          "x-scheme-handler/unknown" = "librewolf.desktop";
+        };
+      };
     };
   };
 }

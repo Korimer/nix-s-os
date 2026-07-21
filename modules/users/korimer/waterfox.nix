@@ -3,7 +3,7 @@
   den.aspects.korimer.provides.waterfox = {
     includes = [
       den.aspects.flatpak
-      den.aspects.korimer.provides.waterfox.provides.defaultBrowser
+      #den.aspects.korimer.provides.waterfox.provides.defaultBrowser
     ];
 
     nixos = {
@@ -22,6 +22,7 @@
         };
       };
     };
+
     provides.wireguard = {
       includes = [
         den.aspects.firejail
