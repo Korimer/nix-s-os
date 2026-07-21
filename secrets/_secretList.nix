@@ -18,7 +18,7 @@ rec {
       "tosya_pw"
       "marina_pw"
       "jellyfin_wg_config"
-      "jellyfin_pw_bittorrent"
+      "jellyfin_pw_bittorrent_webui"
       "jellyfin_pw_sonarr"
       "jellyfin_pw_radarr"
       "jellyfin_pw_lidarr"
