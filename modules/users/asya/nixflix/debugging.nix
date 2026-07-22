@@ -9,9 +9,9 @@
     Req = _: service: { requiredBy = [ "${service}.service" ]; };
   in
   {
-    systemd.services = builtins.mapAttrs Req {
-      "jellyfin-api-key" = "jellyfin";
-      "sonarr-config" = "sonarr";
-    };
+    #systemd.services = builtins.mapAttrs Req {
+    #  "jellyfin-api-key" = "jellyfin";
+    #  "sonarr-config" = "sonarr";
+    #};
   };
 }
