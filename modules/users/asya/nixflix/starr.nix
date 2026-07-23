@@ -6,7 +6,8 @@
     target_services = [
       "radarr"
       "sonarr"
-      #"prowlarr"
+      "sonarr-anime"
+      "prowlarr"
       #"lidarr"
     ];
 
@@ -30,10 +31,12 @@
         enable = true;
         qbittorrent.enable = true;
       };
+
       seerr = {
         enable = true;
         apiKey = Secret "jellyfin_apikey_seerr";
       };
+
       flaresolverr.enable = true;
       prowlarr.config.indexers = [
         #{
