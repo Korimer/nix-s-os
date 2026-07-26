@@ -1,5 +1,5 @@
 {
-  den.aspects.asya.provides.nixflix.provides.starr.nixos = { config, ... }:
+  den.aspects.asya.provides.nixflix.provides.starr.nixos = { config, lib, ... }:
   let
     Secret = secret: { _secret = config.age.secrets.${secret}.path; };
     
@@ -25,7 +25,8 @@
     );
   in 
   {
-    nixflix = starrBase //
+    nixflix = lib.attrsets.recursiveUpdate
+      starrBase
     {
       downloadarr = {
         enable = true;
@@ -39,20 +40,20 @@
 
       flaresolverr.enable = true;
       prowlarr.config.indexers = [
-        #{
-        #  name = "DrunkenSlug";
-        #  apiKey ._secret = config.sops.secrets."indexer-api-keys/DrunkenSlug".path;
-        #}
+      #  #{
+      #  #  name = "DrunkenSlug";
+      #  #  apiKey ._secret = config.sops.secrets."indexer-api-keys/DrunkenSlug".path;
+      #  #}
 
-        #{
-        #  name = "NZBFinder";
-        #  apiKey._secret = config.sops.secrets."indexer-api-keys/NZBFinder".path;
-        #}
+      #  #{
+      #  #  name = "NZBFinder";
+      #  #  apiKey._secret = config.sops.secrets."indexer-api-keys/NZBFinder".path;
+      #  #}
 
-        #{
-        #  name = "NzbPlanet";
-        #  apiKey._secret = config.sops.secrets."indexer-api-keys/NzbPlanet".path;
-        #}
+      #  #{
+      #  #  name = "NzbPlanet";
+      #  #  apiKey._secret = config.sops.secrets."indexer-api-keys/NzbPlanet".path;
+      #  #}
       ];          
     };
   };
