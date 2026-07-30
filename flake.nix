@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nixflix.url = "github:kiriwalawren/nixflix";
+    nixflix.url = "github:Korimer/nixflix-customize-waittime";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     nnwg.url = "github:Korimer/NNWG";

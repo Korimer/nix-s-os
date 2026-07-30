@@ -16,6 +16,8 @@
           name = name;
           value = {
             enable = true;
+            config.waitForApiAttempts = 300;
+            config.sleepOnFailSeconds = 5;
             config.apiKey = Secret "jellyfin_apikey_${name}";
             config.hostConfig.password = Secret "jellyfin_pw_${name}";
           };
@@ -23,11 +25,30 @@
         target_services
       )
     );
+
+    extendTimeout = postfix: builtins.listToAttrs (
+      (map (name: {
+          name = "${name}${postfix}";
+          value = {
+            serviceConfig.TimeoutStartSec = "30min";
+          };
+        })
+        target_services
+      )
+    );
+
   in 
   {
+    systemd.services = 
+      (extendTimeout "")
+      // (extendTimeout "config")
+    ;
     nixflix = lib.attrsets.recursiveUpdate
       starrBase
     {
+      jellyfin.waitForApiAttempts = 300;
+      jellyfin.sleepOnFailSeconds = 5;
+
       downloadarr = {
         enable = true;
         qbittorrent.enable = true;
@@ -40,21 +61,8 @@
 
       flaresolverr.enable = true;
       prowlarr.config.indexers = [
-      #  #{
-      #  #  name = "DrunkenSlug";
-      #  #  apiKey ._secret = config.sops.secrets."indexer-api-keys/DrunkenSlug".path;
-      #  #}
-
-      #  #{
-      #  #  name = "NZBFinder";
-      #  #  apiKey._secret = config.sops.secrets."indexer-api-keys/NZBFinder".path;
-      #  #}
-
-      #  #{
-      #  #  name = "NzbPlanet";
-      #  #  apiKey._secret = config.sops.secrets."indexer-api-keys/NzbPlanet".path;
-      #  #}
-      ];          
+        # Blank for now
+      ];
     };
   };
 }

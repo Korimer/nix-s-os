@@ -1,6 +1,6 @@
 { inputs, den, ... }:
 {
-  flake-file.inputs.nixflix.url = "github:kiriwalawren/nixflix";
+  flake-file.inputs.nixflix.url = "github:Korimer/nixflix-customize-waittime";
 
   den.aspects.asya.provides.nixflix = {
     includes = builtins.attrValues den.aspects.asya.provides.nixflix.provides;

@@ -20,12 +20,12 @@
     );
   in
   {
-    systemd.services = EnableRetry [
-      "jellyfin-api-key"
-      "radarr-config"
-      "sonarr-anime-config"
-      "sonarr-config"
-      "prowlarr-config"
-    ];
+    #systemd.services = EnableRetry [
+    #  "jellyfin-api-key"
+    #  "radarr-config"
+    #  "sonarr-anime-config"
+    #  "sonarr-config"
+    #  "prowlarr-config"
+    #];
   };
 }
