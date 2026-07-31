@@ -20,6 +20,7 @@
             config.sleepOnFailSeconds = 5;
             config.apiKey = Secret "jellyfin_apikey_${name}";
             config.hostConfig.password = Secret "jellyfin_pw_${name}";
+            config.hostConfig.bindAddress = "0.0.0.0";
           };
         })
         target_services
@@ -47,7 +48,7 @@
       starrBase
     {
       jellyfin.waitForApiAttempts = 300;
-      jellyfin.sleepOnFailSeconds = 5;
+      jellyfin.sleepOnFailSeconds = 20;
 
       downloadarr = {
         enable = true;
