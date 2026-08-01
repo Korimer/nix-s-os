@@ -17,7 +17,7 @@
           value = {
             enable = true;
             config.waitForApiAttempts = 300;
-            config.sleepOnFailSeconds = 5;
+            config.sleepOnFailSeconds = 10;
             config.apiKey = Secret "jellyfin_apikey_${name}";
             config.hostConfig.password = Secret "jellyfin_pw_${name}";
             config.hostConfig.bindAddress = "0.0.0.0";
@@ -47,8 +47,8 @@
     nixflix = lib.attrsets.recursiveUpdate
       starrBase
     {
-      jellyfin.waitForApiAttempts = 300;
-      jellyfin.sleepOnFailSeconds = 20;
+      jellyfin.waitForApiAttempts = 200;
+      jellyfin.sleepOnFailSeconds = 30;
 
       downloadarr = {
         enable = true;
