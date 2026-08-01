@@ -6,6 +6,9 @@
 
   programs.niri.enable = true;
   programs.xwayland.enable = true;
+
+  # Niri makes this true by default
+  services.gnome.gnome-keyring.enable = false;
   
   environment.systemPackages = with pkgs; [
 
