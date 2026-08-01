@@ -1,4 +1,3 @@
-{ den, ... }:
 {
   den.aspects.gnupg = {
     nixos = { pkgs, ... }: {
