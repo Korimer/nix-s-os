@@ -22,12 +22,7 @@
                 "installation_mode": "force_installed",
                 "default_area": "navbar"
               },
-              "vim-vixen@i-beam.org": {
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/vim-vixen/latest.xpi",
-                "installation_mode": "force_installed",
-                "default_area": "navbar"
-              }
-              "Vimium": {
+              "{d7742d87-e61d-4b78-b8a1-b469842139fa}": {
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi",
                 "installation_mode": "force_installed",
                 "default_area": "navbar"
