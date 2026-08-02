@@ -27,6 +27,11 @@
                 "installation_mode": "force_installed",
                 "default_area": "navbar"
               }
+              "Vimium": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi",
+                "installation_mode": "force_installed",
+                "default_area": "navbar"
+              }
             }
           }
         }
