@@ -6,6 +6,7 @@ let
   css = import ./_css.nix { inherit inputs; };
 in
 {
+  flake-file.inputs.korimer-waybar.url = "github:Korimer/Waybar-Config";
   den.aspects.korimer.provides.waybar = 
   {
     includes = [ den.aspects.korimer.provides.waybar.provides.waybar-fortune ];

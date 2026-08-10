@@ -27,22 +27,28 @@
       )
     );
 
-    extendTimeout = postfix: builtins.listToAttrs (
-      (map (name: {
-          name = "${name}${postfix}";
-          value = {
-            serviceConfig.TimeoutStartSec = "30min";
-          };
-        })
+    extendTimeout = service: {
+      ${service} =
+        { serviceConfig.TimeoutStartSec = lib.mkForce "30min"; };
+    };
+
+    timeoutStarr = postfix: lib.foldl (acc: val: acc // val ) {}
+      (map 
+        (service: extendTimeout "${service}${postfix}")
         target_services
       )
-    );
+    ;
 
   in 
   {
     systemd.services = 
-      (extendTimeout "")
-      // (extendTimeout "config")
+      (timeoutStarr "")
+      // (timeoutStarr "-setup")
+      // (timeoutStarr "-jellyfin")
+      // (timeoutStarr "-config")
+      // (extendTimeout "jellyfin-plugins")
+      // (extendTimeout "jellyfin-api-key")
+      // (extendTimeout "radarr-delayprofiles")
     ;
     nixflix = lib.attrsets.recursiveUpdate
       starrBase
