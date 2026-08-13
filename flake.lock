@@ -249,11 +249,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1786344206,
-        "narHash": "sha256-SeJcac0gHhIJm1Nc5kXAB56WZdRwpUViMW0KWqwIHmg=",
+        "lastModified": 1786599933,
+        "narHash": "sha256-F5K0mc6OpTCaesshAOml9lrTDJVliiXs6xytGvQ+SRQ=",
         "owner": "Korimer",
         "repo": "Waybar-Config",
-        "rev": "ecbd835c5cf36ae4ee52edd369f55994b847fe74",
+        "rev": "b188cb4b8ae75cd6c808d6aacdde532951205bc2",
         "type": "github"
       },
       "original": {

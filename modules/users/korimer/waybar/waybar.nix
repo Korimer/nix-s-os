@@ -1,4 +1,4 @@
-{ den, inputs, ... }:
+{ den, inputs, lib, ... }:
 {
   flake-file.inputs.korimer-waybar.url = "github:Korimer/Waybar-Config";
   den.aspects.korimer.provides.waybar = 
