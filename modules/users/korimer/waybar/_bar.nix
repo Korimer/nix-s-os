@@ -23,10 +23,10 @@ modulesLeft = [
       exec-if = "which swaync-client";
       format = "{icon}";
       format-icons = {
-        dnd-none = " ";
-        dnd-notification = "⬤";
+        notification = "<span foreground='red'><small><sup>⬤</sup></small></span>";
         none = " ";
-        notification = "⬤";
+        dnd-notification = "<span foreground='red'><small><sup>⬤</sup></small></span>";
+        dnd-none = " ";
       };
       on-click = "sleep 0.1 && swaync-client -t -sw";
       on-click-right = "sleep 0.1 && swaync-client -d -sw";
@@ -175,11 +175,11 @@ modulesCenter = [
       background-color = colors.cyan;
       padding = "4px 10px";
     };
-    style.bySelector."#workspaces button.active" = {
+    style.bySelector." button.active" = {
       background-color = colors.blue;
       color = colors.foreground;
     };
-    style.bySelector."#workspaces button\:hover" = {
+    style.bySelector." button\:hover" = {
     };
   }
   {
@@ -206,7 +206,7 @@ modulesCenter = [
       background-color = colors.purple;
       padding = "4px 10px";
     };
-    style.bySelector."button" = {
+    style.bySelector." button" = {
       margin = "0px 4px";
       padding = "1px 4px";
     };
