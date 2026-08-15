@@ -29,6 +29,7 @@
     korimer-mini-server.url = "github:Korimer/MinimalNixServer";
     korimer-waybar.url = "github:Korimer/Waybar-Config";
     muffon-OLD-REPLACE-WHEN-MERGED.url = "github:r-ryantm/nixpkgs/auto-update/muffon";
+    niri-workspaces.url = "github:justbuchanan/waybar-niri-workspaces-enhanced";
     nix-auto-follow = {
       url = "github:fzakaria/nix-auto-follow";
       inputs.nixpkgs.follows = "nixpkgs";

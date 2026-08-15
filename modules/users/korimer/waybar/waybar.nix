@@ -1,23 +1,19 @@
-{ inputs, ... }:
+{ inputs, den, ... }:
 {
   flake-file.inputs.korimer-waybar.url = "github:Korimer/Waybar-Config";
-  den.aspects.korimer.provides.waybar.nixos = { pkgs, ... }:
+  flake-file.inputs.niri-workspaces.url = "github:justbuchanan/waybar-niri-workspaces-enhanced";
+  den.aspects.korimer.provides.waybar = {
+    includes = [ den.aspects.korimer.provides.waybar.provides.powerline ];
+    nixos = { pkgs, ... }:
     let
       custom-pkgs = {
-        niri-taskbar = import ./_apps/niri-taskbar.nix { inherit pkgs; };
         waybar-fortune = import ./_apps/waybar-fortune.nix { inherit pkgs; };
       };
-
-      powerline-bar-config =
-        with custom-pkgs;
-        import ./_config/bar.nix
-        { inherit niri-taskbar; };
-
     in
     {
       programs.waybar = {
+        bars.powerline.enable = true;
         enable = true;
-        bars.powerline = powerline-bar-config;
       };
 
       imports = [ inputs.korimer-waybar.nixosModules.default ];
@@ -28,8 +24,8 @@
         gpu-usage-waybar
       ])
       ++ (with custom-pkgs; [
-        niri-taskbar
         waybar-fortune
       ]);
     };
+  };
 }
