@@ -1,5 +1,6 @@
+{ niri-taskbar }:
 let
-  colors = import ./_colors.nix;
+  colors = import ./colors.nix;
 in
 {
 barConfig = {
@@ -196,12 +197,14 @@ modulesCenter = [
     };
   }
   {
-    name = "wlr/taskbar";
+    name = "cffi/niri-taskbar";
     settings = {
+      module_path = "${niri-taskbar}/lib/waybar/libniri_taskbar.so";
       on-click = "activate";
       on-click-middle = "close";
       on-click-right = "minimize";
     };
+    style.selectorSymbol = ".";
     style.base = {
       background-color = colors.purple;
       padding = "4px 10px";
@@ -416,6 +419,17 @@ modulesRight = [
   }
 ];
 
+#.niri-taskbar {
+#  background-color: red;
+#}
+#
+#.niri-taskbar button {
+#  background-color: green;
+#}
+#
+#.niri-taskbar button.focused {
+#  background-color: blue;
+#}
 extraCss = ''
   * {
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -424,6 +438,7 @@ extraCss = ''
     min-height: 16px;
     padding: 0px;
   }
+
 
   window#waybar {
     background-color: transparent;
