@@ -5,27 +5,17 @@
   den.aspects.korimer.provides.waybar = {
     includes = [ den.aspects.korimer.provides.waybar.provides.powerline ];
     nixos = { pkgs, ... }:
-    let
-      custom-pkgs = {
-        waybar-fortune = import ./_apps/waybar-fortune.nix { inherit pkgs; };
-      };
-    in
     {
       programs.waybar = {
         bars.powerline.enable = true;
-        enable = true;
       };
 
       imports = [ inputs.korimer-waybar.nixosModules.default ];
-      environment.systemPackages =
-      (with pkgs; [
+      environment.systemPackages = with pkgs; [
         waybar-lyric
         waybar-mpris
         gpu-usage-waybar
-      ])
-      ++ (with custom-pkgs; [
-        waybar-fortune
-      ]);
+      ];
     };
   };
 }
