@@ -12,20 +12,13 @@ barFromModules = modules: with modules; {
     privacy
     tray
     fortune
+    ( customDivider " " colors.cyan )
   ];
 
   modulesCenter = [
-    ( dividerTemplate // {
-      settings.format = " ";
-      style.base = dividerTemplate.style.base
-        // { color = colors.cyan; };
-    })
+    ( customDivider " " colors.cyan )
     workspaces
-    ( dividerTemplate // {
-      settings.format = " ";
-      style.base = dividerTemplate.style.base
-        // { color = colors.cyan; };
-    })
+    ( customDivider " " colors.cyan )
   ];
 
   modulesRight = appendSeperators [
@@ -69,6 +62,12 @@ barFromModules = modules: with modules; {
     }
   '';
 };
+
+customDivider = symbol: color: ( dividerTemplate // {
+  settings.format = symbol;
+  style.base = dividerTemplate.style.base
+    // { color = color; };
+});
 
 dividerTemplate = {
   name = "custom/divider";
