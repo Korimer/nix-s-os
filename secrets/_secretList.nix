@@ -12,6 +12,7 @@ rec {
     csu-vpn = [ magic netzach ];
     netzach-proton-vpn = [ netzach ];
     magic-proton-vpn = [ magic ];
+    syncthing = [ magic netzach ]; #fortnite ];
   });
   
   secrets = {
@@ -43,6 +44,9 @@ rec {
     ];
     magic-proton-vpn = [
       "wg-magic-proton-key"
+    ];
+    syncthing = [
+      "syncthing_pw"
     ];
   };
 }

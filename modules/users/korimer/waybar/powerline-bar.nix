@@ -50,7 +50,7 @@ barFromModules = modules: with modules; {
   extraCss = ''
     * {
       font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       margin: 0px;
       min-height: 16px;
       padding: 0px;
@@ -90,7 +90,7 @@ dividerTemplate = {
   settings.format = "";
   style.base = {
     margin = "0px";
-    font-size = "28px";
+    font-size = "30px";
   };
 };
 
