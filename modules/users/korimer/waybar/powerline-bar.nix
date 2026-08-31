@@ -6,6 +6,9 @@ barFromModules = modules: with modules; {
   barConfig = {
   };
 
+  groups.resourceUsage = [ cpu memory ];
+  groups.heatStats = [ cpu-temperature gpu-temperature ];
+
   modulesLeft = appendSeperators [
     swaync
     wireplumber
@@ -23,10 +26,23 @@ barFromModules = modules: with modules; {
 
   modulesRight = appendSeperators [
     lyrics
-    cpu
-    memory
-    temperature
+    { name = "group/resourceUsage";
+      settings.orientation = "orthogonal";
+      style = {
+        base.background-color = colors.foreground;
+        base.margin = "2px";
+        bySelector." *".font-size = "11px";
+      };
+    }
     clock
+    { name = "group/heatStats";
+      settings.orientation = "orthogonal";
+      style = {
+        base.background-color = colors.foreground;
+        base.margin = "2px";
+        bySelector." *".font-size = "11px";
+      };
+    }
     battery
     power
   ];

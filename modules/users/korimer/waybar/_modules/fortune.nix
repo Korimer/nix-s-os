@@ -1,6 +1,7 @@
 { colors, pkgs, ... }:
 let
-  fortune = pkgs.writeShellScriptBin "waybar-fortune" ''
+  appName = "waybar-fortune";
+  fortune = pkgs.writeShellScriptBin appName ''
     FILE="$1"
 
     if [ -z "$FILE" ] || [ ! -f "$FILE" ]; then
@@ -17,7 +18,7 @@ in
 {
   name = "custom/fortune";
   settings = {
-    exec = "${fortune}/bin/waybar-fortune /etc/nixos/git-submodules/quotes/all.txt";
+    exec = "${fortune}/bin/${appName} /etc/nixos/git-submodules/quotes/all.txt";
     interval = 1800;
     return-type = "json";
     tooltip = true;
