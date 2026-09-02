@@ -1,9 +1,8 @@
 {
-  den.aspectss.syncthing.nixos = {
-    enable = true;
-    openDefaultPorts = true;
-    folders = {
-
+  den.aspects.syncthing.nixos = {
+    services.syncthing = {
+      enable = true;
+      openDefaultPorts = true;
     };
   };
 }
