@@ -18,6 +18,8 @@
       type = "audio-in";
     }
   ];
-  style.base.background-color = colors.foreground;
+  style.base = {
+    background-color = colors.foreground;
+  };
 }
 

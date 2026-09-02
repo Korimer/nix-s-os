@@ -7,6 +7,7 @@
     nixos = { pkgs, ... }:
     {
       programs.waybar = {
+        enable = true;
         bars.powerline.enable = true;
       };
 
