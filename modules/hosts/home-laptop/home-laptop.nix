@@ -1,4 +1,4 @@
-{ den, ... }:
+{ den, inputs, ... }:
 {
   den.hosts.x86_64-linux.magic.users = {
     korimer = {};
@@ -10,6 +10,7 @@
       den.aspects.nvidia
       den.aspects.magic.provides.nirimonitors
     ];
+
     nixos =
     {
       systemd.sleep.settings.Sleep.HibernateMode = "platform";
@@ -17,6 +18,13 @@
         "pcie_aspm=off"
         "acpi.prefer_microsoft_dsm_guid=1"
       ];
+    };
+
+    homeManager =
+    {
+      services.wpaperd =  {
+        settings.all.path = inputs.self + ./resources/wednesday-1.png;
+      };
     };
 
     provides.nirimonitors = {
