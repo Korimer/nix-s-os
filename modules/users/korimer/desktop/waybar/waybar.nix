@@ -2,7 +2,7 @@
 {
   flake-file.inputs.korimer-waybar.url = "github:Korimer/Waybar-Config";
   flake-file.inputs.niri-workspaces.url = "github:justbuchanan/waybar-niri-workspaces-enhanced";
-  den.aspects.korimer.provides.waybar = {
+  den.aspects.korimer.provides.waybar.provides.powerline = {
     includes = [ den.aspects.korimer.provides.waybar.provides.powerline ];
     nixos = { pkgs, ... }:
     {
