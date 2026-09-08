@@ -18,12 +18,14 @@
         "pcie_aspm=off"
         "acpi.prefer_microsoft_dsm_guid=1"
       ];
+      environment.etc."mypulse".text = "HELP";
     };
 
-    homeManager =
-    {
-      services.wpaperd =  {
-        settings.all.path = inputs.self + ./resources/wednesday-1.png;
+    provides.korimer.homeManager = {
+      home.file."mypulse".text = "HELP";
+      services.wpaperd = {
+        enable = true;
+        settings.any.path = "${inputs.self}/resources/wednesday-1.png";
       };
     };
 
