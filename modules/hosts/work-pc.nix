@@ -1,4 +1,4 @@
-{ den, ... }:
+{ den, inputs, ... }:
 {
   den.hosts.x86_64-linux.fortnite.users = {
     ets-c837275181 = {
@@ -20,6 +20,11 @@
           
         '';
       };
+    };
+
+    services.wpaperd = {
+      enable = true;
+      settings.any.path = "${inputs.self}/resources/wednesday-1.png";
     };
   };
 }

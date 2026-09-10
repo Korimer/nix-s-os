@@ -3,7 +3,7 @@ rec {
     asya = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2Ayztm9Ld1IQb7JHsN3ASmpHtZHJOEDzK3utkBCEg7";
     magic = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKvepbbA6/tH0NzokUcOccn9+dePRH5oy1+XXPKgIDlv";
     netzach = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIiZEWc4KL5eZem3k6JXN3b+xBOeNwvJvxkQG8xx3GqQ";
-    fortnite = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGvWXgby68X7XC/suqDG7XK0CtwfMh+q7vfPYR0Mt/cJ";
+    fortnite = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILEzpdGEuwiUO0BNklvtUycF6Rb084Y9oDKr3CG56x+c";
     #vorkuta = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPtD3dFec6xPv5Dspc+cAo/EBb135q5reLZQ0u+T7lOa";
   };
 
@@ -12,7 +12,7 @@ rec {
     csu-vpn = [ magic netzach ];
     netzach-proton-vpn = [ netzach ];
     magic-proton-vpn = [ magic ];
-    syncthing = [ magic netzach ]; #fortnite ];
+    syncthing = [ magic netzach fortnite ];
   });
   
   secrets = {
