@@ -3,7 +3,7 @@
   {
     nixflix = {
       maintainerr = {
-        enable = true;
+        #enable = true;
         rules = [
           {
                 
