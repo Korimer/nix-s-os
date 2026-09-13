@@ -30,7 +30,7 @@
           passwordFile = osConfig.age.secrets.syncthing_pw.path;
         };
 
-        settings = {
+        settings = rec {
           devices = {
             "netzach" =
               { id = "6YHTC4K-OJKAFYD-YNLFSLZ-FDLWDWD-SZ74KQP-ODTHEFP-JYUFRTO-4QWMYAP"; };
@@ -42,12 +42,20 @@
               { id = "WQVGMX2-Z73AOXX-5GI4XFN-NUWYLKV-JX4TKBL-UFTORCG-AE2YAX6-KQYGQQU"; };
           };
 
-          folders = {
-            "HomeSync" = {
-              enable = true;
-              id = "homesync";
+          folders = 
+          let allDevices = builtins.attrNames devices; in
+          {
+            "HomeSyncFolder" = {
               path = "~/Sync";
-              devices = [ "netzach" "vorkuta" ];
+              devices = allDevices;
+            };
+            "NixSync" = {
+              path = "/etc/nixos";
+              devices = allDevices;
+            };
+            "HomeManager" = {
+              path = "~/HomeManager";
+              devices = allDevices;
             };
           };
         };
