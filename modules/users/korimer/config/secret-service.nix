@@ -2,7 +2,6 @@
   den.aspects.korimer.provides.keepassxc = {
     nixos = {
       programs.ssh.startAgent = true;
-      environment.variables.SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent";
     };
 
     homeManager = {
