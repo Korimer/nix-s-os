@@ -5,7 +5,7 @@
       age.secrets =
         let
         ownerTemplate = {
-          owner = "${user.name}";
+          owner = "${user.userName}";
           mode = "0400";
         };
         in
