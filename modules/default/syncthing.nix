@@ -10,13 +10,13 @@
         };
         in
         {
-          syncthing_pw = ownerTemplate;
+          "syncthing_pw" = ownerTemplate;
           "syncthing_key_${host.name}" = ownerTemplate;
           "syncthing_cert_${host.name}" = ownerTemplate;
         };
     };
 
-    homeManager = { config, pkgs, osConfig, ... }: {
+    homeManager = { osConfig, ... }: {
       services.syncthing = {
         enable = true;
         overrideDevices = true;
