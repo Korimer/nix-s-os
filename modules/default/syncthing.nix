@@ -63,10 +63,10 @@
     };
 
     provides.asya.homeManager = {lib, ...}: {
-      services.syncthing.settings.folders = builtins.mapAttrs (_: val: lib.mkForce val) {
-        HomeSyncFolder.path = "~/.syncthingServer/HomeSyncFolder";
-        NixSync.path = "~/.syncthingServer/NixSync";
-        HomeManager.path = "~/.syncthingServer/HomeManager";
+      services.syncthing.settings.folders = {
+        HomeSyncFolder.path = lib.mkForce "~/.syncthingServer/HomeSyncFolder";
+        NixSync.path =        lib.mkForce "~/.syncthingServer/NixSync";
+        HomeManager.path =    lib.mkForce "~/.syncthingServer/HomeManager";
       };
     };
   };
