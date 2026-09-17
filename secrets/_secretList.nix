@@ -23,8 +23,10 @@ rec {
   
   secrets = {
     vorkuta-server = [
+      "server_ip_key_vorkuta"
+    ];
+    vorkuta-client = [
       "server_ip_cert_vorkuta"
-       "server_ip_key_vorkuta"
     ];
     nixflix = [
       "tosya_pw"

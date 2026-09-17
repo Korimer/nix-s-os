@@ -1,7 +1,6 @@
 { den, ... }:
 {
   den.aspects.asya.provides.syncthing-discovery-server = {
-    includes = [ den.aspects.syncthing ];
     nixos = { pkgs, ... }: {
 
     # Ensure the package is available
