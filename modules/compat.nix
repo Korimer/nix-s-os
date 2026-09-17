@@ -1,5 +1,6 @@
 { ... }:
 {
+  flake-file.inputs.mango.url = "github:mangowm/mango";
   den.aspects.magic = {
     nixos = {
       imports = [

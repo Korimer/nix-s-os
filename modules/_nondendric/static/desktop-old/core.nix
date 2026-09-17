@@ -1,13 +1,19 @@
-{ pkgs, inputs, ... }:
-{
-  xdg.portal.enable = true;
+{pkgs, ...}: {
+  imports = [
+    ./hypridle.nix
+    ./wleave.nix
+  ];
+
+  programs.niri.enable = true;
   programs.xwayland.enable = true;
 
+  # Niri makes this true by default
+  services.gnome.gnome-keyring.enable = false;
+  
   environment.systemPackages = with pkgs; [
-    inputs.mango.nixosModules.mango
-    
-    papirus-icon-theme
 
+    papirus-icon-theme
+    
     # experimenting with some alternates
     #swaybg # Wallpaper Manager
     awww
