@@ -28,6 +28,7 @@
     };
     korimer-mini-server.url = "github:Korimer/MinimalNixServer";
     korimer-waybar.url = "github:Korimer/Waybar-Config";
+    mango.url = "github:mangowm/mango";
     niri-workspaces.url = "github:justbuchanan/waybar-niri-workspaces-enhanced";
     nix-auto-follow = {
       url = "github:fzakaria/nix-auto-follow";

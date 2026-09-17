@@ -1,6 +1,10 @@
 { inputs, ... }:
 {
   den.default.nixos = { pkgs, ... }: {
+    imports = [
+      inputs.mango.nixosModules.mango
+    ];
+
     programs.mango.enable = true;
 
     services.displayManager.defaultSession = "mango";
@@ -8,8 +12,6 @@
     programs.xwayland.enable = true;
 
     environment.systemPackages = with pkgs; [
-      inputs'.mango.nixosModules.mango
-      
       papirus-icon-theme
 
       # experimenting with some alternates
