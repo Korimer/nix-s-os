@@ -8,6 +8,8 @@ rec {
   };
 
   ownership = (with hosts; {
+    vorkuta-server = [ vorkuta ];
+    vorkuta-client = [ magic netzach fortnite vorkuta ];
     nixflix = [ asya ];
     csu-vpn = [ magic netzach ];
     netzach-proton-vpn = [ netzach ];
@@ -20,6 +22,10 @@ rec {
   });
   
   secrets = {
+    vorkuta-server = [
+      "server_ip_cert_vorkuta"
+       "server_ip_key_vorkuta"
+    ];
     nixflix = [
       "tosya_pw"
       "marina_pw"

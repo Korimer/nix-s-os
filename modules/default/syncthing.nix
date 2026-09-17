@@ -31,6 +31,8 @@
         };
 
         settings = rec {
+          options.globalAnnounceServers = [ "https://38.246.23.117:8443" ];
+
           devices = {
             "netzach" =
               { id = "6YHTC4K-OJKAFYD-YNLFSLZ-FDLWDWD-SZ74KQP-ODTHEFP-JYUFRTO-4QWMYAP"; };
