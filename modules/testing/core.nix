@@ -2,24 +2,20 @@
 {
   den.default.nixos = { pkgs, lib, ... }:
   let
-    mangoSessionName = "mango-default";
+    mangoPackage = inputs.mango.packages.${pkgs.system}.mango;
 
-    mangoDesktopEntry = lib.generators.toINI {} {
-      "Desktop Entry" = {
-        Name = "Mango";
-        Exec = "${pkgs.mango}/bin/mango -c ${./config.conf}";
-        Type = "Application";
-      };
-    };
+    mangoConfig = pkgs.writeText "mango-default-config.conf" (builtins.readFile ./config.conf);
 
-    mangoSession = pkgs.runCommand "mango-default" {
-      passthru.providedSessions = [ mangoSessionName ];
-    } ''
-      mkdir -p $out/share/wayland-sessions
-      cat > $out/share/wayland-sessions/${mangoSessionName}.desktop <<EOF
-      ${mangoDesktopEntry}
-      EOF
+    mangoWrapper = pkgs.writeShellScript "mango-with-config" ''
+      exec ${mangoPackage}/bin/mango -c "${mangoConfig}"
     '';
+
+    mangoWithConfig = mangoPackage.overrideAttrs (old: {
+      postInstall = (old.postInstall or "") + ''
+        rm -f $out/bin/mango
+        ln -s ${mangoWrapper} $out/bin/mango
+      '';
+    });
   in
   {
     imports = [
@@ -27,9 +23,7 @@
     ];
 
     programs.mango.enable = true;
-
-    services.displayManager.sessionPackages = [ mangoSession ];
-    services.displayManager.defaultSession = mangoSessionName;
+    programs.mango.package = mangoWithConfig;
 
     programs.xwayland.enable = true;
 
