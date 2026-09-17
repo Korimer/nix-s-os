@@ -9,7 +9,7 @@
     services.upower.enable = true;
 
     systemd.user.services.ironbar = {
-      enable = true;
+      enable = false;
       description = "Ironbar Autostart";
       wantedBy = [ "graphical-session.target" ];
       enableDefaultPath = false;
