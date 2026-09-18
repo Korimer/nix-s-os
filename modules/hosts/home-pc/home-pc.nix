@@ -11,6 +11,11 @@
       den.aspects.netzach.provides.nirimonitors
     ];
 
+    environment.etc."mango/specializations.conf".text = ''
+      monitorrule=model:209MXUNBQ390,transform:1,x:0,y:0
+      monitorrule=model:UWZ190700593,transform:0,x:1080,y:280
+    '';
+
     provides.nirimonitors = {
       includes = [ den.aspects.niriconfig ];
 
