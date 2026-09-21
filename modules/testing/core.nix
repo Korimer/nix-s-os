@@ -36,6 +36,7 @@
       # dunst # Notification Daemon
       swaynotificationcenter
 
+      upower
       xwayland-satellite
       libnotify # Sending notifications (recieving is built-in)
       hyprshot # Screenshots

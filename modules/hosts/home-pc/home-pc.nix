@@ -17,8 +17,8 @@
 
       nixos = {
         environment.etc."mango/specializations.conf".text = ''
-          monitorrule=model:209MXUNBQ390,transform:1,height:1920,width:1080,x:0,y:0
-          monitorrule=model:UWZ190700593,transform:0,height:1440,width:2560,x:1080,y:280
+          monitorrule=serial:UWZ190700593,x:0,y:0,rr:1
+          monitorrule=serial:209MXUNBQ390,x:1080,y:356,rr:0
         '';
 
         niriconfig.monitors.text = ''
