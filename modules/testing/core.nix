@@ -22,6 +22,26 @@
       inputs.mango.nixosModules.mango
     ];
 
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+      # GTK is recommended as a fallback for file pickers (which wlr does not provide)
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      
+      config.mango = {
+        default = lib.mkForce [ "wlr" "gtk" ];
+        "org.freedesktop.impl.portal.Screencast" = "wlr";
+        "org.freedesktop.impl.portal.Screenshot" = "wlr";
+      };
+    };
+
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+
     programs.mango.enable = true;
     programs.mango.package = mangoWithConfig;
 
