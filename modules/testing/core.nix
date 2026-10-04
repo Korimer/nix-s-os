@@ -6,7 +6,7 @@
 
     mangoConfig = pkgs.writeText "mango-default-config.conf" (builtins.readFile ./config.conf);
 
-    mangoWrapper = pkgs.writeShellScript "mango-with-config" ''
+    mangoWrapper = pkgs.writeShellScript "mango" ''
       exec ${mangoPackage}/bin/mango -c "${mangoConfig}"
     '';
 

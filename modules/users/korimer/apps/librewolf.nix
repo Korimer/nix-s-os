@@ -2,8 +2,6 @@
 {
   den.aspects.korimer.provides.librewolf = {
 
-    includes = [ den.aspects.korimer.provides.librewolf.provides.defaultBrowser ];
-
     nixos = { pkgs, ... }: {
       environment.systemPackages = [ pkgs.librewolf ];
 
