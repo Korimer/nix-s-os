@@ -1,4 +1,3 @@
-{ ... }:
 {
   den.aspects.korimer.provides.nvim = {
     nixos = {pkgs, ...}:
