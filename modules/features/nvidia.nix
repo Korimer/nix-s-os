@@ -10,8 +10,10 @@
       boot.extraModprobeConfig = ''
         blacklist nouveau
         options nouveau modeset=0
-        options nvidia NVreg_PreserveVideoMemoryAllocations=0
         '';
+        # Removed "options nvidia NVreg_PreserveVideoMemoryAllocations=0"
+        # This option apparently superceeded by NVreg_UseKernelSuspendNotifiers
+
       services.xserver.videoDrivers = [ "nvidia" ];
       hardware.graphics.enable = true;
       hardware.nvidia = rec {
