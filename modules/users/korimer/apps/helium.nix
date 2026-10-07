@@ -15,6 +15,14 @@
       #  pkgs.etcd
       #  pkgs.helium
       #];
+
+      environment.etc."chromium/policies/managed/extensions.json".text = builtins.toJSON {
+      ExtensionInstallForcelist = [
+        "dbepggeogbaibhgnhhndojpepiihcmeb;https://clients2.google.com/service/update2/crx" # Vimium
+        "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx" # Bitwarden
+        "dhdgffkkebhmkfjojejmpbldmpobfkfo;https://clients2.google.com/service/update2/crx" # Tampermonkey
+      ];
+  };
     };
 
     provides.defaultBrowser.homeManager = {
