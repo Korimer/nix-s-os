@@ -8,12 +8,14 @@
 
     xdg.portal = {
       enable = true;
-      wlr.enable = false;
-      extraPortals = [ pkgs.xdg-desktop-portal-luminous ];
-      
-      config.mango = {
-        "org.freedesktop.impl.portal.ScreenCast" = lib.mkForce "luminous";
-        "org.freedesktop.impl.portal.Screenshot" = lib.mkForce "luminous";
+      wlr = {
+        enable = true;
+        settings = {
+          screencast = {
+            chooser_type = "simple";
+            chooser_cmd = "${pkgs.wlr-utils}/bin/wlr-chooser";
+          };
+        };
       };
     };
 
@@ -31,21 +33,17 @@
     environment.systemPackages = with pkgs; [
       papirus-icon-theme
 
-      # experimenting with some alternates
-      #swaybg # Wallpaper Manager
-      awww
-      # dunst # Notification Daemon
-      swaynotificationcenter
+      
 
       xwayland-satellite
       libnotify # Sending notifications (recieving is built-in)
-      hyprshot # Screenshots
+      flameshot # Screenshots
       socat # System util for cross-app communication
       ddcutil # Brightness
       swaylock-effects # Lockscreen
       hypridle # Idle Timeout
       wleave # Log Out Button
-      fuzzel # App Launcher
+      rofi # App Launcher
       kitty # Terminal
       nemo # File explorer
       wl-clipboard # Clipboard Manager
