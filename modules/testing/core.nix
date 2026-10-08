@@ -12,7 +12,7 @@
       extraPortals = [ pkgs.xdg-desktop-portal-luminous ];
       
       config.mango = {
-        "org.freedesktop.impl.portal.Screencast" = lib.mkForce "luminous";
+        "org.freedesktop.impl.portal.ScreenCast" = lib.mkForce "luminous";
         "org.freedesktop.impl.portal.Screenshot" = lib.mkForce "luminous";
       };
     };
