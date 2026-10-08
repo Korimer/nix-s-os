@@ -41,6 +41,7 @@
     nnwg.url = "github:Korimer/NNWG";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
+    obsidian-extensions.url = "github:karaolidis/nix-obsidian-extensions";
     self.submodules = true;
   };
 }

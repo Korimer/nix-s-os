@@ -1,16 +1,23 @@
 { inputs, ... }:
 {
   flake-file.inputs.obsidian-extensions.url = "github:karaolidis/nix-obsidian-extensions";
-
+  
   den.aspects.korimer.provides.obsidian.nixos = { pkgs, ... }: {
+    nixpkgs.overlays = [
+      inputs.obsidian-extensions.overlays.default
+    ];
+  };
+
+  den.aspects.korimer.provides.obsidian.homeManager = { pkgs, ... }: {
     programs.obsidian = {
+
       enable = true;
 
       vaults.notes.target = "Documents/Obsidian";
 
       defaultSettings = {
         communityPlugins = with pkgs.obsidianPlugins; [
-          relay
+          system3-relay
           dataview
           obsidian-git
           obsidian-importer
