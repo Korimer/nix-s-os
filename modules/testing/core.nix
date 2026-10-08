@@ -1,22 +1,6 @@
 { inputs, ... }:
 {
   den.default.nixos = { pkgs, lib, ... }:
-  let
-    mangoPackage = inputs.mango.packages.${pkgs.system}.mango;
-
-    mangoConfig = pkgs.writeText "mango-default-config.conf" (builtins.readFile ./config.conf);
-
-    mangoWrapper = pkgs.writeShellScript "mango" ''
-      exec ${mangoPackage}/bin/mango -c "${mangoConfig}"
-    '';
-
-    mangoWithConfig = mangoPackage.overrideAttrs (old: {
-      postInstall = (old.postInstall or "") + ''
-        rm -f $out/bin/mango
-        ln -s ${mangoWrapper} $out/bin/mango
-      '';
-    });
-  in
   {
     imports = [
       inputs.mango.nixosModules.mango
@@ -24,14 +8,12 @@
 
     xdg.portal = {
       enable = true;
-      wlr.enable = true;
-      # GTK is recommended as a fallback for file pickers (which wlr does not provide)
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      wlr.enable = false;
+      extraPortals = [ pkgs.xdg-desktop-portal-luminous ];
       
       config.mango = {
-        default = lib.mkForce [ "wlr" "gtk" ];
-        "org.freedesktop.impl.portal.Screencast" = "wlr";
-        "org.freedesktop.impl.portal.Screenshot" = "wlr";
+        "org.freedesktop.impl.portal.Screencast" = lib.mkForce "luminous";
+        "org.freedesktop.impl.portal.Screenshot" = lib.mkForce "luminous";
       };
     };
 
@@ -43,7 +25,6 @@
     };
 
     programs.mango.enable = true;
-    programs.mango.package = mangoWithConfig;
 
     programs.xwayland.enable = true;
 
