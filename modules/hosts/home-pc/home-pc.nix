@@ -16,7 +16,7 @@
       includes = [ den.aspects.niriconfig ];
 
       nixos = {
-        environment.etc."mango/specializations.conf".text = ''
+        environment.etc."mango/specializations.toml".text = ''
           [[rule.monitor_rule]]
           serial = "UWZ190700593"
           x = 0
