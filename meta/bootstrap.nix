@@ -1,14 +1,10 @@
 self:
 let
-  filterAttrs = pred: set: removeAttrs set
-    (builtins.filter
-      (name: !pred name set.${name})
-      (builtins.attrNames set)
-    );
+  hostsDir = self + "/hosts";
 in
 {
-  listHosts = builtins.readDir "${self}"
-    |> filterAttrs (_: v: v == "regular")
-    |> map (i: builtins.replaceStrings i [".nix"] [""])
+  listHosts = builtins.readDir hostsDir
+    |> builtins.attrNames
+    |> map (name: import (hostsDir+name))
   ;
 }

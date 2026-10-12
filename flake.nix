@@ -4,6 +4,7 @@
   outputs = inputs: import ./make-flake.nix inputs;
 
   inputs = {
+    easy-hosts.url = "github:tgirlcloud/easy-hosts";
     agenix.url = "github:ryantm/agenix";
     den.url = "github:vic/den";
     fenix.url = "github:nix-community/fenix";
