@@ -6,9 +6,12 @@ in
 inputs.flake-parts.lib.mkFlake { inherit inputs; }
   {
 
-    flake-file.outputs = ''
+    flake-file = {
+      auto-follow.enable = true;
+      outputs = ''
         inputs: import ./make-flake.nix inputs
       '';
+    };
 
 
     imports = [
