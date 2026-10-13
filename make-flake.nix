@@ -5,14 +5,8 @@ let
 in
 inputs.flake-parts.lib.mkFlake { inherit inputs; }
   {
-
-    flake-file = {
-      auto-follow.enable = true;
-      outputs = ''
-        inputs: import ./make-flake.nix inputs
-      '';
-    };
-
+    flake = {};
+    systems = systems;
 
     imports = [
       inputs.easy-hosts.flakeModule
@@ -21,20 +15,17 @@ inputs.flake-parts.lib.mkFlake { inherit inputs; }
       ./inputs.nix
     ];
 
-    flake = {};
-    systems = systems;
-    #perSystem = { pkgs, config, ... }: {
-    #  flake-root.projectRootFile = "flake.nix";
-    #  devShells.default = pkgs.mkShell {
-    #    inputsFrom = [ config.flake-root.devShell ];
-    #  };
-    #};
-
-
     easy-hosts = {
       hosts = modules.hosts;
       perTag = modules.perTag; 
-      useGlobalPkgs = true;
+      useGlobalPkgs = false;
       shared.specialArgs = { presets = modules.presets; };
+    };
+
+    flake-file = {
+      auto-follow.enable = true;
+      outputs = ''
+        inputs: import ./make-flake.nix inputs
+      '';
     };
   }

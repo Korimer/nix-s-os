@@ -1,3 +1,3 @@
 {
-
+  my.secretGroups = [ "vorkuta-server" ];
 }
