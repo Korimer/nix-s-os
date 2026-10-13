@@ -8,6 +8,7 @@
 
   #flake-parts
   flake-parts.url = "github:hercules-ci/flake-parts";
+  flake-root.url = "github:srid/flake-root";
   easy-hosts.url = "github:tgirlcloud/easy-hosts";
   agenix.url = "github:ryantm/agenix";
   flake-file.url = "github:denful/flake-file";
@@ -28,6 +29,7 @@
 
   #meta
   self.submodules = true;
+  systems.url = "github:nix-systems/default";
   nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
 
   #likely unused/to be replaced

@@ -1,18 +1,32 @@
 inputs@{...}:
 let
   modules = import ./modules.nix inputs;
+  systems = import inputs.systems;
 in
 inputs.flake-parts.lib.mkFlake { inherit inputs; }
   {
+
+    flake-file.outputs = ''
+        inputs: import ./make-flake.nix inputs
+      '';
+
+
     imports = [
       inputs.easy-hosts.flakeModule
       inputs.flake-file.flakeModules.default
+      #inputs.flake-root.flakeModule.flakeModule
       ./inputs.nix
     ];
 
     flake = {};
-    systems = [];
-    perSystem = { ... }: {};
+    systems = systems;
+    #perSystem = { pkgs, config, ... }: {
+    #  flake-root.projectRootFile = "flake.nix";
+    #  devShells.default = pkgs.mkShell {
+    #    inputsFrom = [ config.flake-root.devShell ];
+    #  };
+    #};
+
 
     easy-hosts = {
       hosts = modules.hosts;
