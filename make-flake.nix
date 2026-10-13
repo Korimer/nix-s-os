@@ -33,7 +33,7 @@ inputs.flake-parts.lib.mkFlake { inherit inputs; }
 
     easy-hosts = {
       hosts = modules.hosts;
-      perTag = tag: { modules = [ modules.tags.${tag} ]; }; 
+      perTag = modules.perTag; 
       useGlobalPkgs = true;
       shared.specialArgs = { presets = modules.presets; };
     };

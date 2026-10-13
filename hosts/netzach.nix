@@ -1,3 +1,3 @@
 {
-  tags = [ "korimer" ];
+  tags = [ "users/korimer" ];
 }

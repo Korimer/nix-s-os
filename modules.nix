@@ -11,18 +11,19 @@ let
       [""]
   ;
 
-  importFrom = root: subdirs: subdirs
-    |> map (dir: {
-         name = dir;
-         value = inputs.import-tree ./${root}/${dir};
-         })
-    |> builtins.listToAttrs
+  importFrom = root: subdirs:
+    subdirs
+      |> map (dir: {
+           name = dir;
+           value = inputs.import-tree ./${root}/${dir};
+           })
+      |> builtins.listToAttrs
   ;
 
   resolveHostSpec = host:
     let
       spec = import ./hosts/${host}.nix;
-      tags = [ "default" host ] ++ (spec.tags or []);
+      tags = [ "default" "hosts/${host}" ] ++ (spec.tags or []);
     in
     {
       name = host; 
@@ -35,11 +36,13 @@ let
   presetList = simpleReadDir "presets";
   presetSpecs = presetList |> importFrom "presets";
 
-  tagList = simpleReadDir "tags";
-  tagSpecs = tagList |> importFrom "tags";
+  perTag = tag:
+    let tagFiles = inputs.import-tree ./tags/${tag}; in
+    { modules = [ tagFiles ]; }
+  ;
 in
 {
   hosts = hostSpecs;
   presets = presetSpecs;
-  tags = tagSpecs;
+  perTag = perTag;
 }

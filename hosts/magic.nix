@@ -1,3 +1,3 @@
 {
-  tags = [ "vpn" ];
+  tags = [ "features/vpn" ];
 }
