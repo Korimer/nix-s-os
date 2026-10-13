@@ -1,14 +1,8 @@
 inputs@{...}:
 let
-  parts = inputs.flake-parts;
-  resolveTag = tag:
-  {
-    modules = [
-      ( inputs.import-tree ./tags/${tag} )
-    ];
-  };
+  modules = import ./modules.nix inputs;
 in
-parts.lib.mkFlake { inherit inputs; }
+inputs.flake-parts.lib.mkFlake { inherit inputs; }
   {
     imports = [
       inputs.easy-hosts.flakeModule
@@ -19,8 +13,9 @@ parts.lib.mkFlake { inherit inputs; }
     perSystem = { ... }: {};
 
     easy-hosts = {
-      hosts = import ./hosts;
-      perTag = resolveTag; 
+      hosts = modules.hosts;
+      perTag = tag: { modules = [ modules.tags.${tag} ]; }; 
       useGlobalPkgs = true;
+      shared.specialArgs = { presets = modules.presets; };
     };
   }
