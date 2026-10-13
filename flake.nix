@@ -1,24 +1,14 @@
-# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
   outputs = inputs: import ./make-flake.nix inputs;
 
   inputs = {
-    easy-hosts.url = "github:tgirlcloud/easy-hosts";
     agenix.url = "github:ryantm/agenix";
-    den.url = "github:vic/den";
-    fenix.url = "github:nix-community/fenix";
+    easy-hosts.url = "github:tgirlcloud/easy-hosts";
     flake-file.url = "github:vic/flake-file";
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-    flatpak = {
-      type = "github";
-      owner = "gmodena";
-      repo = "nix-flatpak";
-      ref = "latest";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flatpak.url = "github:gmodena/nix-flatpak";
     helium.url = "github:vikingnope/helium-browser-nix-flake";
     home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:vic/import-tree";
@@ -30,19 +20,9 @@
     korimer-mini-server.url = "github:Korimer/MinimalNixServer";
     korimer-waybar.url = "github:Korimer/Waybar-Config";
     mango.url = "github:mangowm/mango";
-    niri-workspaces.url = "github:justbuchanan/waybar-niri-workspaces-enhanced";
-    nix-auto-follow = {
-      url = "github:fzakaria/nix-auto-follow";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-index-database.url = "github:nix-community/nix-index-database";
-    nixflix.url = "github:Korimer/nixflix-customize-waittime";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
-    nnwg.url = "github:Korimer/NNWG";
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
-    noctalia-shell.url = "github:noctalia-dev/noctalia-shell";
-    obsidian-extensions.url = "github:karaolidis/nix-obsidian-extensions";
     self.submodules = true;
   };
 }

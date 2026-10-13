@@ -1,4 +1,4 @@
-{
+{ flake-file.inputs = {
   # warcrimes
   impure-context = {
     type = "path";
@@ -10,8 +10,8 @@
   flake-parts.url = "github:hercules-ci/flake-parts";
   easy-hosts.url = "github:tgirlcloud/easy-hosts";
   agenix.url = "github:ryantm/agenix";
-  flake-file.url = "github:vic/flake-file";
-  import-tree.url = "github:vic/import-tree";
+  flake-file.url = "github:denful/flake-file";
+  import-tree.url = "github:denful/import-tree";
 
   #config
   flatpak.url = "github:gmodena/nix-flatpak";
@@ -34,4 +34,4 @@
   #fenix.url = "github:nix-community/fenix";
   #nnwg.url = "github:Korimer/NNWG";
   #nixflix.url = "github:Korimer/nixflix-customize-waittime";
-}
+};}
