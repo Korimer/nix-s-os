@@ -30,10 +30,6 @@
 
   environment.systemPackages = with pkgs; [
     papirus-icon-theme
-
-    
-
-    xwayland-satellite
     libnotify # Sending notifications (recieving is built-in)
     flameshot # Screenshots
     socat # System util for cross-app communication
@@ -43,7 +39,7 @@
     wleave # Log Out Button
     rofi # App Launcher
     kitty # Terminal
-    nemo # File explorer
+    cosmic-files # File explorer
     wl-clipboard # Clipboard Manager
   ];
 
