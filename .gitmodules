@@ -1,17 +1,1 @@
 
-[submodule "dotfiles"]
-	path = git-submodules/dotfiles
-	url = git@github.com:Korimer/dots
-	branch = main
-[submodule "PersonalUtilScripts"]
-	path = git-submodules/PersonalUtilScripts
-	url = git@github.com:Korimer/Mini-Utility-Scripts
-	branch = main
-[submodule "quotes"]
-	path = git-submodules/quotes
-	url = git@github.com:Korimer/Quotes.git
-	branch = main
-[submodule "Empty-Repo"]
-	path = git-submodules/impure-context
-	url = git@github.com:Korimer/Empty.git
-	branch = main

@@ -1,7 +1,7 @@
 {
   tags = [
-    "korimer"
-    "nvidia"
     "features/syncthing-client"
+    "users/korimer"
+    "features/nvidia"
   ];
 }
