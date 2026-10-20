@@ -1,3 +1,5 @@
 {
-
+  tags = [
+    "features/syncthing-client"
+  ];
 }
