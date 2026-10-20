@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   systemd.services.update-myaddr = {
     description = "Update myaddr.io dynamic DNS";
