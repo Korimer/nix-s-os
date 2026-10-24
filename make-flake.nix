@@ -7,6 +7,7 @@ inputs.flake-parts.lib.mkFlake { inherit inputs; }
   {
     flake = {};
     systems = systems;
+    debug = true;
 
     imports = [
       inputs.easy-hosts.flakeModule
