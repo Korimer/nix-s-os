@@ -22,5 +22,8 @@
     # blue collar maxxing
     slack
     teams-for-linux
+
+    # chud maxxing
+    vesktop
   ];
 }

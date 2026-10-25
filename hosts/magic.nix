@@ -1,8 +1,10 @@
 {
   tags = [
+    "desktop"
+    "users/korimer"
     "features/vpn"
-    "features/gaming"
     "features/nvidia"
+    "features/gaming"
     "features/syncthing-client"
   ];
 }
