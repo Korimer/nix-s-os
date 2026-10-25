@@ -33,7 +33,7 @@
       let allDevices = builtins.attrNames devices; in
       {
         "GlobalSync" = {
-          path = "/etc/GlobalSync";
+          path = "~/GlobalSync";
           devices = allDevices;
         };
         "NixSync" = {
