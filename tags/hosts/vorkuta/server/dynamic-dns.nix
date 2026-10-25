@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  services.duckdns = {
+    enable = true;
+    domains = [ "examplehost" ];
+    #tokenFile = null;
+  };
   systemd.services.update-myaddr = {
     description = "Update myaddr.io dynamic DNS";
     serviceConfig = {
