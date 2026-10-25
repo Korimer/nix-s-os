@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   services.duckdns = {
-    #enable = true;
-    #tokenFile = null;
+    enable = true;
+    domains = [ "funeralrubicon" ];
+    tokenFile = config.age.secrets.duckdns_token.path;
   };
 }
