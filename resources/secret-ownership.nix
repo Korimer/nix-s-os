@@ -1,4 +1,4 @@
-let
+rec {
   hosts = {
     asya = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2Ayztm9Ld1IQb7JHsN3ASmpHtZHJOEDzK3utkBCEg7";
     magic = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKvepbbA6/tH0NzokUcOccn9+dePRH5oy1+XXPKgIDlv";
@@ -20,6 +20,4 @@ let
     syncthing-fortnite = [ fortnite ];
     syncthing-vorkuta = [ vorkuta ];
   });
-  
-in
-  ownership
+}

@@ -1,4 +1,5 @@
 let
+
   secretPath = ./resources/secrets;
   secretPathLiteral = "./resources/secrets";
   secretGroups = secretPath
@@ -6,12 +7,12 @@ let
     |> builtins.attrNames
     ;
 
-  membersOf = import ./resources/secret-ownership.nix;
+  membersOf = (import ./resources/secret-ownership.nix);
 
   toSecretDef = groupName: secretFile: {
     name = "${secretPathLiteral}/${groupName}/${secretFile}";
     value = {
-      publicKeys = membersOf.${groupName};
+      publicKeys = membersOf.ownership.${groupName};
       group = groupName;
     };
   };
@@ -27,5 +28,10 @@ let
     |> map secretDefinitions
     |> builtins.foldl' (acc: elem: acc // elem) {}
     ;
+
+  defaultsecret = { "default.age" = {
+    publicKeys = builtins.attrValues membersOf.hosts;
+    group = "none";
+  };};
 in
-  allSecrets
+  allSecrets // defaultsecret
