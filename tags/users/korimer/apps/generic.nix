@@ -24,6 +24,6 @@
     teams-for-linux
 
     # chud maxxing
-    vesktop
+    discord
   ];
 }
