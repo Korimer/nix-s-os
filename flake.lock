@@ -353,6 +353,26 @@
         "type": "github"
       }
     },
+    "nnwg": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783399844,
+        "narHash": "sha256-7XS0vcc8zAHX+9gaxfNwcI1N+mXFfgYyjzR5YAye4gQ=",
+        "owner": "Korimer",
+        "repo": "NNWG",
+        "rev": "9e9f4ba92a8e9e0fb1d9e4f17c7bdfd5eeda822b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Korimer",
+        "repo": "NNWG",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -371,6 +391,7 @@
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nnwg": "nnwg",
         "systems": "systems"
       }
     },

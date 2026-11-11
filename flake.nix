@@ -69,6 +69,10 @@
     nixpkgs = {
       url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     };
+    nnwg = {
+      url = "github:Korimer/NNWG";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     self = {
       submodules = true;
     };

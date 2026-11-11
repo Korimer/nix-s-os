@@ -34,6 +34,6 @@
 
   #likely unused/to be replaced
   #fenix.url = "github:nix-community/fenix";
-  #nnwg.url = "github:Korimer/NNWG";
+  nnwg.url = "github:Korimer/NNWG";
   #nixflix.url = "github:Korimer/nixflix-customize-waittime";
 };}
