@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }:
 {
   fonts.packages = [
-    (pkgs.callPackage (inputs.self + /packages/probespeak/package.nix))
+    (pkgs.callPackage (inputs.self + /packages/probespeak/package.nix) {})
   ];
 }
