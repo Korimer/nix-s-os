@@ -1,9 +1,14 @@
-{pkgs, ...}: 
+{pkgs, inputs, ...}: 
 let
   custom_astro = pkgs.sddm-astronaut.override { embeddedTheme = "black_hole"; };
   chosen_theme = 
     "${custom_astro}/share/sddm/themes/sddm-astronaut-theme";
 in {
+
+  imports = [ inputs.bootvine.nixosModules.default ];
+
+  services.bootvine.enable = true;
+
   services.displayManager = {
     autoLogin = {
       enable = false;

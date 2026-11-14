@@ -8,6 +8,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bootvine = {
+      url = "git+https://codeberg.org/wvhulle/bootvine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     easy-hosts = {
       url = "github:tgirlcloud/easy-hosts";
     };
@@ -36,11 +40,6 @@
     };
     import-tree = {
       url = "github:denful/import-tree";
-    };
-    impure-context = {
-      type = "path";
-      path = "./git-submodules/impure-context";
-      flake = false;
     };
     korimer-mini-server = {
       url = "github:Korimer/MinimalNixServer";

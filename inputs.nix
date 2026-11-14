@@ -1,10 +1,6 @@
 { flake-file.inputs = {
-  # warcrimes
-  impure-context = {
-    type = "path";
-    path = "./git-submodules/impure-context";
-    flake = false;
-  };
+
+  bootvine.url = "git+https://codeberg.org/wvhulle/bootvine";
 
   #flake-parts
   flake-parts.url = "github:hercules-ci/flake-parts";
