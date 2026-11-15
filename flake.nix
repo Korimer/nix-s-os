@@ -38,6 +38,68 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hypr-dynamic-cursors = {
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs = {
+        hyprland = {
+          follows = "hyprland";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    hyprgrass = {
+      url = "github:horriblename/hyprgrass";
+      inputs = {
+        hyprland.follows = "hyprland";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.57.0";
+      inputs = {
+        aquamarine.inputs.nixpkgs.follows = "nixpkgs";
+        hyprcursor.inputs.nixpkgs.follows = "nixpkgs";
+        hyprgraphics.inputs.nixpkgs.follows = "nixpkgs";
+        hyprland-guiutils.inputs.nixpkgs.follows = "nixpkgs";
+        hyprland-protocols.inputs.nixpkgs.follows = "nixpkgs";
+        hyprlang.inputs.nixpkgs.follows = "nixpkgs";
+        hyprtoolkit.inputs.nixpkgs.follows = "nixpkgs";
+        hyprutils.inputs.nixpkgs.follows = "nixpkgs";
+        hyprwayland-scanner.inputs.nixpkgs.follows = "nixpkgs";
+        hyprwire.inputs.nixpkgs.follows = "nixpkgs";
+        pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+        xdph.inputs.nixpkgs.follows = "nixpkgs";
+      };
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs = {
+        hyprland.follows = "hyprland";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs = {
+        hyprland = {
+          follows = "hyprland";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
+        systems.follows = "systems";
+      };
+    };
+    hyprsplit = {
+      url = "github:shezdy/hyprsplit";
+      inputs = {
+        hyprland = {
+          follows = "hyprland";
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     import-tree = {
       url = "github:denful/import-tree";
     };
@@ -74,6 +136,9 @@
     };
     self = {
       submodules = true;
+    };
+    stablepkgs = {
+      url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     };
     systems = {
       url = "github:nix-systems/default";

@@ -20,13 +20,25 @@
   #apps
   helium.url = "github:vikingnope/helium-browser-nix-flake";
   korimer-waybar.url = "github:Korimer/Waybar-Config";
-  mango.url = "github:mangowm/mango";
   nix-index-database.url = "github:nix-community/nix-index-database"; # comma
+  #desktops
+  mango.url = "github:mangowm/mango";
+  hyprland = {
+    url = "github:hyprwm/Hyprland/v0.57.0";
+    inputs.nixpkgs.autoFollow = false;
+  };
+  hyprgrass.url = "github:horriblename/hyprgrass";
+  hyprsplit.url = "github:shezdy/hyprsplit";
+  hyprspace.url = "github:KZDKM/Hyprspace";
+  hypr-dynamic-cursors.url = "github:VirtCode/hypr-dynamic-cursors";
+  # Hyprfocus, Hyprbars, Borders-plus-plus
+  hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
 
   #meta
   self.submodules = true;
   systems.url = "github:nix-systems/default";
   nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+  stablepkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
 
   #likely unused/to be replaced
   #fenix.url = "github:nix-community/fenix";

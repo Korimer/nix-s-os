@@ -5,7 +5,10 @@ let
 in
 inputs.flake-parts.lib.mkFlake { inherit inputs; }
   {
-    flake = {};
+    flake = {
+      # output inputs for easier debugging
+      inputs = inputs;
+    };
     systems = systems;
     debug = true;
 
@@ -20,6 +23,10 @@ inputs.flake-parts.lib.mkFlake { inherit inputs; }
       hosts = modules.hosts;
       perTag = modules.perTag; 
       useGlobalPkgs = false;
+      shared.modules = [
+        ({config,...}:
+         { _module.args.stablePkgs = inputs.stablepkgs.legacyPackages.${config.nixpkgs.hostPlatform.system}; })
+      ];
       shared.specialArgs = { presets = modules.presets; };
     };
 

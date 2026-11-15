@@ -1,4 +1,4 @@
-{ presets, pkgs, ... }:
+{ presets, ... }:
 {
   imports = [ presets.mango-desktop ];
 }
