@@ -8,7 +8,19 @@
     [[rule.monitor_rule]]
     serial = "209MXUNBQ390"
     x = 1080
-    y = 356
+    y = 355
     ''
   ;
+  environment.etc."niri/monitors.kdl".text = ''
+    output "ViewSonic Corporation VA2459 Series UWZ190700593" {
+      mode "1920x1080@60.000"
+      transform "90"
+      position x=0 y=0
+    }
+
+    output "LG Electronics LG ULTRAGEAR 209MXUNBQ390" {
+      mode "2560x1440@119.998"
+      position x=1080 y=356
+    }
+  '';
 }
