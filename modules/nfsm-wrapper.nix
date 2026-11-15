@@ -31,7 +31,9 @@ in
     config = lib.mkIf config.programs.niri.nfsm.enable {
       environment.systemPackages = [ (lib.hiPrio (mkWrapper pkgs "nfsm-cli")) ];
       systemd.user.services.nfsm-server = {
-        description = "Automatically starts the nfsm server, running under your uid.";
+        path = [ config.programs.niri.package ];
+        preStart = "${pkgs.coreutils}/bin/rm -f %t/nfsm.sock";
+        description = "Nfsm server, running under your uid";
         wantedBy = [ "graphical-session.target" ];
         serviceConfig.ExecStart = lib.getExe (mkWrapper pkgs "nfsm");
       };
@@ -43,9 +45,11 @@ in
     config = lib.mkIf config.programs.niri.nfsm.enable {
       home.packages = [ (lib.hiPrio (mkWrapper pkgs "nfsm-cli")) ];
       systemd.user.services.nfsm-server = {
-        Unit.Description = "Automatically starts the nfsm server, running under your uid.";
+        Unit.Description = "Nfsm server, running under your uid";
         Install.WantedBy = [ "graphical-session.target" ];
+        Service.ExecStartPre = "${pkgs.coreutils}/bin/rm -f %t/nfsm.sock";
         Service.ExecStart = lib.getExe (mkWrapper pkgs "nfsm");
+        Service.Environment = [ "PATH=${lib.makeBinPath [ pkgs.niri ]}" ];
       };
     };
   };

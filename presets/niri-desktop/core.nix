@@ -9,6 +9,7 @@
   programs.niri.package = pkgs.niri;
 
   programs.niri.enable = true;
+  programs.niri.nfsm.enable = true;
   environment.systemPackages = [ pkgs.xwayland-satellite ];
 
   environment.etc."niri/config.kdl".source = ./base-config.kdl;
