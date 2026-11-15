@@ -9,7 +9,7 @@
   programs.niri.package = pkgs.niri;
 
   programs.niri.enable = true;
-  programs.xwayland.enable = true;
+  environment.systemPackages = [ pkgs.xwayland-satellite ];
 
   environment.etc."niri/config.kdl".source = ./base-config.kdl;
   environment.variables.NIRI_CONFIG = "/etc/niri/config.kdl";
