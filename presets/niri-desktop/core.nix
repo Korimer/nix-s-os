@@ -1,16 +1,21 @@
 { inputs, pkgs, lib, self, ... }:
 {
-  imports =
-     (with inputs.niri-flake.nixosModules; [ binary-cache niri ])
-  ++ (with self.nixosModules; [ nfsm-wrapper ])
-  ;
+  imports = [
+    inputs.niri-flake.nixosModules.binary-cache
+    inputs.niri-flake.nixosModules.niri
+    inputs.piri.nixosModules.default
+    self.nixosModules.nfsm-wrapper
+  ];
 
   nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
   programs.niri.package = pkgs.niri;
 
   programs.niri.enable = true;
   programs.niri.nfsm.enable = true;
-  environment.systemPackages = [ pkgs.xwayland-satellite ];
+  services.piri.enable = true;
+  environment.systemPackages = [
+    pkgs.xwayland-satellite
+  ];
 
   environment.etc."niri/config.kdl".source = ./base-config.kdl;
   environment.variables.NIRI_CONFIG = "/etc/niri/config.kdl";

@@ -1011,6 +1011,46 @@
         "type": "github"
       }
     },
+    "oniri": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794186131,
+        "narHash": "sha256-/SkRA0Tok+WSpAkcK17AYbmr9OFHD0FLIOS16bDaxoU=",
+        "owner": "Antiz96",
+        "repo": "oniri",
+        "rev": "b8b21b755f04788bc1887661548660d17d43605f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Antiz96",
+        "repo": "oniri",
+        "type": "github"
+      }
+    },
+    "piri": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787823289,
+        "narHash": "sha256-pEZYmm4iYpS+LEBrstUNfIgAZm1VlI2S+7W41BLhoGk=",
+        "owner": "Asthestarsfalll",
+        "repo": "piri",
+        "rev": "fdfa170eee55af03e21d3626901ad7f45c3a8197",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Asthestarsfalll",
+        "repo": "piri",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1059,6 +1099,8 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "nnwg": "nnwg",
+        "oniri": "oniri",
+        "piri": "piri",
         "stablepkgs": "stablepkgs",
         "systems": "systems"
       }

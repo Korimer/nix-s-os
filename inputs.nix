@@ -26,6 +26,8 @@
   mango.url = "github:mangowm/mango";
   niri-flake.url = "github:epireyn/niri-flake";
   nfsm-flake.url = "github:gvolpe/nfsm";
+  piri.url = "github:Asthestarsfalll/piri";
+
 
   #Mental illness
   hyprland = {
