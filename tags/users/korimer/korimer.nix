@@ -1,7 +1,5 @@
 { presets, ... }:
 {
-  imports = [ presets.mango-desktop ];
-
   users.groups.korimer = {};
   users.users.korimer = {
     createHome = true;
