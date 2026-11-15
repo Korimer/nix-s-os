@@ -13,6 +13,9 @@ inputs.flake-parts.lib.mkFlake { inherit inputs; }
     debug = true;
 
     imports = [
+      (inputs.import-tree ./modules)
+      (inputs.import-tree ./packages)
+
       inputs.easy-hosts.flakeModule
       inputs.flake-file.flakeModules.default
       #inputs.flake-root.flakeModule.flakeModule

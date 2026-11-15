@@ -21,8 +21,13 @@
   helium.url = "github:vikingnope/helium-browser-nix-flake";
   korimer-waybar.url = "github:Korimer/Waybar-Config";
   nix-index-database.url = "github:nix-community/nix-index-database"; # comma
-  #desktops
+
+  #normal software
   mango.url = "github:mangowm/mango";
+  niri-flake.url = "github:epireyn/niri-flake";
+  nfsm-flake.url = "github:gvolpe/nfsm";
+
+  #Mental illness
   hyprland = {
     url = "github:hyprwm/Hyprland/v0.57.0";
     inputs.nixpkgs.autoFollow = false;

@@ -1,6 +1,6 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, self, ... }:
 {
   fonts.packages = [
-    (pkgs.callPackage (inputs.self + /packages/probespeak/package.nix) {})
+    self.packages.${pkgs.stdenv.hostPlatform.system}.probespeak-font
   ];
 }
