@@ -121,8 +121,10 @@
     };
     nfsm-flake = {
       url = "github:gvolpe/nfsm";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
     };
     niri-flake = {
       url = "github:epireyn/niri-flake";
@@ -143,9 +145,7 @@
       url = "github:Korimer/NNWG";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    self = {
-      submodules = true;
-    };
+    self = { };
     stablepkgs = {
       url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     };

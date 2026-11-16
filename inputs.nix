@@ -40,7 +40,7 @@
   hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
 
   #meta
-  self.submodules = true;
+  self = {};
   systems.url = "github:nix-systems/default";
   nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
   stablepkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
