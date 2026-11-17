@@ -4,6 +4,7 @@
   outputs = inputs: import ./make-flake.nix inputs;
 
   inputs = {
+    waveforms.url = "github:liff/waveforms-flake";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
