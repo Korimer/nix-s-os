@@ -1,5 +1,5 @@
 { presets, ... }:
 {
-  imports = [ presets.niri-desktop ];
+  imports = [ presets.mango-desktop ];
 }
 
