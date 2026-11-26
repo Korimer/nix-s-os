@@ -2,7 +2,8 @@
   tags = [
     "desktop"
     "users/korimer"
-    "features/vpn"
+    "features/vpn/csu"
+    "features/vpn/proton"
     "features/nvidia"
     "features/gaming"
     "features/syncthing-client"
