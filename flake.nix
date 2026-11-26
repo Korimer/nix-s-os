@@ -4,7 +4,6 @@
   outputs = inputs: import ./make-flake.nix inputs;
 
   inputs = {
-    waveforms.url = "github:liff/waveforms-flake";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +11,8 @@
     bootvine = {
       url = "git+https://codeberg.org/wvhulle/bootvine";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.import-tree.follows = "import-tree";
     };
     easy-hosts = {
       url = "github:tgirlcloud/easy-hosts";
@@ -146,12 +147,19 @@
       url = "github:Korimer/NNWG";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    piri = {
+      url = "github:Asthestarsfalll/piri";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     self = { };
     stablepkgs = {
       url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     };
     systems = {
       url = "github:nix-systems/default";
+    };
+    vpn-confinement = {
+      url = "github:Maroka-chan/VPN-Confinement";
     };
   };
 }

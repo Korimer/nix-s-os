@@ -2,7 +2,7 @@
 
   bootvine.url = "git+https://codeberg.org/wvhulle/bootvine";
 
-  #flake-parts
+  #flake-parts modules
   flake-parts.url = "github:hercules-ci/flake-parts";
   flake-root.url = "github:srid/flake-root";
   easy-hosts.url = "github:tgirlcloud/easy-hosts";
@@ -10,12 +10,12 @@
   flake-file.url = "github:denful/flake-file";
   import-tree.url = "github:denful/import-tree";
 
-  #config
+  #nixos modules
   flatpak.url = "github:gmodena/nix-flatpak";
   home-manager.url = "github:nix-community/home-manager";
   korimer-mini-server.url = "github:Korimer/MinimalNixServer";
   nixos-hardware.url = "github:nixos/nixos-hardware";
-  #nix-auto-follow.url = "github:fzakaria/nix-auto-follow";
+  vpn-confinement.url = "github:Maroka-chan/VPN-Confinement";
 
   #apps
   helium.url = "github:vikingnope/helium-browser-nix-flake";
@@ -27,7 +27,6 @@
   niri-flake.url = "github:epireyn/niri-flake";
   nfsm-flake.url = "github:gvolpe/nfsm";
   piri.url = "github:Asthestarsfalll/piri";
-
 
   #Mental illness
   hyprland = {
