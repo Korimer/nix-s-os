@@ -30,7 +30,7 @@ in
       ] ++ (if useIPV6 then [ "2a07:b944::2:2/128" ] else []);
 
     peers = [{
-      publicKey = "g98KJeIEtR9wbwgVmmaQXR9rEPV+T2RJWf2UE4gB1Ss=";
+      publicKey = "gPY2f/G0P9h29YcVFqKZ7w8kOdTae6g+Ent3y2DPIG8=";
       persistentKeepalive = 30;
 
       endpoint = if useIPV6
