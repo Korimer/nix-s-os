@@ -1,10 +1,10 @@
-{ config, presets, lib, pkgs, ... }:
+{ config, presets, ... }:
 let
   useIPV6 = false;
 in
 {
   imports = [ presets.vpn ];
-  my.secretGroups = [ "magic-proton-vpn" ];
+  my.secretGroups = [ "vorkuta-proton-vpn" ];
 
   netNamespaces.toCreate.proton-vpn = {
     resolv = {
@@ -24,13 +24,13 @@ in
   networking.wireguard.interfaces.proton-vpn = {
     interfaceNamespace = "proton-vpn";
     socketNamespace = null; # aka init netns
-    privateKeyFile = config.age.secrets.wg-magic-proton-key.path;
+    privateKeyFile = config.age.secrets.wg-vorkuta-proton-key.path;
     ips = [
         "10.2.0.2/32"
       ] ++ (if useIPV6 then [ "2a07:b944::2:2/128" ] else []);
 
     peers = [{
-      publicKey = "gPY2f/G0P9h29YcVFqKZ7w8kOdTae6g+Ent3y2DPIG8=";
+      publicKey = "g98KJeIEtR9wbwgVmmaQXR9rEPV+T2RJWf2UE4gB1Ss=";
       persistentKeepalive = 30;
 
       endpoint = if useIPV6

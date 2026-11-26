@@ -14,6 +14,7 @@ rec {
     csu-vpn = [ magic netzach ];
     netzach-proton-vpn = [ netzach ];
     magic-proton-vpn = [ magic ];
+    vorkuta-proton-vpn = [ vorkuta ];
     syncthing = [ magic netzach fortnite vorkuta ];
     syncthing-magic = [ magic ];
     syncthing-netzach = [ netzach ];
