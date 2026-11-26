@@ -1,6 +1,6 @@
 {
   tags = [
-    "desktop"
+    "base-desktop"
     "users/korimer"
     "features/nvidia"
     "features/gaming"
