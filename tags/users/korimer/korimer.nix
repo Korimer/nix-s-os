@@ -7,6 +7,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "audio"];
     description = "the goat";
-    password = "lol";
+    password = "lol"; # oh noooo bro my password is exposed
   };
 }

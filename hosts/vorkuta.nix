@@ -6,5 +6,6 @@
     "features/qbittorrent"
     "features/syncthing-client"
     "users/asya"
+    "users/leaves"
   ];
 }

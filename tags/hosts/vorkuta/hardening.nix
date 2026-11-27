@@ -24,9 +24,10 @@
       AllowAgentForwarding no
       AllowStreamLocalForwarding no
       AuthenticationMethods publickey
+      KbdInteractiveAuthentication no
       Match User asya
+        AuthenticationMethods publickey
         PasswordAuthentication yes
-        KbdInteractiveAuthentication yes
     '';
   };
   imports = with inputs.korimer-mini-server.nixosModules;
