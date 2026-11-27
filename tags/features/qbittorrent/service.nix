@@ -5,10 +5,10 @@ in
 {
   services.qbittorrent = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false; # does nothing b/c of vpn confinement
     extraArgs = [
       "--confirm-legal-notice"
-      "--torrenting-port=${torrentingPort}"
+      "--torrenting-port=${toString torrentingPort}"
     ];
   };
 
