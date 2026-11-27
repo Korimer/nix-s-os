@@ -11,7 +11,7 @@
   fileSystems."/leavesfiles/files" = {
     device = "/tmp/leavesfiles";
     fsType = "fuse.bindfs";
-    options = [ "force-user=filedrop" "force-group=filedrop" "perms=u=rwD:go=rD" ];
+    options = [ "force-user=leaves" "force-group=leaves" "perms=u=rwD:go=rD" ];
   };
 
   services.openssh.extraConfig = ''
